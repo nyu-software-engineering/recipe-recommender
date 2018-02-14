@@ -1,4 +1,4 @@
-##Stakeholder Interviews
+## Stakeholder Interviews
 
 **Professor Amos Bloomberg:**
 
@@ -41,18 +41,18 @@ _Advice:_ Think about percentage of recipe match, think about "non-important" in
 **Prepared Questions to Stakeholders:**
 
 >- Are there any other features you would like to see?
-- Are there features listed that you would rather not see?
--  In your ideal recipe recommender,
-- Would you rather have \_\_(X)\_\_ or \_\_(Y)\_\_ (out of elements we could add)?
-  - filters
-  - preferred recipe websites
-  - **Do you care more about nutrition or more options?**
-  - **Do you care more about creating your own recipes or finding recipes online?**
-- What will be our difficulties with open source data gathering?
-- What do you think are the potential pitfalls of this project? (difficulties with the model, difficulties with similar products)
-- What kind of systems do think would suit this project?
+>- Are there features listed that you would rather not see?
+>-  In your ideal recipe recommender,
+>- Would you rather have \_\_(X)\_\_ or \_\_(Y)\_\_ (out of elements we could add)?
+>  - filters
+>  - preferred recipe websites
+>  - **Do you care more about nutrition or more options?**
+>  - **Do you care more about creating your own recipes or finding recipes online?**
+>- What will be our difficulties with open source data gathering?
+>- What do you think are the potential pitfalls of this project? (difficulties with the model, difficulties with similar products)
+>- What kind of systems do think would suit this project?
 
-##End-User Observations
+## End-User Observations
 
 **End-User Stereotype:**
 
@@ -101,7 +101,7 @@ _Advice:_ Think about percentage of recipe match, think about "non-important" in
 
 (Insert Denisa Interview 2)
 
-##Use Cases
+## Use Cases
 
 - Title - Register a User - Actor - User of the system
   - Scenario - User signs up: makes a username and valid password and provides an email and name. System checks that password is secure and that username is unique.  System will send a confirmation email of sign up and redirect user to log into account.
@@ -144,5 +144,6 @@ _Advice:_ Think about percentage of recipe match, think about "non-important" in
 
 [Click here](https://drive.google.com/file/d/1Z3zUPylsBnXVGXdugFW3PfcK8o7tBIpc/view?usp=sharing) to see UML Use Case Diagram
 
-##Domain Modeling: 
+## Domain Modeling: 
+
 See domain model [here](https://drive.google.com/file/d/1TImxbzkL7YW1AkD_m0-_Hrn9NIpGUFGm/view?usp=sharing)
