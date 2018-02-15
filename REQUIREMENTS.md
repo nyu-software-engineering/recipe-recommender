@@ -2,6 +2,35 @@
 
 **Professor Amos Bloomberg:**
 
+How would we point them to recipes? If they clicked on it, it would take them away. 
+
+- Scraping them in is technically illegal
+- We should make our own recipes to test the system with at first
+
+Thoughts:
+
+- Base version could be with pantry of ingredients, then match all recipes sorted by percent accuracy with items in pantry
+- Allow users to enter recipes
+- Express node lends itself to Mongo (database)
+- Bells and whistles will make our project more full, because base is somewhat simple
+- Popup: Hey, this recipe you just made used flour, want to add that to your pantry? (then, ask for quantity)
+- **Should be able to share recipes with users**
+- **Put a recommender system in (included in MVP)**
+  - Fuzzy search recommender
+  - Don’t build one from scratch and instead integrate software that would work with node.js or use python, etc, and have it running in the background
+
+How are people going to input the items in their pantry?
+
+- Initially have base pantry items, which they can deselect
+- Will use a screen with checkboxes for common food items
+  - Keep items simplified (i.e. bell pepper, not red bell pepper)
+- If an item not on list, can search the database
+
+What do you think will be the most difficult part of the project? 
+
+- Making a well-designed, user-friendly website, and doing the additional features above the base product
+
+
 **Tutor Priyanka:**
 
 _Her Q_: If it's about the pantry, how will pantry items be displayed? Where are we going to find our database?
