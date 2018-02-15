@@ -37,11 +37,11 @@
   2. Less strict on Saturdays and Fridays (when not used for back-up stand-up meeting)
 
 ## Stand-up Schedule: 
-  Monday: 9:00 p.m. (remote)
-  Tuesday: 10:30 a.m. (in person)
-  Thursday: 10:30 a.m. (in person)
-  Sunday: 9:00 p.m. (remote), every other week (mid-scrum) is the product backlog grooming; every other week is scrum/team reflection (end-of-scrum)
-  Friday (backup): 7:00 p.m.
+  Monday: 9:00 p.m. (remote)  
+  Tuesday: 10:30 a.m. (in person)  
+  Thursday: 10:30 a.m. (in person)  
+  Sunday: 9:00 p.m. (remote), every other week (mid-scrum) is the product backlog grooming; every other week is scrum/team reflection (end-of-scrum)  
+  Friday (backup): 7:00 p.m.  
 
 ## Rules for prioritizing Backlog
   1. Feasibility
