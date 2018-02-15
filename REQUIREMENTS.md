@@ -95,11 +95,36 @@ _Advice:_ Think about percentage of recipe match, think about "non-important" in
 - I basically always use allrecipes.com.
 - Would like both nutrition information for meals, but if we were to choose between the two, thinks filers are a lot more important (vegetarian, vegan, gluten free, asian, persian, middle eastern etc.)
 
-(Insert Leila Interview 2)
+**With "Kayla," persona 4** (Leila Interview 2)
 
-(Insert Denisa Interview 1)
+- Doesn’t think the nutrition element is as important as having food filters because figures people who are tracking their nutrition very carefully already have a good idea of which recipes are healthy
+  - Don’t want to force people who don’t care as much about that kind of stuff to look at exactly how many calories and grams of fat, etc. they are eating
+  - The average person (not a fitness junkie) cares more about the type of food they are making
+  - Maybe include an overall rating (A, B, C...F) but not too much detail
+  - Should primarily be a recipe and cooking app, not a fitness app
+- Not one particular website that I use, usually just google and go from there
+- myfitnesspal relatively easy to use, but never got into it much
 
-(Insert Denisa Interview 2)
+
+**With "Jess," persona 1** (Denisa Interview 1)
+
+- I don’t mind it being a website. I look up recipes normally on a computer anyways!
+- I google search recipes that I’ve seen on menus and a lot of times allofrecipes.com is what i end up using
+- “Yes, I count calories”
+- Nutritional vs Broad Range? 
+  - Broad Range bc I envision this site being a place where I go when I have a very limited amount of ingredients and want to make the most of it
+  - If you focus on nutritional as opposed to broad range it might take the big picture out of the site.
+
+
+**With "Cole," persona 1** (Denisa Interview 2)
+- “I want to invest in this”
+- I use recipes.com 
+- “I wish it was easier to find recipes that I like”
+- “I don’t care that it’s not an app although an app would be cool”
+- Nuritional
+  - “It’s trendy” It caters to more people
+  - It’s different from other recipe sites out there
+
 
 ## Use Cases
 
