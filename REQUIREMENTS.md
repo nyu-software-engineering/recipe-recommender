@@ -67,10 +67,6 @@ _Advice:_ Think about percentage of recipe match, think about "non-important" in
 4) College students who want easy meals to cook and often have limited ingredients
 
 
-(Insert Melissa Interview 1)
-
-(Insert Melissa Interview 2)
-
 **With "Jane", persona 1** (Hannah Interview 1)
 
 - Really likes the idea of the pantry that you can build
