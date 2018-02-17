@@ -150,6 +150,28 @@ _Advice:_ Think about percentage of recipe match, think about "non-important" in
   - It’s different from other recipe sites out there
 
 
+**With "Karen," persona 2**
+- Likes idea of filters based on cuisine types, cook time, difficulty level
+- Wants to have a good range of (recipe) choices, especially ones based on previously cooked/liked recipes
+  - Lots of other recipe websites are very broad in their search results or overwhelming and unhelpful
+- Ideally would not have to spend lot of time in setting up account and filling out pantry 
+  - filling out pantry sounds like tedious task if have to input everything
+- Wouldn’t use nutrition aspects to count calories necessarily
+  - would like it for other nutritional aspects (vitamin levels, fats, protein, etc.)
+
+
+**With "Anastasia," persona 1 & 4**
+- Dislike about fitness app she currently has: it’s kind of guesswork 
+  - Anyone can put in anything and it shows varying levels of nutritional information based on what other people have inputted
+  - Does not have standardized nutrient or calorie information (user doesn’t know if input information is correct)
+  - Finds that it doesn’t accurately track nutritional aspects other than calories
+- Our feature ideas she liked: offers recipes based on meals inputted in the past 
+- Filters more important than nutritional aspects, but would use nutritional aspects if available
+- If taking time to cook at home, nutrition not too important (not adding too much salt or bad fats, etc. like would find from restaurant foods)
+- Loves idea of recommending substitutions (especially substituting other things for meats without changing recipes too much)
+- Filter: spice level (example: curries, doesn’t want to browse hundreds to find one that isn't spicy)
+
+
 ## Use Cases
 
 - Title - Register a User - Actor - User of the system
