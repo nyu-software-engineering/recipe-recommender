@@ -150,7 +150,7 @@ _Advice:_ Think about percentage of recipe match, think about "non-important" in
   - It’s different from other recipe sites out there
 
 
-**With "Karen," persona 2**
+**With "Karen," persona 2** (Melissa Interview 1)
 - Likes idea of filters based on cuisine types, cook time, difficulty level
 - Wants to have a good range of (recipe) choices, especially ones based on previously cooked/liked recipes
   - Lots of other recipe websites are very broad in their search results or overwhelming and unhelpful
@@ -160,7 +160,7 @@ _Advice:_ Think about percentage of recipe match, think about "non-important" in
   - would like it for other nutritional aspects (vitamin levels, fats, protein, etc.)
 
 
-**With "Anastasia," persona 1 & 4**
+**With "Anastasia," persona 1 & 4** (Melissa Interview 2)
 - Dislike about fitness app she currently has: it’s kind of guesswork 
   - Anyone can put in anything and it shows varying levels of nutritional information based on what other people have inputted
   - Does not have standardized nutrient or calorie information (user doesn’t know if input information is correct)
