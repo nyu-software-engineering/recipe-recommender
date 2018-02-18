@@ -13,6 +13,6 @@ We are here to answer "What's for dinner?" We are a cooking hack. We are a webap
 As four fellow college students, we understand the difficulty of preparing a decent meal, having limited ingredients, limited time, and wanting to stay healthy. We just want to simplify cooking for all that enjoy cooking and those who don't. 
 
 ### Contributing Info
-[Contribution guidelines for this project](docs/CONTRIBUTING.md)
+[Contribution guidelines for this project](https://github.com/nyu-software-engineering/recipe-recommender/blob/master/CONTRIBUTING.md)
 
 
