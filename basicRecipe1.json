@@ -1,0 +1,25 @@
+{
+	"name" : "Mac and Cheese",
+	//minutes
+	"prepTime": 30,
+	//quantity in cups
+	"ingredients": {
+		"macaroni": 1,
+		"butter": 0.25,
+		"cheese": 2,
+		"milk": 1,
+	},
+	//direction to order
+	"directions":{
+		"Put macaroni in a bowl": 1,
+		"Mix in cheese, butter and milk":2,
+		"Cook at medium heat for 30 min":3
+	},
+	"nutrition": {
+		"calories":630,
+		"fat":"33.6 g",
+		"protien":"26.5 g",
+		"sodium" : "77 mg",
+	}
+
+}
