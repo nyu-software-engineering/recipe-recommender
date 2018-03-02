@@ -1,7 +1,7 @@
-<<<<<<< HEAD
 <link href="/stylesheets/style.css" type="text/css" rel="stylesheet">
-<?php include("header.php");?> <!-- include not working -->
+<!-- <?php include("header.php");?>  include not working -->
 
+<h1>{{title}}</h1>
 {{#if user}}
     <h2>Welcome back, {{user.username}}!</h2>
     <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
@@ -11,15 +11,6 @@
     <button onclick="myFunction()" class="button">Generate Recipes</a>
 
 {{else}}
-    <!-- <h1>{{title}}</h1> -->
-=======
-<h1>{{title}}</h1>
-{{#if user}}
-        <h3>Welcome back {{user.username}}</h3>
-       <p> nothing yet </p>
-        <a href="logout">logout here</a>
-{{else}}
->>>>>>> bc25805be7b24770267391c58e9d29b6055942a7
     <p>Login or create an account to get started!</p>
     <p>
         <a href="register">
