@@ -27,5 +27,11 @@ router.post('/home', function(req, res, next){
     res.render('index', {user: req.user});
 });
 
+router.get('/logout', function(req, res){
+    console.log('logging out');
+    req.logout();
+    res.redirect('/');
+});
+
 
 module.exports = router;
