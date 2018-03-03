@@ -4,10 +4,6 @@ recipe.js contains all the paths that are POST login, AKA the homepage?!
 let express = require('express');
 let router = express.Router();
 
-// Require controller modules.
-//NOTE: naming semantics 
-let recipe_controller = require('../controllers/recipeController');
-
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
