@@ -7,30 +7,43 @@
 */
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 50px;
+	padding-left: 5em;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	left: 10%;
+	float: left;
 }
 
+/* need to fix so that body adjusts only in pages with sidebar
+body .user {
+	left: 10%;
+	float: left;
+}
+*/
+
+
 a {
-  color: #00B7FF;
+  	color: #00B7FF;
 }
 
 .button {
     background-color: #f45042; /* orange */
     border: none;
     color: white;
+    min-width: 60px;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 2px; 
 }
 
 .button:hover {
-  background: rgba(229, 71, 75, 0.75);;
-  cursor: pointer; 
-  transition: background .5s;  
+	background: rgba(229, 71, 75, 0.75);;
+	cursor: pointer; 
+	transition: background .5s;  
 }
 
 
@@ -43,10 +56,10 @@ a {
 	}
 
 	#header {
-		background: #FEDCD2;
-		color: ##f45042;
+		background: #D6EAF8;
+		color: #f45042;
 		cursor: default;
-		height: 5em;
+		height: 10%;
 		left: 0;
 		line-height: 5em;
 		position: fixed;
@@ -79,10 +92,9 @@ a {
 			left: 0;
 			line-height: inherit;
 			margin: 0;
-			padding: 0;
 			position: absolute;
 			top: 0;
-			color: #f45042;
+			color: #0e1111;
 			font-size: 1.75em;
 			text-transform: none;
 			font-weight: normal;
@@ -90,7 +102,7 @@ a {
 		}
 
 			#header .logo:hover {
-				color: rgba(229, 71, 75, 0.75);
+				color: #696969;
 			}
 
 		#header a {
@@ -100,7 +112,7 @@ a {
 			transition: color 0.2s ease-in-out;
 			display: inline-block;
 			padding: 0 2em;
-			color: #ffffff;
+			color: #0e1111;
 			text-decoration: none;
 			text-transform: uppercase;
 			font-weight: 700;
@@ -108,7 +120,7 @@ a {
 		}
 
 			#header a:hover {
-				color: rgba(255, 255, 255, 0.75);
+				color: #696969;
 			}
 
 			#header a:last-child {
@@ -130,3 +142,92 @@ a {
 		}
 
 	}
+
+/* Side Bar */
+
+	.sidebar {
+	    height: 100%; /* Full-height*/
+	    width: 15%; /* Set the width of the sidebar */
+	    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+	    z-index: 1; /* Stay on top */
+	    top: 10%; /* start below header */
+	    left: 0;
+	    background-color: #232b2b; /* soft black */
+	    overflow-x: hidden; /* Disable horizontal scroll */
+	    /*padding-top: 20px; */
+	}
+
+	/* The navigation menu links */
+	.sidebar dt {
+	    padding: 6px 8px 6px 16px;
+	    color: #ffffff;
+	    display: block;
+	}
+
+	.sidebar #myPantry {
+		background: #f4d742;
+		color: #111;
+		width: 100%;
+		top: inherit;
+		padding: none;
+		display: block;
+		text-decoration: none;
+		padding: 20px 20px 6px 16px;
+	}
+
+	.sidebar dt.Category {
+		color: #f4d742;
+	}
+
+	.sidebar #myPantry:hover {
+		background: #d8be3a;
+	}
+
+	.sidebar dt.Filters:hover {
+	    padding: 6px 8px 6px 16px;
+	    display: block;
+	    background: #f4d742;
+	}
+
+/*
+	.sidebar {
+		background: #0e1111;
+		color: #f45042;
+		cursor: default;
+		height: 5em;
+		left: 0;
+		line-height: 5em;
+		position: fixed;
+		text-align: left;
+		width: 15%;
+		z-index: 10001;
+	}
+
+	.sidebar nav{
+		
+	}
+*/
+
+	
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
