@@ -8,15 +8,19 @@ const Ingredient = new Schema ({
   
 });
 
-const Pantry = new Schema ({
+/*const Pantry = new Schema ({
   ingredients: [Ingredient]
-});
+});*/
 
 const Recipe = new Schema ({
+  id: Number,
+  name: String,
+  prepTime: Number,
   ingredients: [Ingredient],
   made: Boolean,
   favorited: Boolean,
-  instructions: String
+  directions: [String],
+  nutrition: [String] //check with team to see if this logic is correct
 });
 
 const User = new Schema ({
@@ -32,7 +36,7 @@ User.plugin(passportLocalMongoose);
 
 mongoose.model('User', User);
 mongoose.model('Ingredient', Ingredient);
-mongoose.model('Pantry', Pantry);
+//mongoose.model('Pantry', Pantry);
 mongoose.model('Recipe', Recipe);
 
 /* is the environment variable, NODE_ENV, set to PRODUCTION? NOT SURE IF WE NEED THIS YET
