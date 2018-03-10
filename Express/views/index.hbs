@@ -2,22 +2,18 @@
 <head>
 <link href="/stylesheets/style.css" type="text/css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="../db.js" type="text/javascript"></script>
- <script src="../javascripts/recipeLogic.js" type="text/javascript"></script>
+<script src="../javascripts/recipeLogic.js" type="text/javascript"></script>
 </head>
 <body>
 {{#if user}}
     <h2>Welcome back, {{user.username}}!</h2>
     <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
+
+    {{#if recipe}}
+    <h2>Recipe found: {{recipe.name}}!</h2>
+    {{/if}}
     
           <!--<button id="recipe_button" onclick="generateRecipe()">Click here!</button>-->
-        <dl style="display: none">
-            <dt>First Entry</dt>
-                <dd>- Step one </dd>
-                <dd>- Step 2 </dd>
-                <dd>- Step 3 </dd>
-                <dd>- Step 4 </dd>
-        </dl>
         <!--<script>
             //need to define schema (like below example) and then reference it 
             //here (so late can figure out how to reference it's id number instead 
@@ -42,7 +38,11 @@
             */
         </script>-->
 
-        <button id="recipe_button" onclick="generateRecipe()">Click here!</button>
+        <!--<button id="recipe_button" onclick="generateRecipe()">Click here!</button> -->
+
+        <form action = "/recipe/home" method = "post">
+        <input type="submit" name="upvote" value="Upvote" />
+         </form>
 
 
 

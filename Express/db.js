@@ -58,5 +58,5 @@ if (process.env.NODE_ENV == 'PRODUCTION') {
 }
 */
 
-dbconf = 'mongodb://localhost/hw05';
+dbconf = 'mongodb://localhost/Rrecommender';
 mongoose.connect(dbconf);
