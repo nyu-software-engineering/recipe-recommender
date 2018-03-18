@@ -9,7 +9,10 @@
 {{#if user}}
     <h2>Welcome back, {{user.username}}!</h2>
     <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
-
+    <a href="/recipe/pantry">
+            Click here to edit or view your pantry
+        </a>
+    <br>
     {{#if recipe}}
     <h2>Recipe found: {{recipe.name}}!</h2>
     <h3> Ingredients: </h3>

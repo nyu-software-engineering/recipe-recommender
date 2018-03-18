@@ -1,0 +1,46 @@
+<link href="/stylesheets/style.css" type="text/css" rel="stylesheet">
+
+{{#if message}}
+<div class="alert alert-error">
+    {{message}}
+</div>
+{{/if}}
+<p>Select ingredients to add to your pantry: </p>
+<form method="POST" action="/recipe/pantry">
+
+    <div>
+          <input type="checkbox" name="ingredient" value="cheese"> Cheese<br>
+          <input type="checkbox" name="ingredient" value="milk"> Milk<br>
+          <input type="checkbox" name="ingredient" value="macaroni"> Macaroni<br>
+          <input type="checkbox" name="ingredient" value="butter"> Butter<br>
+        </select>
+    </div>
+    <div>
+        <div>
+
+            <button type="submit" class="btn">Save Pantry</button>
+        </div>
+    </div>
+</form>
+
+{{#if pantry}}
+        <h3>Your Current Pantry:</h3>
+
+
+    {{#each pantry as |ingredient|}}
+
+        <li class = "each"> name: <strong>{{ingredient.name}}</strong>
+            quantity: <strong>{{ingredient.quantity}}</strong>
+            <br>
+        </li>
+    {{/each}}
+
+{{/if}}
+
+<!--<script>
+let ingr = document.getElementById('ingredient');
+ingr.form.addEventListener('submit', function(event){
+    event.preventDefault();
+    console.log(ingr.value);
+})
+</script>-->

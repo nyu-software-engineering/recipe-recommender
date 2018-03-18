@@ -6,6 +6,12 @@
 </head>
 <body>
 {{#if user}}
+    <h2>Welcome back, {{user.username}}!</h2>
+    <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
+     <a href="/recipe/pantry">
+            SET UP YOUR PANTRY HERE!
+        </a>
+
         <!-- Sidebar -->
         <div class="sidebar">
             <dl class="nav">
@@ -80,6 +86,7 @@
 
 {{else}}
     <p>Hello! Welcome to Recipe Finder, the solution to your kitchen troubles. Login or create an account to get started!</p>
+
 
           <!--<button id="recipe_button" onclick="generateRecipe()">Click here!</button>-->
         <!--<script>
