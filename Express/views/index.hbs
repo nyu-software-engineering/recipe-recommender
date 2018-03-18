@@ -8,66 +8,85 @@
 {{#if user}}
     <h2>Welcome back, {{user.username}}!</h2>
     <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
+     <a href="/recipe/pantry">
+            SET UP YOUR PANTRY HERE!
+        </a>
 
-          <!--<button id="recipe_button" onclick="generateRecipe()">Click here!</button>-->
-        <!--<script>
-            //need to define schema (like below example) and then reference it 
-            //here (so late can figure out how to reference it's id number instead 
-            //of having it harcoded)
-            //need to hard code mac and cheese ID 
-            const id = 1;
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <dl class="nav">
+                <a href="" id="myPantry">My Pantry</a>
+                <dt class="Category">Dietary Preferences</dt>
+                
+                <dt class="Filters">
+                    <input type="checkbox" id="vegetarian" name="dietaryFilter" value="vegetarian">
+                    <label for="vegetarian">vegetarian</label>
+                </dt>
 
-            /*Recipe.findByID(id, function(err, recipe){
-                let dl = document.createElement("dl");
-                dl = recipe;
-                document.body.appendChild(dl);
-            });*/
-            /*
-            var ToySchema = new Schema({ name: String });
-            var ToyBox = new Schema({
-              toys: [ToySchema],
-              buffers: [Buffer],
-              string:  [String],
-              numbers: [Number]
-              // ... etc
-            });
-            */
-        </script>-->
+                <dt class="Filters">
+                    <input type="checkbox" id="vegan" name="dietaryFilter" value="vegan">
+                    <label for="vegan">vegan</label>
+                </dt>
 
-        <!--<button id="recipe_button" onclick="generateRecipe()">Click here!</button> -->
+                <dt class="Filters">
+                    <input type="checkbox" id="gluten" name="dietaryFilter" value="gluten">
+                    <label for="gluten">gluten free</label>
+                </dt>
+
+                <dt class="Category">Cuisine</dt>
+                
+                <dt class="Filters">
+                    <input type="checkbox" id="Mediterranean" name="cusineFilter" value="Mediterranean">
+                    <label for="Mediterranean">Mediterranean</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="Asian" name="cuisineFilter" value="Asian">
+                    <label for="Asian">Asian</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="Italian" name="cuisineFilter" value="Italian">
+                    <label for="Italian">Italian</label>
+                </dt>
+
+                <dt class="Category">Cook Time</dt>
+                
+                <dt class="Filters">
+                    <input type="checkbox" id="0-30" name="timeFilter" value="0-30">
+                    <label for="0-30">0 to 30 minutes</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="30-60" name="timeFilter" value="30-60">
+                    <label for="30-60">30 to 60 minutes</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="60-90" name="timeFilter" value="60-90">
+                    <label for="60-90">60 to 90 minutes</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="90+" name="timeFilter" value="90+">
+                    <label for="90+">90+ minutes</label>
+                </dt>
+                 
+            </dl>
+        </div>
 
         <form action = "/recipe/home" method = "post">
-        <input type="submit" name="upvote" value="Find a Recipe!" />
+        <input class="button" type="submit" name="Find a Recipe!" value="Find a Recipe!" />
          </form>
-
-
-
-        <!---<button>Click here!</button>
-        <dl style="display: none">
-            <dt>MAKE MAC N CHEESE</dt>
-            <dd>- Boil pasta according to packaging </dd>
-            <dd>- Shred cheese (I personally preferred cheddar) </dd>
-            <dd>- Combine in a bowl of your choosing </dd>
-            <dd>- Enjoy your mac n cheese! </dd>
-        </dl>
-
-        <script>
-            $(document).ready(function () {
-                $("button").click(function(){
-
-                    $("dl").toggle();
-                });
-            });    
-        </script>-->
 
 {{else}}
     <p>Login or create an account to get started with Recipe Recommender:</p>
     <p>
-        <a href="register">
+        <a href="register" class="button">
             Register
         </a>
         <br>
-        <a href="login">
+        <a href="login" class="button">
             Login
         </a>
     </p>
