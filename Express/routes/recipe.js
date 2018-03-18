@@ -69,8 +69,10 @@ router.get('/pantry', function(req, res, next) {
 router.post('/pantry', function(req, res) {
     console.log(req.body.ingredient);
     User.findOne({username: req.user.username}, function (err, user) {
+        req.body.ingredient.forEach(function(ingr){ //TODO: this is wrong, because forEach is synchronous.
+                                                    //need to use promises? right now only saves one ingredient
             new Ingredient({
-                name: req.body.ingredient,
+                name: ingr,
                 quantity: 1
 
             }).save(function (err, ingredient) {
@@ -80,11 +82,13 @@ router.post('/pantry', function(req, res) {
                 user.pantry.push(ingredient);
                 user.save((err, user) => {
                     console.log("just saved");
-                    res.redirect("/recipe/home");
 
                 });
-            });
-        });
+            }); 
+        })
+        res.redirect("/recipe/home");  
+    });
+
 });
 
 router.get('/logout', function(req, res){
