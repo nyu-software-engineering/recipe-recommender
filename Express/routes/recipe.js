@@ -34,7 +34,7 @@ router.post('/home', function(req, res, next){
 
         Recipe.findOne({id: 00001}, function(err, recipe){
         console.log("inside find recipe ", recipe.name);
-        res.render('index', {recipe: recipe, user: req.user});
+        res.render('recipe', {recipe: recipe, user: req.user});
 
         }); 
     }else {
