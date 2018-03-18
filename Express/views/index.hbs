@@ -9,10 +9,6 @@
     <h2>Welcome back, {{user.username}}!</h2>
     <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
 
-    {{#if recipe}}
-    <h2>Recipe found: {{recipe.name}}!</h2>
-    {{/if}}
-    
           <!--<button id="recipe_button" onclick="generateRecipe()">Click here!</button>-->
         <!--<script>
             //need to define schema (like below example) and then reference it 
@@ -41,7 +37,7 @@
         <!--<button id="recipe_button" onclick="generateRecipe()">Click here!</button> -->
 
         <form action = "/recipe/home" method = "post">
-        <input type="submit" name="upvote" value="Upvote" />
+        <input type="submit" name="upvote" value="Find a Recipe!" />
          </form>
 
 
@@ -65,7 +61,7 @@
         </script>-->
 
 {{else}}
-    <p>Login or create an account to get started!</p>
+    <p>Login or create an account to get started with Recipe Recommender:</p>
     <p>
         <a href="register">
             Register
