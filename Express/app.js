@@ -7,8 +7,11 @@ let bodyParser = require('body-parser');
 let app = express();
 const db = require( './db.js' );
 require('./auth');
+
+//for adding new routes
 let index = require('./routes/index');
 let users = require('./routes/users');
+let recipe = require('./routes/recipe');
 
 const passport = require('passport');
 
@@ -37,8 +40,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+//add any new routes, make sure you also define above
 app.use('/', index);
 app.use('/users', users);
+app.use('/recipe', recipe);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

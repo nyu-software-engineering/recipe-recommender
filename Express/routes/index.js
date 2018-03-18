@@ -5,10 +5,12 @@ and registration pages.
 res.render points to a corresponding file in views. so res.render('index') looks for 
 index.hbs in /views ... any variables can be passed in through this line as well.
 */
+
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+
 const User = mongoose.model('User');
 
 // get home page
@@ -60,7 +62,7 @@ router.post('/login', function(req, res, next) {
             // NOTE: using this version of authenticate requires us to
             // call login manually
             req.logIn(user, function(err) {
-                res.redirect('/users/authenticated');
+                res.redirect('/recipe/home');
             });
         } else {
             res.render('login', {message:'Your login or password is incorrect.'});
@@ -69,10 +71,5 @@ router.post('/login', function(req, res, next) {
 
 });
 
-router.get('/logout', function(req, res){
-    console.log('logging out');
-    req.logout();
-    res.redirect('/');
-});
 
 module.exports = router;
