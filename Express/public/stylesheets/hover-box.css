@@ -6,7 +6,7 @@
 .hvrbox {
 	position: relative;
 	display: inline-block;
-	overflow: hidden;
+	overflow: scroll;
 	max-width: 100%;
 	height: auto;
 }
@@ -45,10 +45,11 @@
 	opacity: 1;
 }
 .hvrbox .hvrbox-text {
-	text-align: right;
+	text-align: justify;
 	font-size: 12px;
 	display: inline-block;
 	position: absolute;
+	vertical-align: top;
 	top: 50%;
 	left: 40%;
 	-moz-transform: translate(-50%, -50%);

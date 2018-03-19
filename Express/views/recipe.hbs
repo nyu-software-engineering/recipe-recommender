@@ -23,25 +23,25 @@
             Click here to edit or view your pantry
         </a>
     <br>
-    {{#if recipe}}
+
+        {{#if recipe}}
             <div class = "row">
-                 <!-- {{#each recipe}} -->
                 <div class="col-md-3 col-sm-4 col-xs-12 hvrbox">
-                  <a href = #><img src="../img/mac&cheese.jpg" class="fullimage img-thumbnail hvrbox-layer_bottom" /> </a>
+                    <a href = #><img src="../img/mac&cheese.jpg" class="fullimage img-thumbnail hvrbox-layer_bottom" /> </a>
                     <div class="hvrbox-layer_top hvrbox-layer_slideleft">
                         <div class="hvrbox-text">
                             <h4>{{recipe.name}}!</h4>
-                            <h6>Ingredients:</h6>
-                            {{recipe.ingredients}}
-                            <h6>Steps:</h6>
+                            <h6> Ingredients: </h6>
+                             {{recipe.ingredients}}
+                            <h6> Steps: </h6>
                             {{recipe.directions}}
                         </div>
                     </div>
                 </div>
-
-                <!-- {{/each}}  -->
             </div>
-    {{/if}}
+        {{/if}}    
+    
+
    
 
         <form action = "/recipe/home" method = "post">
