@@ -11,7 +11,7 @@ const Ingredient = mongoose.model('Ingredient');
 const User = mongoose.model('User');
 
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.redirect('/recipe/home');
 });
 
 //this will be /recipe/home --> right after login
@@ -69,6 +69,7 @@ router.get('/pantry', function(req, res, next) {
 router.post('/pantry', function(req, res) {
     console.log(req.body.ingredient);
     User.findOne({username: req.user.username}, function (err, user) {
+        /*/
         req.body.ingredient.forEach(function(ingr){ //TODO: this is wrong, because forEach is synchronous.
                                                     //need to use promises? right now only saves one ingredient
             new Ingredient({
@@ -86,8 +87,25 @@ router.post('/pantry', function(req, res) {
                 });
             }); 
         })
-        res.redirect("/recipe/home");  
+        */
+
+        new Ingredient({
+                name: req.body.ingredient,
+                quantity: 1
+
+            }).save(function (err, ingredient) {
+                if (err) {
+                    console.log(err);
+                }
+                user.pantry.push(ingredient);
+                user.save((err, user) => {
+                    console.log("just saved");
+
+                });
+            });
+        res.redirect("/recipe/pantry");  
     });
+
 
 });
 
