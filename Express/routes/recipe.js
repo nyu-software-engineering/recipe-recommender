@@ -91,6 +91,12 @@ router.post('/pantry', function(req, res) {
 
 });
 
+router.get('/inventory', function(req, res) {
+    console.log(req.query);
+    res.render('inventory', {ingredients: req.user.pantry});
+
+});
+
 router.get('/logout', function(req, res){
     console.log('logging out');
     req.logout();
