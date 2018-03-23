@@ -29,7 +29,6 @@ router.get('/home', function(req, res, next){
 });
 
 router.post('/home', function(req, res, next){
-
     if(req.user) {
         console.log(req.user);
         console.log('posting for /recipe/home');
@@ -91,9 +90,14 @@ router.post('/pantry', function(req, res) {
 
 });
 
-router.get('/inventory', function(req, res) {
-    console.log(req.query);
-    res.render('inventory', {ingredients: req.user.pantry});
+router.get('/inventory', function(req, res, next) {
+    if(req.user) {
+        console.log(req.query);
+        console.log(req.user);
+        res.render('inventory', {ingredients: req.user.pantry});
+    }else{
+        res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
+    }
 
 });
 
