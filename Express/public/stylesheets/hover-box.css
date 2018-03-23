@@ -50,6 +50,7 @@
 	display: inline-block;
 	position: absolute;
 	vertical-align: top;
+	margin-top: 75px;
 	top: 50%;
 	left: 40%;
 	-moz-transform: translate(-50%, -50%);
