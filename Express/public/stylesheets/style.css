@@ -28,6 +28,7 @@ a {
 /*Grid at recipe page*/
  .row div {
         padding: 0px;
+        margin-left: 15px;
       }
  li{
     list-style: none;
