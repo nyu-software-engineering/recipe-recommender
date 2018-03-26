@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,28 +9,25 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="../javascripts/bootstrap.min.js"></script>
 
-    <style type="text/css">
-    
-    </style>
-  </head>
-
-  <body>
 
     <div class="container-fluid">
-
-        {{#each ingredients}}
+    {{#if pantry}}
+        {{#each pantry as |ingredient|}}
           <div class="row">
             <div class="col-md-2 col-sm-4 col-xs-10 box">
                 <h3 class = "pantry-ingredient">{{name}}</h3>
                 <h6 class = "pantry-quantity">{{quantity}}</h6>
                 <div class = "remove-button">
-                  <img src="img/remove.jpg" class="img-thumbnail" onclick="{{remove_ingredient}}" /> 
+                  <img src="img/remove.jpg" class="img-thumbnail" onclick="" /> 
                 </div>
             </div>
         {{/each}}
-        
+    {{else}}
+      <h2> Your Pantry is Empty</h2>
+      <a href="/recipe/pantry">
+            SET UP YOUR PANTRY HERE!
+      </a>
+      {{/if}}
       </div>
     </div>
 
-  </body>
-</html>
