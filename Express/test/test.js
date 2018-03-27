@@ -73,7 +73,7 @@ describe("Require Login For Recipe home page", function(){
 
 describe("Recipes should be correctly saved", function(){
 
-    it('should be able to find the rather in the database', function(done){
+    it('should be able to find the recipe in the database', function(){
         let recipe = new Recipe({
             id: 0004,
             name: "mac n cheese",
