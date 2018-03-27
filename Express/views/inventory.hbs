@@ -3,31 +3,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+   <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
    <link href="../stylesheets/style.css" rel="stylesheet">
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="../javascripts/bootstrap.min.js"></script>
 
 
+    <h1> My Pantry</h1>
+  {{#if pantry}}
     <div class="container-fluid">
-    {{#if pantry}}
-        {{#each pantry as |ingredient|}}
           <div class="row">
-            <div class="col-md-2 col-sm-4 col-xs-10 box">
-                <h3 class = "pantry-ingredient">{{name}}</h3>
-                <h6 class = "pantry-quantity">{{quantity}}</h6>
+          {{#each pantry as |ingredient|}}
+            <div class="col-md-8 col-sm-12 col-xs-20 box">
+                <h1 class = "pantry-ingredient">{{ingredient.name}}</h1>
+                <h3 class = "pantry-quantity">{{ingredient.quantity}}</h3>
                 <div class = "remove-button">
-                  <img src="img/remove.jpg" class="img-thumbnail" onclick="" /> 
+                  <img src="../img/remove.jpg" class="img-thumbnail" onclick="" /> 
                 </div>
             </div>
-        {{/each}}
+            {{/each}}
+          </div>
+        </div>
     {{else}}
       <h2> Your Pantry is Empty</h2>
       <a href="/recipe/pantry">
             SET UP YOUR PANTRY HERE!
       </a>
       {{/if}}
-      </div>
-    </div>
 
