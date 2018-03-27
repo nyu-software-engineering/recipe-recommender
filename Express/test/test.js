@@ -71,6 +71,29 @@ describe("Require Login For Recipe home page", function(){
 
 });
 
+
+describe("Get Recipe Pages test", function(){
+
+    it("GET /recipe/home", function(){
+        request.get("http://localhost:3000/recipe/home", function(error,response,body){
+            //console.log(error)
+            assert.equal(200, resopnse.statusCode);
+            done();
+        });
+        
+    });
+
+    it("GET /recipe/pantry", function(){
+        request.get("http://localhost:3000/recipe/pantry", function(error,response,body){
+            //console.log(error)
+            assert.equal(200, resopnse.statusCode);
+            done();
+        });
+        
+    });
+
+});
+
 describe("Recipes should be correctly saved", function(){
 
     it('should be able to find the rather in the database', function(done){
