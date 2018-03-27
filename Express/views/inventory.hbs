@@ -10,13 +10,76 @@
     <script src="../javascripts/bootstrap.min.js"></script>
 
 
+<!-- Sidebar -->
+        <div class="sidebar">
+            <dl class="nav">
+                <a href="/recipe/inventory" id="myPantry">My Pantry</a>
+                <dt class="Category">Dietary Preferences</dt>
+                
+                <dt class="Filters">
+                    <input type="checkbox" id="vegetarian" name="dietaryFilter" value="vegetarian">
+                    <label for="vegetarian">vegetarian</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="vegan" name="dietaryFilter" value="vegan">
+                    <label for="vegan">vegan</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="gluten" name="dietaryFilter" value="gluten">
+                    <label for="gluten">gluten free</label>
+                </dt>
+
+                <dt class="Category">Cuisine</dt>
+                
+                <dt class="Filters">
+                    <input type="checkbox" id="Mediterranean" name="cusineFilter" value="Mediterranean">
+                    <label for="Mediterranean">Mediterranean</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="Asian" name="cuisineFilter" value="Asian">
+                    <label for="Asian">Asian</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="Italian" name="cuisineFilter" value="Italian">
+                    <label for="Italian">Italian</label>
+                </dt>
+
+                <dt class="Category">Cook Time</dt>
+                
+                <dt class="Filters">
+                    <input type="checkbox" id="0-30" name="timeFilter" value="0-30">
+                    <label for="0-30">0 to 30 minutes</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="30-60" name="timeFilter" value="30-60">
+                    <label for="30-60">30 to 60 minutes</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="60-90" name="timeFilter" value="60-90">
+                    <label for="60-90">60 to 90 minutes</label>
+                </dt>
+
+                <dt class="Filters">
+                    <input type="checkbox" id="90+" name="timeFilter" value="90+">
+                    <label for="90+">90+ minutes</label>
+                </dt>
+                 
+            </dl>
+        </div>
+        
     <div class="container-fluid">
     {{#if pantry}}
         {{#each pantry as |ingredient|}}
           <div class="row">
             <div class="col-md-2 col-sm-4 col-xs-10 box">
-                <h3 class = "pantry-ingredient">{{name}}</h3>
-                <h6 class = "pantry-quantity">{{quantity}}</h6>
+                <h3 class = "pantry-ingredient">{{ingredient.name}}</h3>
+                <h6 class = "pantry-quantity">{{ingredient.quantity}}</h6>
                 <div class = "remove-button">
                   <img src="img/remove.jpg" class="img-thumbnail" onclick="" /> 
                 </div>

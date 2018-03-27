@@ -111,7 +111,7 @@ router.post('/pantry', function(req, res) {
 router.get('/inventory', function(req, res, next) {
     if(req.user) {
         console.log(req.query);
-        console.log(req.user);
+        console.log(req.user.pantry);
         res.render('inventory', {ingredients: req.user.pantry});
     }else{
         res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
