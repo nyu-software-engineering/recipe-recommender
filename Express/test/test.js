@@ -121,3 +121,32 @@ describe("Recipes should be correctly saved", function(){
         });
     });
 });
+
+/*
+describe('Passport user testing', function () {
+    before(function(done) {
+      user = new User({
+        email    : "user@user.com",
+        firstName: "Full Name",
+        lastName : "Last Name",
+        password : "password"
+      });
+      user.save(done)
+    });
+   describe('Login test', function () {
+        it('should redirect to /recipe/home', function (done) {
+            agent
+            .post('/users/session')
+            .field('email', 'user@user.com')
+            .field('password', 'password')
+            .expect('Location','/recipe/home')
+            .end(done)
+        });
+
+        after(function(done) {
+            User.remove().exec();
+            return done();
+        });
+    });
+});
+*/
