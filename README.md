@@ -2,8 +2,8 @@
 
 ### Team
 1. Denisa Vataksi
-2. Hannah Pedersen
-3. Leila Mardoum
+2. Leila Mardoum
+3. Hannah Pedersen
 4. Melissa Schiff
 
 ### What are we?
