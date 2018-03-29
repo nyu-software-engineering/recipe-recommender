@@ -8,10 +8,6 @@ const Ingredient = new Schema ({
   unit: String
 });
 
-/*const Pantry = new Schema ({
-  ingredients: [Ingredient]
-});*/
-
 const Recipe = new Schema ({
   id: Number,
   name: String,
