@@ -6,6 +6,10 @@ res.render points to a corresponding file in views. so res.render('index') looks
 index.hbs in /views ... any variables can be passed in through this line as well.
 */
 
+
+//testing jenkins -denisa
+
+
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
