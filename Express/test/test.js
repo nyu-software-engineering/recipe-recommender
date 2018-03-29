@@ -16,81 +16,81 @@ chai.use(chaiHttp);
 
 
 describe("Get Homepages Test", function(){
-    describe("GET /", function() {
+    // describe("GET /", function() {
 
-        it("returns status code 200", function() {
-            request.get(base_url, function(error, response, body) {
-                console.log('inside test 1', response.statusCode);
-                assert.equal(200, response.statusCode);
-                done();
+    //     it("returns status code 200", function() {
+    //         request.get(base_url, function(error, response, body) {
+    //             console.log('inside test 1', response.statusCode);
+    //             assert.equal(200, response.statusCode);
+    //             done();
 
-            });
+    //         });
 
-        });
+    //     });
 
-    });
+    // });
 
-    describe("GET /login", function(){
+    // describe("GET /login", function(){
 
-        it("returns status code 200", function(){
-            request.get("http://localhost:3000/login", function(error, response, body){
-                //console.log(error);
-                assert.equal(200, response.statusCode);
-                done();
-            });
-        });
-    });
+    //     it("returns status code 200", function(){
+    //         request.get("http://localhost:3000/login", function(error, response, body){
+    //             //console.log(error);
+    //             assert.equal(200, response.statusCode);
+    //             done();
+    //         });
+    //     });
+    // });
 
-    describe("GET /register", function(){
+    // describe("GET /register", function(){
 
-        it("returns status code 200", function(){
-            request.get("http://localhost:3000/register", function(error, response, body){
-                //console.log(error);
-                assert.equal(200, response.statusCode);
-                done();
-            });
-        });
-    });
+    //     it("returns status code 200", function(){
+    //         request.get("http://localhost:3000/register", function(error, response, body){
+    //             //console.log(error);
+    //             assert.equal(200, response.statusCode);
+    //             done();
+    //         });
+    //     });
+    // });
 
 });
 
 describe("Require Login For Recipe home page", function(){
-    describe("GET /recipe/home", function() {
+    // describe("GET /recipe/home", function() {
 
-        it("re-routes to login page", function() {
-            request.get("http://localhost:3000/new/rather/general", function(error, response, body) {
-                console.log('inside test 2', response.message);
-                assert.equal('to see this page, you must have an account. Login or register below', response.message);
-                done();
+    //     it("re-routes to login page", function() {
+    //         request.get("http://localhost:3000/new/rather/general", function(error, response, body) {
+    //             console.log('inside test 2', response.message);
+    //             assert.equal('to see this page, you must have an account. Login or register below', response.message);
+    //             done();
 
-            });
+    //         });
 
-        });
+    //     });
 
-    });
+    // });
 
 });
 
 
 describe("Get Recipe Pages test", function(){
 
-    it("GET /recipe/home", function(){
-        request.get("http://localhost:3000/recipe/home", function(error,response,body){
-            //console.log(error)
-            assert.equal(200, resopnse.statusCode);
-            done();
-        });
+    // it("GET /recipe/home", function(){
+    //     request.get("http://localhost:3000/recipe/home", function(error,response,body){
+    //         //console.log(error)
+    //         assert.equal(200, resopnse.statusCode);
+    //         done();
+    //     });
         
-    });
+    // });
 
-    it("GET /recipe/pantry", function(){
-        request.get("http://localhost:3000/recipe/pantry", function(error,response,body){
-            //console.log(error)
-            assert.equal(200, resopnse.statusCode);
-            done();
-        });
+    // it("GET /recipe/pantry", function(){
+    //     request.get("http://localhost:3000/recipe/pantry", function(error,response,body){
+    //         //console.log(error)
+    //         assert.equal(200, resopnse.statusCode);
+    //         done();
+    //     });
         
-    });
+    // });
 
 });
 
@@ -142,7 +142,6 @@ describe('Passport user testing', function () {
             .expect('Location','/recipe/home')
             .end(done)
         });
-
         after(function(done) {
             User.remove().exec();
             return done();
