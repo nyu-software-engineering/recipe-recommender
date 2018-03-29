@@ -5,22 +5,21 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const Ingredient = new Schema ({
   name: String,
   quantity: Number, //will probably have to change/add this to be a measurement object
-  
+  unit: String
 });
-
-/*const Pantry = new Schema ({
-  ingredients: [Ingredient]
-});*/
 
 const Recipe = new Schema ({
   id: Number,
   name: String,
   prepTime: Number,
+  totalTime: Number,
   ingredients: [Ingredient],
   made: Boolean,
   favorited: Boolean,
   directions: [String],
-  nutrition: [String] //check with team to see if this logic is correct
+  cuisine: [String],
+  nutrition: [String],
+  servings: Number
 });
 
 const User = new Schema ({

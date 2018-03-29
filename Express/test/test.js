@@ -71,9 +71,32 @@ describe("Require Login For Recipe home page", function(){
 
 });
 
+
+describe("Get Recipe Pages test", function(){
+
+    it("GET /recipe/home", function(){
+        request.get("http://localhost:3000/recipe/home", function(error,response,body){
+            //console.log(error)
+            assert.equal(200, resopnse.statusCode);
+            done();
+        });
+        
+    });
+
+    it("GET /recipe/pantry", function(){
+        request.get("http://localhost:3000/recipe/pantry", function(error,response,body){
+            //console.log(error)
+            assert.equal(200, resopnse.statusCode);
+            done();
+        });
+        
+    });
+
+});
+
 describe("Recipes should be correctly saved", function(){
 
-    it('should be able to find the rather in the database', function(done){
+    it('should be able to find the recipe in the database', function(){
         let recipe = new Recipe({
             id: 0004,
             name: "mac n cheese",
@@ -98,3 +121,32 @@ describe("Recipes should be correctly saved", function(){
         });
     });
 });
+
+/*
+describe('Passport user testing', function () {
+    before(function(done) {
+      user = new User({
+        email    : "user@user.com",
+        firstName: "Full Name",
+        lastName : "Last Name",
+        password : "password"
+      });
+      user.save(done)
+    });
+   describe('Login test', function () {
+        it('should redirect to /recipe/home', function (done) {
+            agent
+            .post('/users/session')
+            .field('email', 'user@user.com')
+            .field('password', 'password')
+            .expect('Location','/recipe/home')
+            .end(done)
+        });
+
+        after(function(done) {
+            User.remove().exec();
+            return done();
+        });
+    });
+});
+*/

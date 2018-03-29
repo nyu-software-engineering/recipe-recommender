@@ -61,6 +61,7 @@ a {
 .box{
 	border: .75px solid #DAA520;
 	margin: 5px;
+	float:left;
 }
 .remove-button{
 	position: relative;
