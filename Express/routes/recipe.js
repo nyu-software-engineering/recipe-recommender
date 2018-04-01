@@ -71,32 +71,26 @@ router.post('/pantry', function(req, res) {
         let ingredients = req.body.ingredient; //array of ingredients
         let toInsert = [];
 
-        console.log("THE INGREDIENT LIST OF REQ.BODY " + ingredients);
-        toInsert.forEach((ele) => { //ele will be just the name of the ingredient
-            let ing = {name: ele, quantity: 1};
-            console.log("CURRENT ING OBJECT " + ing);
+        console.log("THE INGREDIENT LIST # OF REQ.BODY " + ingredients.size);
+        ingredients.forEach((ele) => { //ele will be just the name of the ingredient
+            let ing = {name: ele, quantity: 5};
+            console.log("CURRENT ING OBJECT " + ing.name);
             toInsert.push(ing);
         });
-
-        Ingredient.insertMany(toInsert, function(err, ingredient){
+        console.log(toInsert.length);
+        Ingredient.insertMany(toInsert, function(err, res){
             if (err){
                 console.log(err);
             } else {
                 console.log("----made a thing?!");
-            }
-        });
-/*/
-        .save(function (err, ingredient) {
-                if (err) {
-                    console.log(err);
-                }
-                user.pantry.push(ingredient);
+                console.log(res);
+                user.pantry.push(res);
                 user.save((err, user) => {
                     console.log("just saved");
-
+                    console.log(user);
                 });
-            });
-            /*/
+            }
+        });
         res.redirect("/recipe/pantry");  
     });
 
