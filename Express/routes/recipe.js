@@ -66,33 +66,27 @@ router.get('/pantry', function(req, res, next) {
 
 //if a user creates their pantry (post), create ingredient objects in the database
 router.post('/pantry', function(req, res) {
-    console.log(req.body.ingredient);
     User.findOne({username: req.user.username}, function (err, user) {
-        /*/
-        req.body.ingredient.forEach(function(ingr){ //TODO: this is wrong, because forEach is synchronous.
-                                                    //need to use promises? right now only saves one ingredient
-            new Ingredient({
-                name: ingr,
-                quantity: 1
+     
+        let ingredients = req.body.ingredient; //array of ingredients
+        let toInsert = [];
 
-            }).save(function (err, ingredient) {
-                if (err) {
-                    console.log(err);
-                }
-                user.pantry.push(ingredient);
-                user.save((err, user) => {
-                    console.log("just saved");
+        console.log("THE INGREDIENT LIST OF REQ.BODY " + ingredients);
+        toInsert.forEach((ele) => { //ele will be just the name of the ingredient
+            let ing = {name: ele, quantity: 1};
+            console.log("CURRENT ING OBJECT " + ing);
+            toInsert.push(ing);
+        });
 
-                });
-            }); 
-        })
-        */
-
-        new Ingredient({
-                name: req.body.ingredient,
-                quantity: 1
-
-            }).save(function (err, ingredient) {
+        Ingredient.insertMany(toInsert, function(err, ingredient){
+            if (err){
+                console.log(err);
+            } else {
+                console.log("----made a thing?!");
+            }
+        });
+/*/
+        .save(function (err, ingredient) {
                 if (err) {
                     console.log(err);
                 }
@@ -102,11 +96,16 @@ router.post('/pantry', function(req, res) {
 
                 });
             });
+            /*/
         res.redirect("/recipe/pantry");  
     });
 
 
 });
+
+function createIngredient (name, quanitity, user){
+
+}
 
 router.get('/inventory', function(req, res, next) {
     if(req.user) {
