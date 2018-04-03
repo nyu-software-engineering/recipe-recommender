@@ -130,6 +130,18 @@ router.get('/inventory', function(req, res, next) {
 
 });
 
+router.get('/:slug', function(req, res, next){
+        Recipe.findOne({id:0002}, function(err, recipe){
+            console.log("INSIDE SLUG");
+            console.log(req.params);
+            console.log(recipe);
+
+            res.render('viewRecipeContents', {recipe: recipe, user: req.user, slug: req.params.slug});
+        });
+        
+    });
+
+
 router.get('/logout', function(req, res){
     console.log('logging out');
     req.logout();

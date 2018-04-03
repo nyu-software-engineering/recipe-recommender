@@ -96,13 +96,23 @@
                              {{recipe.ingredients}}
                             <h6> Steps: </h6>
                             {{recipe.directions}}
-                            <h5><a href= "/recipe/home" class = "button">View recipe</a></h5>
+                            <h5><a href= {{link.slug}} class="button">View recipe</a></h5>
                         </div>
                     </div>
                 </div>
             </div>
-        {{/if}}    
-   
+        {{/if}}   
+
+
+        <!--
+        <ol>
+            {{#each link as |link|}}
+                <li> <a href={{link.url}}>{{link.title}}</a>
+                <a href= {{link.slug}}> [Comments]</a>
+                </li>
+            {{/each}}
+        </ol> -->
+           
 
         <form action = "/recipe/home" method = "post">
         <input class="button" type="submit" name="Find a Recipe!" value="Find a Recipe!" />
