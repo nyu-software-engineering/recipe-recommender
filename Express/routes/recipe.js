@@ -69,9 +69,10 @@ router.post('/pantry', function(req, res) {
     User.findOne({username: req.user.username}, function (err, user) {
      
         let ingredients = req.body.ingredient; //array of ingredient names
+        console.log(req.body.ingredient);
         let toInsert = [];
-
-        ingredients.forEach((ele) => {
+        if(ingredients instanceof Array){
+            ingredients.forEach((ele) => {
             let ing = {
                 name: ele,
                 quantity: 3,
@@ -79,6 +80,15 @@ router.post('/pantry', function(req, res) {
             //console.log(ing);
             user.pantry.push(ing);
         });
+
+        } else {
+            let ing = {
+                name: ingredients,
+                quantity: 3,
+                }
+            user.pantry.push(ing);
+        }
+        
         //console.log("outside of for loop");
         user.save((err, user) => {
             if(err){
