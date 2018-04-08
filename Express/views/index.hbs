@@ -1,11 +1,12 @@
-<!doctype html>
-<head>
-<link href="/stylesheets/style.css" type="text/css" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="../javascripts/recipeLogic.js" type="text/javascript"></script>
-</head>
-<body>
 {{#if user}}
+    <head>
+        <link href="/stylesheets/style.css" type="text/css" rel="stylesheet">
+        <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="../javascripts/recipeLogic.js" type="text/javascript"></script>
+    </head>
+    <body>
     <h2>Welcome back, {{user.username}}!</h2>
     <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
      <a href="/recipe/pantry">
@@ -78,8 +79,122 @@
         <form action = "/recipe/home" method = "post">
         <input class="button" type="submit" name="Find a Recipe!" value="Find a Recipe!" />
          </form>
+    </body>
 
 {{else}}
+    <html lang="en">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <title>Recipe Finder - Welcome</title>
+
+      <!-- CSS  -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="/sytlesheets/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      
+    </head>
+    <body>
+      <nav class="red lighten-2" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="#" class="brand-logo white-text">Recipe Finder</a>
+          <ul class="right hide-on-med-and-down yellow-text lighten-2">
+            <li><a href="logout">Logout</a></li>
+          </ul>
+
+          <ul id="nav-mobile" class="sidenav">
+            <li><a href="logout">Logout</a></li>
+          </ul>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+
+      <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <br><br><br>
+
+            <div class="row center">
+                <div class="col s12">
+                    <span class="light white-text"><h4>Your cooking hack for all your cooking needs</h4></span>
+                    <br><br>
+                    <a href="register" class="btn-large waves-effect waves-light red lighten-2 z-depth-3">Register</a>
+                    <a href="login" class="btn-large waves-effect waves-light red lighten-2 z-depth-3">Login</a>
+                </div>
+            </div>
+            <br><br>
+
+          </div>
+        </div>
+        <div class="parallax"><img src="/img/landing1.jpg" alt="Unsplashed background img 1"></div>
+      </div>
+
+
+      <div class="container">
+        <div class="section">
+
+          <!--   Icon Section   -->
+          <div class="row">
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                <h5 class="center">Convenient</h5>
+
+                <p class="light">The easiest way to find out what you can make with what you have in your kitchen right now. Find recipes based on cuisine type, cook time, dietary preferences, and more!</p>
+              </div>
+            </div>
+
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center brown-text"><i class="material-icons">favorite</i></h2>
+                <h5 class="center">Personalized</h5>
+
+                <p class="light">Find a recipe you really love and don't want to lose it? No worries! Just save it to your favorites list and you can access it any time. And this will help us show you recipes that we think you'll like.</p>
+              </div>
+            </div>
+
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center brown-text"><i class="material-icons">account_circle</i></h2>
+                <h5 class="center">Easy to Use</h5>
+
+                <p class="light">Just make an account and start adding ingredients to your pantry from our prefilled form. Less work for you = more time to focus on what really matters: Food!</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <div class="row center">
+              <!--<h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+            </div>
+          </div>
+        </div>
+        <div class="parallax"><img src="/img/landing3.jpg" alt="Unsplashed background img 3"></div>
+      </div>
+
+      <footer class="page-footer red lighten-2">
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+              <h5 class="white-text">The Team</h5>
+              <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Now stay inside and make some food!</p>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
+
+      <!--  Scripts-->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="js/materialize.js"></script>
+      <script src="js/init.js"></script>
+    <!--
     <p>Login or create an account to get started with Recipe Recommender:</p>
     <p>
         <a href="register" class="button">
@@ -89,7 +204,6 @@
         <a href="login" class="button">
             Login
         </a>
-    </p>
+    </p> -->
+    </body>
 {{/if}}
-</body>
-</html>
