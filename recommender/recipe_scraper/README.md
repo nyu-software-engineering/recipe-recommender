@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
 ## Running a spider
 ```
-scrapy crawl <spider_name> -o <output_filename>.json
+scrapy crawl simplyrecipes -o <output_filename>.json
 ```
 
 where spider_name is the name of a spider (spider_name attribute within each
