@@ -17,9 +17,7 @@ pip install -r requirements.txt
 ```
 scrapy crawl simplyrecipes -o <output_filename>.json
 ```
-
-where spider_name is the name of a spider (spider_name attribute within each
-spider class) and output_filename is the desired filename.
+where simplyrecipes is the name assigned to the scraper
 
 This will run the crawler and output the results in json format which then can be inputted into a database. We are using MongoDB for this specific project.
 
