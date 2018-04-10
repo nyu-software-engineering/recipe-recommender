@@ -22,6 +22,15 @@ const Recipe = new Schema ({
   servings: Number
 });
 
+Recipe.methods.iterateIngredients = function() {
+  var ingredient_list = this.ingredients;
+  var result = "Ingredients in" + this.name + "recipe:\n";
+  for (var i = 0; i < ingredient_list.length; i++) {
+    result.concat(ingredient_list[i].quantity + " " + ingredient_list[i].name + "\n");
+  }
+  return result;
+}
+
 const User = new Schema ({
   id: Number,
   name: String,
@@ -30,6 +39,24 @@ const User = new Schema ({
   pantry: [Ingredient]
   
 });
+
+User.methods.iterateRecipes = function() {
+  var recipe_list = this.recipes;
+  for (var i = 0; i < recipe_list.length; i++) {
+    console.log(recipe_list[i].name);
+  }
+}
+
+User.methods.iteratePantryItems = function() {
+  var pantry_list = this.ingredients;
+  var result = "Items in " + this.name + "'s pantry:\n";
+
+  for (var i = 0; i < pantry_list.length; i++) {
+    result.concat(pantry_list[i].quantity + " " + pantry_list[i].name + ",");
+  }
+  return result;
+}
+
 //keep track of username and password for each user instance
 User.plugin(passportLocalMongoose);
 
