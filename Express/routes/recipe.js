@@ -102,9 +102,9 @@ router.post('/pantry', function(req, res) {
         res.redirect("/recipe/pantry");  
     });
 
-function createIngredient (name, quanitity, user){
+router.get('/delete/:pantry', function(req, res, next){
 
-}
+});
 
 router.get('/inventory', function(req, res, next) {
     if(req.user) {
