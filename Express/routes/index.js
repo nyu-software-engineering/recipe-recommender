@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
 });
 
 //get registration page on register button click
-router.get('/register', function(req, res, next) {
+router.get('/register', function(req, res, next){
     res.render('register');
 });
 

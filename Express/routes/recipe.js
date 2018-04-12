@@ -128,7 +128,7 @@ router.get('/inventory', function(req, res, next) {
 
 });
 
-router.get('/logout', function(req, res){ //TODO: Why is this redierecting to mac n cheese?
+router.get('/logout', function(req, res){ 
     console.log('logging out');
     req.logout();
     res.redirect('/');
