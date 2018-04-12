@@ -44,17 +44,6 @@ router.post('/home', function(req, res, next){
     }
 });
 
-router.get('/:id', function(req, res, next){
-    console.log(req.params.id);
-    Recipe.findOne({id: req.params.id}, function(err, recipe){
-        console.log("inside find recipe slug");
-        if(err){
-            console.log('err finding recipe-details');
-        }
-        res.render('recipe-details',{recipe:recipe});
-    });
-});
-
 
 //get page which allows a user to set up their pantry
 router.get('/pantry', function(req, res, next) {
@@ -146,17 +135,17 @@ router.get('/logout', function(req, res){
     res.redirect('/');
 });
 
-router.get('/:slug', function(req, res, next){
-    console.log("inside slug function");
-        Recipe.findOne({id:0002}, function(err, recipe){
-            console.log("INSIDE SLUG");
-            console.log(req.params);
-            console.log(recipe);
 
-            res.render('viewRecipeContents', {recipe: recipe, user: req.user, slug: req.params.slug});
-        });
-        
+router.get('/:id', function(req, res, next){
+    console.log(req.params.id);
+    Recipe.findOne({id: req.params.id}, function(err, recipe){
+        console.log("inside find recipe slug");
+        if(err){
+            console.log('err finding recipe-details');
+        }
+        res.render('recipe-details',{recipe:recipe});
     });
+});
 
 
 
