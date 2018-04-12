@@ -128,7 +128,14 @@ router.get('/inventory', function(req, res, next) {
 
 });
 
+router.get('/logout', function(req, res){ //TODO: Why is this redierecting to mac n cheese?
+    console.log('logging out');
+    req.logout();
+    res.redirect('/');
+});
+
 router.get('/:slug', function(req, res, next){
+    console.log("inside slug function");
         Recipe.findOne({id:0002}, function(err, recipe){
             console.log("INSIDE SLUG");
             console.log(req.params);
@@ -139,12 +146,6 @@ router.get('/:slug', function(req, res, next){
         
     });
 
-
-router.get('/logout', function(req, res){
-    console.log('logging out');
-    req.logout();
-    res.redirect('/');
-});
 
 
 module.exports = router;

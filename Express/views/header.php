@@ -5,7 +5,7 @@
             <div class="inner">
                 <div class="logo"> <a href="/recipe">Recipe Finder</a></div>
                 <nav id="nav">
-                    <a href="logout">Logout</a>
+                    <a href="/recipe/logout">Logout</a>
                 </nav>
             </div>
         </header>
