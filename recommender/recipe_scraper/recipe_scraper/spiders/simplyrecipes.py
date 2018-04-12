@@ -6,7 +6,25 @@ import re
 
 class Simplyrecipesspider(scrapy.Spider):
     name = "simplyrecipes"
-    start_urls = ['http://www.simplyrecipes.com/recipes/course/dinner/']
+    start_urls = ['http://www.simplyrecipes.com/recipes/course/dinner/',
+     'http://www.simplyrecipes.com/recipes/course/lunch/',
+     'https://www.simplyrecipes.com/recipes/course/breakfast_and_brunch/',
+     'https://www.simplyrecipes.com/recipes/course/dessert/',
+     'https://www.simplyrecipes.com/recipes/course/side_dish/',
+     'https://www.simplyrecipes.com/recipes/course/sandwich/',
+     'https://www.simplyrecipes.com/recipes/type/budget/',
+     'https://www.simplyrecipes.com/recipes/type/quick/',
+     'https://www.simplyrecipes.com/recipes/cuisine/african/',
+     'https://www.simplyrecipes.com/recipes/cuisine/chinese/',
+     'https://www.simplyrecipes.com/recipes/cuisine/german/',
+     'https://www.simplyrecipes.com/recipes/cuisine/indian/',
+     'https://www.simplyrecipes.com/recipes/cuisine/italian/',
+     'https://www.simplyrecipes.com/recipes/cuisine/japanese/',
+     'https://www.simplyrecipes.com/recipes/cuisine/korean/',
+     'https://www.simplyrecipes.com/recipes/cuisine/mexican/',
+     'https://www.simplyrecipes.com/recipes/cuisine/spanish/',
+     'https://www.simplyrecipes.com/recipes/cuisine/thai/'
+     ]
 
     def parse(self, response):
         recipeDescription = response.css("article.recipe").css('meta[itemprop="description"]').xpath("@content")

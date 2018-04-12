@@ -78,45 +78,43 @@ router.get('/pantry', function(req, res, next) {
 
 //if a user creates their pantry (post), create ingredient objects in the database
 router.post('/pantry', function(req, res) {
-    console.log(req.body.ingredient);
     User.findOne({username: req.user.username}, function (err, user) {
-        /*/
-        req.body.ingredient.forEach(function(ingr){ //TODO: this is wrong, because forEach is synchronous.
-                                                    //need to use promises? right now only saves one ingredient
-            new Ingredient({
-                name: ingr,
-                quantity: 1
-
-            }).save(function (err, ingredient) {
-                if (err) {
-                    console.log(err);
+     
+        let ingredients = req.body.ingredient; //array of ingredient names
+        console.log(req.body.ingredient);
+        let toInsert = [];
+        if(ingredients instanceof Array){
+            ingredients.forEach((ele) => {
+            let ing = {
+                name: ele,
+                quantity: 3,
                 }
-                user.pantry.push(ingredient);
-                user.save((err, user) => {
-                    console.log("just saved");
+            //console.log(ing);
+            user.pantry.push(ing);
+        });
 
-                });
-            }); 
-        })
-        */
-
-        new Ingredient({
-                name: req.body.ingredient,
-                quantity: 1
-
-            }).save(function (err, ingredient) {
-                if (err) {
-                    console.log(err);
+        } else {
+            let ing = {
+                name: ingredients,
+                quantity: 3,
                 }
-                user.pantry.push(ingredient);
-                user.save((err, user) => {
-                    console.log("just saved");
-
+            user.pantry.push(ing);
+        }
+        
+        //console.log("outside of for loop");
+        user.save((err, user) => {
+            if(err){
+                console.log(err);
+            }
+            //console.log("just saved");
+            //console.log(user);
                 });
-            });
+    
+        });
         res.redirect("/recipe/pantry");  
     });
 
+router.get('/delete/:pantry', function(req, res, next){
 
 });
 
@@ -141,6 +139,18 @@ router.get('/inventory', function(req, res, next) {
     }
 
 });
+
+router.get('/:slug', function(req, res, next){
+        Recipe.findOne({id:0002}, function(err, recipe){
+            console.log("INSIDE SLUG");
+            console.log(req.params);
+            console.log(recipe);
+
+            res.render('viewRecipeContents', {recipe: recipe, user: req.user, slug: req.params.slug});
+        });
+        
+    });
+
 
 router.get('/logout', function(req, res){
     console.log('logging out');

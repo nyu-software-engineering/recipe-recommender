@@ -1,5 +1,16 @@
 <link href="/stylesheets/style.css" type="text/css" rel="stylesheet">
 
+
+<header id="header">
+    <div class="inner">
+        <div class="logo"> <a href="/recipe">Recipe Finder</a></div>
+        <nav id="nav">
+            <a href="logout">Logout</a>
+        </nav>
+    </div>
+</header>
+
+
 {{#if message}}
 <div class="alert alert-error">
     {{message}}
@@ -71,10 +82,49 @@
 <form method="POST" action="/recipe/pantry">
 
     <div>
-          <input type="checkbox" name="ingredient" value="cheese"> Cheese<br>
-          <input type="checkbox" name="ingredient" value="milk"> Milk<br>
-          <input type="checkbox" name="ingredient" value="macaroni"> Macaroni<br>
-          <input type="checkbox" name="ingredient" value="butter"> Butter<br>
+          <h3> Fridge: </h3>
+          <input type="checkbox" name="ingredient" value="Milk"> Milk<br>
+          <input type="checkbox" name="ingredient" value="Cream"> Cream<br>
+          <input type="checkbox" name="ingredient" value="Eggs"> Eggs<br>
+          <input type="checkbox" name="ingredient" value="almondMlik"> Almond Milk<br>
+          <input type="checkbox" name="ingredient" value="Butter"> Butter<br>
+          <input type="checkbox" name="ingredient" value="Yogurt"> Yogurt<br>
+          <input type="checkbox" name="ingredient" value="Juice"> Juice<br>
+          <h3> Spices / Condiments: </h3>
+          <input type="checkbox" name="ingredient" value="Salt"> Salt<br>
+          <input type="checkbox" name="ingredient" value="Pepper"> Pepper<br>
+          <input type="checkbox" name="ingredient" value="GarlicPowder"> Garlic powder<br>
+          <input type="checkbox" name="ingredient" value="ChiliPowder"> Chili powder<br>
+          <input type="checkbox" name="ingredient" value="Paprika"> Paprika<br>
+          <input type="checkbox" name="ingredient" value="Cinnamon"> Cinnamon<br>
+          <input type="checkbox" name="ingredient" value="Nutmeg"> Nutmeg<br>
+          <input type="checkbox" name="ingredient" value="Ketchup"> Ketchup<br>
+          <input type="checkbox" name="ingredient" value="Mustard"> Mustard<br>
+          <input type="checkbox" name="ingredient" value="Mayo"> Mayo<br>
+          <input type="checkbox" name="ingredient" value="HotSauce"> Hot sauce<br>
+          <h3> Pantry: </h3>
+          <input type="checkbox" name="ingredient" value="Rice"> Rice<br>
+          <input type="checkbox" name="ingredient" value="Pasta"> Pasta<br>
+          <input type="checkbox" name="ingredient" value="Beans"> Beans<br>
+          <input type="checkbox" name="ingredient" value="Lentils"> Lentils<br>
+          <input type="checkbox" name="ingredient" value="ChickenBroth"> Chicken broth<br>
+          <input type="checkbox" name="ingredient" value="VegetableBroth"> Vegetable broth<br>
+          <input type="checkbox" name="ingredient" value="BeefBroth"> Beef broth<br>
+          <input type="checkbox" name="ingredient" value="peanutButter"> Peanut Butter<br>
+          <input type="checkbox" name="ingredient" value="Oats"> Oats<br>
+          <input type="checkbox" name="ingredient" value="Cereal"> Cereal<br>
+          <input type="checkbox" name="ingredient" value="oliveOil"> Olive Oil<br>
+          <input type="checkbox" name="ingredient" value="Vinegar"> Vinegar<br>
+          <input type="checkbox" name="ingredient" value="SoySauce"> Soy sauce<br>
+          <input type="checkbox" name="ingredient" value="Honey"> Honey<br>
+          <input type="checkbox" name="ingredient" value="MapleSyrup"> Maple Syrup<br>
+          <input type="checkbox" name="ingredient" value="Flour"> Flour<br>
+          <input type="checkbox" name="ingredient" value="BakingSoda"> Baking Soda<br>
+          <input type="checkbox" name="ingredient" value="BakingPowder"> Baking Powder<br>
+          <input type="checkbox" name="ingredient" value="BrownSugar"> Brown Sugar<br>
+          <input type="checkbox" name="ingredient" value="GranulatedSugar">Granulated Sugar<br>
+          <input type="checkbox" name="ingredient" value="Nuts"> Nuts<br>
+          <input type="checkbox" name="ingredient" value="Jam"> Jam<br>
         </select>
     </div>
     <div>

@@ -1,16 +1,24 @@
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-   <link href="../stylesheets/style.css" rel="stylesheet">
+  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  <link href="../stylesheets/style.css" rel="stylesheet">
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../javascripts/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="../javascripts/bootstrap.min.js"></script>
 
+  <header id="header">
+    <div class="inner">
+      <div class="logo"> <a href="/recipe">Recipe Finder</a></div>
+      <nav id="nav">
+          <a href="logout">Logout</a>
+      </nav>
+    </div>
+  </header>
 
-    <h1> My Pantry</h1>
+  <h1> My Pantry</h1>
   {{#if pantry}}
     <div class="container-fluid">
           <div class="row">
@@ -18,9 +26,9 @@
             <div class="col-md-8 col-sm-12 col-xs-20 box">
                 <h1 class = "pantry-ingredient">{{ingredient.name}}</h1>
                 <h3 class = "pantry-quantity">{{ingredient.quantity}}</h3>
-                <div class = "remove-button">
+                <button id="trash" type="image" class="remove-button">
                   <img src="../img/remove.jpg" class="img-thumbnail" onclick="" /> 
-                </div>
+                </button>
             </div>
             {{/each}}
           </div>
