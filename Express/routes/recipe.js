@@ -44,6 +44,18 @@ router.post('/home', function(req, res, next){
     }
 });
 
+router.get('/:id', function(req, res, next){
+    console.log(req.params.id);
+    Recipe.findOne({id: req.params.id}, function(err, recipe){
+        console.log("inside find recipe slug");
+        if(err){
+            console.log('err finding recipe-details');
+        }
+        res.render('recipe-details',{recipe:recipe});
+    });
+});
+
+
 //get page which allows a user to set up their pantry
 router.get('/pantry', function(req, res, next) {
     if(req.user) {
