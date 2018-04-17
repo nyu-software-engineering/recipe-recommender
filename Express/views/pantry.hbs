@@ -259,15 +259,122 @@
 
 
 
+
+<a class="waves-effect waves-light btn modal-trigger" href="#modal2">How many do you have?</a>
+
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <form method="POST" action="/recipe/pantry">
+    <p>How much do you have?</p>
+    <div>
+        <div class="input-field col s12">
+          <select>
+            <option value="1 gallon" selected>1 gallon</option>
+            <option value="1/2 gallon">1/2 gallon</option>
+            <option value="1 quart">1 quart</option>
+            <option value="1 pint">1 pint</option>
+          </select>
+          <label>Milk</label>
+        </div>
+
+        <div class="input-field col">
+          <select>
+            <option value="1 pint" selected>1 pint</option>
+            <option value="1 quart">1 quart</option>
+            <option value="1 cups">1 cup</option>
+            <option value="2 cups">2 cups</option>
+            <option value="3 cups">3 cups</option>
+            <option value="4 cups">4 cups</option>
+          </select>
+          <label>Cream</label>
+        </div>
+
+        <div class="input-field col">
+          <select>
+            <option value="12 eggs" selected>12 eggs</option>
+            <option value="1 egg">1 egg</option>
+            <option value="2 eggs">2 eggs</option>
+            <option value="3 eggs">3 eggs</option>
+            <option value="4 eggs">4 eggs</option>
+            <option value="5 eggs">5 eggs</option>
+            <option value="6 eggs">6 eggs</option>
+            <option value="7 eggs">7 eggs</option>
+            <option value="8 eggs">8 eggs</option>
+            <option value="9 eggs">9 eggs</option>
+            <option value="10 eggs">10 eggs</option>
+            <option value="11 eggs">11 eggs</option>
+          </select>
+          <label>Eggs</label>
+        </div>
+
+        <div class="input-field col s12">
+          <select>
+            <option value="1 gallon" selected>1 gallon</option>
+            <option value="1/2 gallon">1/2 gallon</option>
+            <option value="1 quart">1 quart</option>
+            <option value="1 pint">1 pint</option>
+          </select>
+          <label>Almond Milk</label>
+        </div>
+
+         <div class="input-field col">
+          <select>
+            <option value="1 pint" selected>1 cup</option>
+            <option value="1 quart">1/2 cup</option>
+            <option value="1 cups">1/4 cup</option>
+            <option value="2 cups">1/8 cup</option>
+            <option value="3 cups">2 cups</option>
+            <option value="4 cups">3 cups</option>
+          </select>
+          <label>Butter</label>
+        </div>
+
+         <div class="input-field col">
+          <select>
+            <option value="1 pint" selected>1 pint</option>
+            <option value="1 quart">1 quart</option>
+            <option value="1 cups">1 cup</option>
+            <option value="2 cups">2 cups</option>
+            <option value="3 cups">3 cups</option>
+            <option value="4 cups">4 cups</option>
+          </select>
+          <label>Yogurt</label>
+        </div>
+
+        <div class="input-field col s12">
+          <select>
+            <option value="1 gallon" selected>1 gallon</option>
+            <option value="1/2 gallon">1/2 gallon</option>
+            <option value="1 quart">1 quart</option>
+            <option value="1 pint">1 pint</option>
+          </select>
+          <label>Juice</label>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <div>
+      <button type="submit" class="btn modal-action modal-close waves-green">Save Pantry</button>
+    </div>
+    <!--<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>-->
+  </div>
+</div>
+
+
+
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
 <script>
     $(document).ready(function(){
         $(".modal").modal();
+        $('select:not([multiple])').material_select();
     });
 </script>
-</body>
 
 
 {{#if pantry}}
