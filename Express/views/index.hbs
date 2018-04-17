@@ -95,7 +95,7 @@
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <title>Recipe Finder - Welcome</title>
+      <title>Kichuation - Welcome</title>
 
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -108,7 +108,7 @@
         <div class="nav-wrapper container">
           <a id="logo-container" href="#" class="brand-logo white-text">Kitchuation</a>
           <ul class="right hide-on-med-and-down yellow-text lighten-2">
-            <li><a href="/recipe/logout">Logout</a></li>
+            <li><a class="modal-trigger" href="#login">Login</a></li>
           </ul>
 
           <ul id="nav-mobile" class="sidenav">
@@ -127,8 +127,9 @@
                 <div class="col s12">
                     <span class="light white-text"><h4>Whatever your kitchuation, we've got your back.</h4></span>
                     <br><br>
-                    <a href="register" class="btn-large waves-effect waves-light red lighten-2 z-depth-3">Register</a>
-                    <a href="login" class="btn-large waves-effect waves-light red lighten-2 z-depth-3">Login</a>
+                    <!--<a href="register" class="btn-large waves-effect waves-light red lighten-2 z-depth-3">Register</a>-->
+                    <a class="btn-large waves-effect waves-light red lighten-2 z-depth-3 modal-trigger" href="#register">Register</a>
+                    <a class="btn-large waves-effect waves-light red lighten-2 z-depth-3 modal-trigger" href="#login">Login</a>
                 </div>
             </div>
             <br><br>
@@ -137,6 +138,82 @@
         </div>
         <div class="parallax"><img src="/img/landing1.jpg" alt="Unsplashed background img 1"></div>
       </div>
+
+      <div id="login" class="modal">
+        <div class="modal-content">
+          {{#if message}}
+            <div class="alert alert-error">
+                {{message}}
+            </div>
+          {{/if}}
+          <form method="POST" action="/login">
+          <div>
+              <h3>Login Here:</h3>
+              <label for="inputEmail">Username</label>
+              <div>
+                  <input type="text" id="inputEmail" placeholder="Username" name="username">
+              </div>
+          </div>
+          <div>
+              <label for="inputPassword">Password</label>
+              <div>
+                  <input type="password" id="inputPassword" placeholder="Password" name = "password">
+              </div>
+          </div>
+          <div>
+            <div>
+                <button type="submit" class="btn waves-light red lighten-2 z-depth-1">Sign in</button>
+            </div>
+          </div>
+          </form>        
+        </div>  
+      </div>
+
+    <div id="register" class="modal">
+      <div class="modal-content">
+        <h3>Register for an account</h3>
+        <h2>{{message}}</h2>
+
+        <div>
+            <p>Create a new login here: </p>
+            <form method="POST" action="/register">
+                Username: <input type="text" name="username">
+                Password: <input type = "password" name = "password">
+                Name: <input type = "text" name = "name"><br>
+                Email: <input type = "email" name = "email">
+                <br>
+                <input class="btn waves-light red lighten-2 z-depth-1" type="submit">
+            </form>
+
+            <!-- not working
+            <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field"> col s6
+                      <input id="username" type="text" name="username" class="validate">
+                      <label for="username">Username</label>
+                    </div>
+                    <p></p>
+                    <div class="input-field">
+                      <input id="password" type="password" name="password" class="validate">
+                      <label for="password">Password</label>
+                    </div>
+                    <div class="input-field">
+                      <input id="name" type="name" name="name" class="validate">
+                      <label for="name">Name</label>
+                    </div>
+                    <div class="input-field">
+                      <input id="email" type="email" name="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                  </div>
+                  <input class="btn waves-light red lighten-2 z-depth-1" type="submit">
+                </form>
+              </div>
+            -->
+        </div>
+      </div>
+    </div>
 
 
       <div class="container">
@@ -203,6 +280,11 @@
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="js/materialize.js"></script>
       <script src="js/init.js"></script>
+      <script>
+          $(document).ready(function(){
+              $(".modal").modal();
+          });
+      </script>
       
     </body>
 {{/if}}
