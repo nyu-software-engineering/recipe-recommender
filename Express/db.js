@@ -57,5 +57,21 @@ if (process.env.NODE_ENV == 'PRODUCTION') {
 }
 */
 
-dbconf = 'mongodb://localhost/Rrecommender';
-mongoose.connect(dbconf);
+db = mongoose.connection;
+ 
+db.on("error", console.error.bind(console, "THIS ERROR WON'T SHOW"));
+
+db.once("open", function() {
+  console.log("Connected to MongoDB");
+});
+
+try {
+  console.log("About to connect to MongoDB");
+  //dbconf = 'mongodb://denisa:denisa@cluster0-6zr15.mongodb.net/test'; //driver 3.6 or later
+  dbconf = 'mongodb://denisa:denisa@cluster0-shard-00-00-6zr15.mongodb.net:27017,cluster0-shard-00-01-6zr15.mongodb.net:27017,cluster0-shard-00-02-6zr15.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'; //driver 3.4 or later
+  mongoose.connect(dbconf);
+  console.log(mongoose.connection.readyState);
+} catch (err) {
+  console.error(err);
+}
+
