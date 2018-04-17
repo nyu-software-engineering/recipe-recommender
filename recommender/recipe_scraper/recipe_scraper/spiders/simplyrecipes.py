@@ -38,8 +38,8 @@ class Simplyrecipesspider(scrapy.Spider):
                 ingredientObjects.append(parse(i))
                 print parse(i)
 
-            yield RecipeItem(title = recipe.css("h2::text").extract_first(),
-            URL = response.url,
+            yield RecipeItem(name = recipe.css("h2::text").extract_first(),
+            urlName = response.url,
             imgURL = response.css("div.entry-content").css("div.featured-image").css("img.photo").xpath("@src").extract_first(),
             ingredients = ingredientObjects,
             directions = response.css('div[itemprop="recipeInstructions"]').css('p::text').extract(),

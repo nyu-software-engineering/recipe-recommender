@@ -4,22 +4,25 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 const Ingredient = new Schema ({
   name: String,
-  quantity: Number, //will probably have to change/add this to be a measurement object
-  unit: String
+  measure: Number, //will probably have to change/add this to be a measurement object
 });
+
 
 const Recipe = new Schema ({
   id: Number,
   name: String,
   prepTime: Number,
-  totalTime: Number,
+  //totalTime: Number,
   ingredients: [Ingredient],
   made: Boolean,
   favorited: Boolean,
   directions: [String],
+  description: [String],
   cuisine: [String],
-  nutrition: [String],
-  servings: Number
+  urlName: String,
+  imgURL: String
+  //nutrition: [String],
+  //servings: Number
 });
 
 const User = new Schema ({
@@ -28,7 +31,8 @@ const User = new Schema ({
   email: String,
   recipes: [Recipe],
   pantry: [Ingredient]
-  
+},   {
+  usePushEach: true
 });
 //keep track of username and password for each user instance
 User.plugin(passportLocalMongoose);
