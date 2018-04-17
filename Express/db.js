@@ -57,5 +57,6 @@ if (process.env.NODE_ENV == 'PRODUCTION') {
 }
 */
 
+//dbconf ='mongodb+srv://denisa:denisa@cluster0-6zr15.mongodb.net/test';
 dbconf = 'mongodb://localhost/Rrecommender';
 mongoose.connect(dbconf);

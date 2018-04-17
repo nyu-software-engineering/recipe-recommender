@@ -103,7 +103,15 @@ router.post('/pantry', function(req, res) {
         res.redirect("/recipe/pantry");  
     });
 
-router.get('/delete/:pantry', function(req, res, next){
+router.post('/delete/:pantry', function(req, res, next){
+    Ingredient.remove({ id: req.body.id }, function(err) {
+    if (!err) {
+            console.log("successfully deleted the pantry item");
+    }
+    else {
+            console.log("found an error");
+    }
+});
 
 });
 
