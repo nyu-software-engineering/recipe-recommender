@@ -103,6 +103,17 @@ router.post('/pantry', function(req, res) {
         res.redirect("/recipe/pantry");  
     });
 
+router.post('/pantry/update', function (req, res) {
+    console.log(req.body.ingredient); //should have the name of the ingredient we're changing
+    User.findOne({username: req.user.username}, function (err, user){
+
+        MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
+    if (err) return res.send(500, { error: err });
+    return res.send("succesfully saved");
+});
+    })
+});
+
 router.get('/delete/:pantry', function(req, res, next){
 
 });
