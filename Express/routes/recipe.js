@@ -65,6 +65,18 @@ router.get('/pantry', function(req, res, next) {
     }
 });
 
+function ingredientInPantry(pantry, ingObj){
+    let size = pantry.length;
+    for(let i=0; i < size; i++){
+        console.log("**pantry item: " + pantry[i]);
+        if (pantry[i].name === ingObj.name){
+            console.log("same name found - returning true");
+            return true;
+        }
+    }
+    console.log("no duplicate found - returning false");
+    return false;
+}
 //if a user creates their pantry (post), create ingredient objects in the database
 router.post('/pantry', function(req, res) {
     User.findOne({username: req.user.username}, function (err, user) {
@@ -78,8 +90,11 @@ router.post('/pantry', function(req, res) {
                 name: ele,
                 quantity: 3,
                 }
-            //console.log(ing);
-            user.pantry.push(ing);
+
+            if (!ingredientInPantry(user.pantry, ing)){
+                user.pantry.push(ing);
+            }
+            
         });
 
         } else {
@@ -87,7 +102,9 @@ router.post('/pantry', function(req, res) {
                 name: ingredients,
                 quantity: 3,
                 }
-            user.pantry.push(ing);
+            if (!ingredientInPantry(user.pantry, ing)){
+                user.pantry.push(ing);
+            }
         }
         
         //console.log("outside of for loop");
