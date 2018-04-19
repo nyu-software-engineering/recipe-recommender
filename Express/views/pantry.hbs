@@ -90,8 +90,32 @@
 <div id="modal1" class="modal">
   <div class="modal-content">
     <form method="POST" action="/recipe/pantry">
+    <h5>What's in your pantry?</h5>
+    <h6> Fridge: </h6>
     <div>
-        <h5> Fridge: </h5>
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
+            <span>Milk</span>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="1" id="milk_q" type="text" name="measure" class="validate">
+          <label class="active" for="milk_q">Quantity</label>
+        </div>
+        <div class="input-field col s3" name="unit" value="unit">
+          <select>
+            <option value="gallon" selected>gallon</option>
+            <option value="cup">cup</option>
+            <option value="quart">quart</option>
+            <option value="pint">pint</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
         <label>
           <input type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
           <span>Milk</span>
@@ -245,6 +269,7 @@
           <span>Jam</span>
         </label><br> -->
       </div>
+      <br>
       <div>
         <button type="submit" class="btn modal-action modal-close waves-green">Save Pantry</button>
       </div>
@@ -260,8 +285,8 @@
   <div class="modal-content">
     <form method="POST" action="/recipe/pantry/update">
     <p>How much do you have?</p>
-    <div>
-        <div class="input-field col s12" name="ingredient" value="Milk">
+    <div class="row">
+        <div class="input-field col" name="ingredient" value="Milk">
           <select>
             <option value="1 gallon" selected>1 gallon</option>
             <option value="1/2 gallon">1/2 gallon</option>
@@ -301,7 +326,7 @@
           <label>Eggs</label>
         </div>
 
-        <div class="input-field col s12" name="ingredient" value="Almond Milk">
+        <div class="input-field col" name="ingredient" value="Almond Milk">
           <select>
             <option value="1 gallon" selected>1 gallon</option>
             <option value="1/2 gallon">1/2 gallon</option>
@@ -335,7 +360,7 @@
           <label>Yogurt</label>
         </div>
 
-        <div class="input-field col s12" name="ingredient" value="Juice">
+        <div class="input-field col" name="ingredient" value="Juice">
           <select>
             <option value="1 gallon" selected>1 gallon</option>
             <option value="1/2 gallon">1/2 gallon</option>
