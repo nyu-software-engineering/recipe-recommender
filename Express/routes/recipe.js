@@ -33,7 +33,7 @@ router.post('/home', function(req, res, next){
         console.log(req.user);
         console.log('posting for /recipe/home');
 
-        Recipe.findOne({id: 00002}, function(err, recipe){
+        Recipe.findOne({}, function(err, recipe){
         console.log("inside find recipe ", recipe.name);
         res.render('recipe', {recipe: recipe, user: req.user});
 
@@ -54,7 +54,11 @@ router.get('/pantry', function(req, res, next) {
             //create an array for ingredients with quantity over 0
             let ingredients = [];
             ingredients = user.pantry.filter((ele)=>{
-                if(ele.quantity > 0){
+                console.log(ele.measure);
+                console.log(ele.quantity);
+                let quantity = ele.quantity == undefined ?  ele.measure : ele.quantity;
+                console.log(quantity);
+                if(quantity > 0){
                     return ele;
                 }
             });
@@ -88,7 +92,7 @@ router.post('/pantry', function(req, res) {
             ingredients.forEach((ele) => {
             let ing = {
                 name: ele,
-                quantity: 3,
+                measure: 3,
                 }
 
             if (!ingredientInPantry(user.pantry, ing)){
@@ -99,7 +103,7 @@ router.post('/pantry', function(req, res) {
         } else {
             let ing = {
                 name: ingredients,
-                quantity: 3,
+                measure: 3,
                 }
             if (!ingredientInPantry(user.pantry, ing)){
                 user.pantry.push(ing);
