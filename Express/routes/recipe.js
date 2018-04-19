@@ -37,7 +37,7 @@ router.post('/home', function(req, res, next){
         console.log("inside find recipe ", recipe.name);
         res.render('recipe', {recipe: recipe, user: req.user});
 
-        }); 
+        });
     }else {
             console.log('error');
             res.render('login', {message:'to see this page, you must have an account. Login or register below'});
@@ -80,7 +80,7 @@ function ingredientInPantry(pantry, ingObj){
 //if a user creates their pantry (post), create ingredient objects in the database
 router.post('/pantry', function(req, res) {
     User.findOne({username: req.user.username}, function (err, user) {
-     
+
         let ingredients = req.body.ingredient; //array of ingredient names
         console.log(req.body.ingredient);
         let toInsert = [];
@@ -96,7 +96,6 @@ router.post('/pantry', function(req, res) {
             }
             
         });
-
         } else {
             let ing = {
                 name: ingredients,
@@ -106,7 +105,7 @@ router.post('/pantry', function(req, res) {
                 user.pantry.push(ing);
             }
         }
-        
+
         //console.log("outside of for loop");
         user.save((err, user) => {
             if(err){
@@ -115,9 +114,9 @@ router.post('/pantry', function(req, res) {
             //console.log("just saved");
             //console.log(user);
                 });
-    
+
         });
-        res.redirect("/recipe/pantry");  
+        res.redirect("/recipe/pantry");
     });
 
 router.post('/pantry/update', function (req, res) {
@@ -157,7 +156,7 @@ router.get('/inventory', function(req, res, next) {
 
 });
 
-router.get('/logout', function(req, res){ 
+router.get('/logout', function(req, res){
     console.log('logging out');
     req.logout();
     res.redirect('/');

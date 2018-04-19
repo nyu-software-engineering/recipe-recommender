@@ -12,10 +12,10 @@ class Ingredient(scrapy.Item):
     measure = scrapy.Field()
 
 class RecipeItem(scrapy.Item):
-    title = scrapy.Field()
+    name = scrapy.Field()
     ingredients = scrapy.Field()
     directions = scrapy.Field()
-    URL = scrapy.Field()
+    urlName = scrapy.Field()
     imgURL = scrapy.Field()
     description = scrapy.Field()
     cuisine = scrapy.Field()
