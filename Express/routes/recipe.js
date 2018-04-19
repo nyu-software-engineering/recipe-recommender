@@ -33,9 +33,9 @@ router.post('/home', function(req, res, next){
         console.log(req.user);
         console.log('posting for /recipe/home');
 
-        Recipe.findOne({}, function(err, recipe){
-        console.log("inside find recipe ", recipe.name);
-        res.render('recipe', {recipe: recipe, user: req.user});
+        Recipe.find({}, function(err, recipe){
+        console.log("inside find recipe ", recipe.length);
+        res.render('recipe', {recipe: recipe.splice(0,21), user: req.user});
 
         });
     }else {
@@ -98,7 +98,7 @@ router.post('/pantry', function(req, res) {
             if (!ingredientInPantry(user.pantry, ing)){
                 user.pantry.push(ing);
             }
-            
+
         });
         } else {
             let ing = {

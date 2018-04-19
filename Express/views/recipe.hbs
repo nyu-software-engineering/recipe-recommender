@@ -88,24 +88,23 @@
 
     <h4><a href="/recipe/pantry">Click here</a> to edit or view your pantry<h4>
 
-        {{#if recipe}}
-            <div class = "row">
-                <div class="col-md-3 col-sm-4 col-xs-12 hvrbox">
-                    <a href = "/recipe/{{recipe.id}}">
-                        <img src={{recipe.imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" /> 
+        <div class = "row">
+          {{#each recipe}}
+            <div class = "col-md-3 col-sm-4 col-xs-12 hvrbox">
+              <a href = "/recipe/{{id}}">
+                  <img src={{imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" />
                     <div class="hvrbox-layer_top hvrbox-layer_slideleft">
-                        <div class="hvrbox-text">
-                            <h4>{{recipe.name}}!</h4>
-                            <h6> Ingredients: </h6>
-                             {{recipe.ingredients}}
-                            <h6> Steps: </h6>
-                            {{recipe.directions}}
-                        </div>
+                      <div class="hvrbox-text">
+                        <h4>{{name}}!</h4>
+                        <h6> Ingredients: </h6>
+                        {{ingredients}}
+                        <h6> Steps: </h6>
+                        {{directions}}
+                      </div>
                     </div>
-                    </a>
-                </div>
+              </a>
             </div>
-        {{/if}}
+          {{/each}}
 
 
     <!--
