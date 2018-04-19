@@ -1,3 +1,8 @@
-<h1> Recipe: {{recipe.name}} </h1>
+<h1> {{recipe.name}} </h1>
+
+<h2>Ingredients </h2>
+  {{#each recipe.ingredients}}
+    <li> {{measure}} {{name}} <li>
+  {{/each}}
 <p> {{recipe.ingredients}}</p>
 <p> {{recipe.directions}} </p>
