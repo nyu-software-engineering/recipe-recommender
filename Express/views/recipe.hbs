@@ -28,7 +28,7 @@
         <dl class="nav">
             <a href="inventory" id="myPantry">My Pantry</a>
             <dt class="Category">Dietary Preferences</dt>
-
+            
             <dt class="Filters">
                 <input type="checkbox" id="vegetarian" name="dietaryFilter" value="vegetarian">
                 <label for="vegetarian">vegetarian</label>
@@ -45,7 +45,7 @@
             </dt>
 
             <dt class="Category">Cuisine</dt>
-
+            
             <dt class="Filters">
                 <input type="checkbox" id="Mediterranean" name="cusineFilter" value="Mediterranean">
                 <label for="Mediterranean">Mediterranean</label>
@@ -62,7 +62,7 @@
             </dt>
 
             <dt class="Category">Cook Time</dt>
-
+            
             <dt class="Filters">
                 <input type="checkbox" id="0-30" name="timeFilter" value="0-30">
                 <label for="0-30">0 to 30 minutes</label>
@@ -82,17 +82,17 @@
                 <input type="checkbox" id="90+" name="timeFilter" value="90+">
                 <label for="90+">90+ minutes</label>
             </dt>
-
+             
         </dl>
     </div>
-
+    
     <h4><a href="/recipe/pantry">Click here</a> to edit or view your pantry<h4>
 
         {{#if recipe}}
             <div class = "row">
                 <div class="col-md-3 col-sm-4 col-xs-12 hvrbox">
-                    <a href = "/recipe/{{recipe.id}}">
-                        <img src={{recipe.imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" /> 
+                    <a href = "/recipe/{{recipe.id}}"> 
+                        <img src="../img/mac&cheese.jpg" class="fullimage img-thumbnail hvrbox-layer_bottom" /> 
                     <div class="hvrbox-layer_top hvrbox-layer_slideleft">
                         <div class="hvrbox-text">
                             <h4>{{recipe.name}}!</h4>
@@ -105,7 +105,7 @@
                     </a>
                 </div>
             </div>
-        {{/if}}
+        {{/if}} 
 
 
     <!--
@@ -116,7 +116,7 @@
             </li>
         {{/each}}
     </ol> -->
-
+       
 
     <form action = "/recipe/home" method = "post">
         <input class="button" type="submit" name="Find a Recipe!" value="Find a Recipe!" />
