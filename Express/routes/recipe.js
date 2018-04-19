@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 //this will be /recipe/home --> right after login
-router.get('/home', function(req, res, next){
+router.get('/home', function(req, res){
     console.log('inside GET /recipe/home');
         if(req.user) {
             console.log(req.user);
@@ -27,8 +27,18 @@ router.get('/home', function(req, res, next){
         }
 
 });
+router.get('/details/:id', function(req, res, next){
+    console.log(req.params.id);
+    Recipe.findOne({_id: req.params.id}, function(err, recipe){
+        console.log("inside find recipe slug");
+        if(err){
+            console.log('err finding recipe-details');
+        }
+        res.render('recipe-details',{recipe:recipe});
+    });
+});
 
-router.post('/home', function(req, res, next){
+router.post('/home', function(req, res){
     if(req.user) {
         console.log(req.user);
         console.log('posting for /recipe/home');
@@ -165,19 +175,6 @@ router.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
 });
-
-
-router.get('/:id', function(req, res, next){
-    console.log(req.params.id);
-    Recipe.findOne({id: req.params.id}, function(err, recipe){
-        console.log("inside find recipe slug");
-        if(err){
-            console.log('err finding recipe-details');
-        }
-        res.render('recipe-details',{recipe:recipe});
-    });
-});
-
 
 
 module.exports = router;
