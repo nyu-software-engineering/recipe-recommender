@@ -65,6 +65,7 @@ router.get('/pantry', function(req, res, next) {
     }
 });
 
+//a function that returns true if an ingredient is already in the user's pantry
 function ingredientInPantry(pantry, ingObj){
     let size = pantry.length;
     for(let i=0; i < size; i++){
@@ -77,6 +78,7 @@ function ingredientInPantry(pantry, ingObj){
     console.log("no duplicate found - returning false");
     return false;
 }
+
 //if a user creates their pantry (post), create ingredient objects in the database
 router.post('/pantry', function(req, res) {
     User.findOne({username: req.user.username}, function (err, user) {
@@ -120,14 +122,19 @@ router.post('/pantry', function(req, res) {
         res.redirect("/recipe/pantry");  
     });
 
+//updates the ingredient quantity inside the pantry
+function updatePantryQuantity(pantry, ingObj, quantity){
+    
+}
 router.post('/pantry/update', function (req, res) {
     console.log(req.body.ingredient); //should have the name of the ingredient we're changing
     User.findOne({username: req.user.username}, function (err, user){
-
-        MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
-    if (err) return res.send(500, { error: err });
-    return res.send("succesfully saved");
-});
+        let pantry = user.pantry;
+        console.log(pantry);
+        let newQuantity = req.body.quantity;
+        console.log(newQuantity);
+        let ingredient = req.body.ingredient;
+        console.log(ingredient);
     })
 });
 
