@@ -23,7 +23,7 @@ router.get('/home', function(req, res, next){
 
         } else {
             console.log('error');
-            res.render('login', {message:'to see this page, you must have an account. Login or register below'});
+            res.render('index', {message:'To see this page, you must have an account. Login or register below'});
         }
 
 });
@@ -39,8 +39,8 @@ router.post('/home', function(req, res, next){
 
         });
     }else {
-            console.log('error');
-            res.render('login', {message:'to see this page, you must have an account. Login or register below'});
+        console.log('error');
+        res.render('index', {message:'To see this page, you must have an account. Login or register below'});
     }
 });
 
@@ -65,7 +65,7 @@ router.get('/pantry', function(req, res, next) {
             res.render('pantry', {pantry: ingredients});
         });
     }else{
-        res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
+        res.render('index', {message: 'To see your pantry you must have an account. Login or register below.'});
     }
 });
 
@@ -90,7 +90,7 @@ router.post('/pantry', function(req, res) {
         let units = req.body.unit;
         console.log(req.body.ingredient);
         console.log(req.body.measure);
-        console.log(req.body.unit);
+        console.log(req.body.units);
         let toInsert = [];
         if(ingredients instanceof Array){
             // for(let i=0; i < ingredients.length; i++){
@@ -166,7 +166,7 @@ router.get('/inventory', function(req, res, next) {
         });
 
     }else{
-        res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
+        res.render('index', {message: 'To see your pantry you must have an account. Login or register below'});
     }
 
 });

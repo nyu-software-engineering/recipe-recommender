@@ -100,7 +100,7 @@
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="/sytlesheets/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      
       
     </head>
     <body>
@@ -112,11 +112,21 @@
           </ul>
 
           <ul id="nav-mobile" class="sidenav">
-            <li><a href="/recipe/logout">Logout</a></li>
+            <li><a href="#login">Login</a></li>
           </ul>
           <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
       </nav>
+
+      {{#if message}}
+        <div class="alert alert-error">
+          <script type="text/javascript">M.toast({html: "I am a toast!"})</script>
+          
+          {{message}}
+        </div>
+      {{/if}}
+
+      <script type="text/javascript">M.toast({html: "I am a toast!"})</script>
 
       <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
@@ -141,11 +151,6 @@
 
       <div id="login" class="modal">
         <div class="modal-content">
-          {{#if message}}
-            <div class="alert alert-error">
-                {{message}}
-            </div>
-          {{/if}}
           <form method="POST" action="/login">
           <div>
               <h3>Login Here:</h3>
@@ -278,13 +283,23 @@
 
       <!--  Scripts-->
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="js/materialize.js"></script>
-      <script src="js/init.js"></script>
+      <script src="/js/materialize.js"></script>
+      
       <script>
           $(document).ready(function(){
               $(".modal").modal();
               $('.sidenav').sidenav();
           });
+
+          (function($){
+            $(function(){
+
+              $('.sidenav').sidenav();
+              $('.parallax').parallax();
+
+            }); // end of document ready
+          })(jQuery); // end of jQuery name space
+
       </script>
       
     </body>
