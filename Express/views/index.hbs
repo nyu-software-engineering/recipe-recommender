@@ -118,15 +118,19 @@
         </div>
       </nav>
 
+      <script type="text/javascript">M.toast({html: "I am a toast!"})</script>
       {{#if message}}
         <div class="alert alert-error">
-          <script type="text/javascript">M.toast({html: "I am a toast!"})</script>
-          
-          {{message}}
-        </div>
+          <!--<script type="text/javascript">M.toast({html: "I am a toast!"})</script>-->
+          <script src="/js/materialize.js"></script>
+          <script>
+            console.log("TOAST!");
+            $(document).ready(function(){
+               Materialize.toast('I am a toast!', 4000);
+               console.log("TOAST!");
+            });
+        </script>
       {{/if}}
-
-      <script type="text/javascript">M.toast({html: "I am a toast!"})</script>
 
       <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
@@ -135,6 +139,16 @@
 
             <div class="row center">
                 <div class="col s12">
+                    {{#if message}}
+                      <div class="row center">
+                        <div class="col s12">
+                          <div class="card yellow">
+                            <span class="light"><h5>{{message}}</h5></span>
+                          </div>
+                        </div>
+                      </div>
+                    {{/if}}
+
                     <span class="light white-text z-depth-3"><h4 id="slogan">Whatever your kitchuation, we've got your back.</h4></span>
                     <br><br>
                     <!--<a href="register" class="btn-large waves-effect waves-light red lighten-2 z-depth-3">Register</a>-->
@@ -151,7 +165,7 @@
 
       <div id="login" class="modal">
         <div class="modal-content">
-          <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;">X</button>
+          <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;"><i class="material-icons">clear</i></button>
           <form method="POST" action="/login">
           <div>
               <h3>Login Here:</h3>
@@ -178,7 +192,7 @@
     <div id="register" class="modal">
       <div class="modal-content">
         <h3>Register for an account</h3>
-        <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;">X</button>
+        <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;"><i class="material-icons">clear</i></button>
         <div>
             <p>Create a new login here: </p>
             <form method="POST" action="/register">
