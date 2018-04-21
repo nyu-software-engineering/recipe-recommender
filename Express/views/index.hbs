@@ -151,6 +151,7 @@
 
       <div id="login" class="modal">
         <div class="modal-content">
+          <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;">X</button>
           <form method="POST" action="/login">
           <div>
               <h3>Login Here:</h3>
@@ -177,6 +178,7 @@
     <div id="register" class="modal">
       <div class="modal-content">
         <h3>Register for an account</h3>
+        <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;">X</button>
         <div>
             <p>Create a new login here: </p>
             <form method="POST" action="/register">
@@ -187,33 +189,6 @@
                 <br>
                 <input class="btn waves-light red lighten-2 z-depth-1" type="submit">
             </form>
-
-            <!-- not working
-            <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field"> col s6
-                      <input id="username" type="text" name="username" class="validate">
-                      <label for="username">Username</label>
-                    </div>
-                    <p></p>
-                    <div class="input-field">
-                      <input id="password" type="password" name="password" class="validate">
-                      <label for="password">Password</label>
-                    </div>
-                    <div class="input-field">
-                      <input id="name" type="name" name="name" class="validate">
-                      <label for="name">Name</label>
-                    </div>
-                    <div class="input-field">
-                      <input id="email" type="email" name="email" class="validate">
-                      <label for="email">Email</label>
-                    </div>
-                  </div>
-                  <input class="btn waves-light red lighten-2 z-depth-1" type="submit">
-                </form>
-              </div>
-            -->
         </div>
       </div>
     </div>
