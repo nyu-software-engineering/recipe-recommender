@@ -152,7 +152,6 @@
 
                     <span class="light white-text z-depth-3"><h4 id="slogan">Whatever your kitchuation, we've got your back.</h4></span>
                     <br><br>
-                    <!--<a href="register" class="btn-large waves-effect waves-light red lighten-2 z-depth-3">Register</a>-->
                     <a class="btn-large waves-effect waves-light red lighten-2 z-depth-3 modal-trigger" href="#register">Register</a>
                     <a class="btn-large waves-effect waves-light red lighten-2 z-depth-3 modal-trigger" href="#login">Login</a>
                 </div>
@@ -196,13 +195,13 @@
         <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;"><i class="material-icons">clear</i></button>
         <div>
             <p>Create a new login here: </p>
-            <form method="POST" action="/register">
+            <form method="POST" action="/setup">
                 Username: <input type="text" name="username">
                 Password: <input type = "password" name = "password">
                 Name: <input type = "text" name = "name"><br>
                 Email: <input type = "email" name = "email">
                 <br>
-                <input class="btn waves-light red lighten-2 z-depth-1" type="submit">
+                <a href="/register"><button type="submit" class="btn waves-light red lighten-2 z-depth-1">Register</button></a>
             </form>
         </div>
       </div>
