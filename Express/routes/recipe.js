@@ -199,30 +199,34 @@ router.post('/inventory/delete', function(req, res){
     //console.log("inside delete: \n", user.pantry);
     const ingredients = req.body.ingredient;
     console.log("ingredients inside delete", ingredients + "  ");
-    if(ingredients.constructor.name === 'Array'){
-      for(let i = 0; i < ingredients.length; i++){
-        user.pantry = user.pantry.filter(function(e){
-          return e.name != ingredients[i];
-          });
-      }
+    if(ingredients === undefined){
+      res.redirect('/recipe/inventory');
     }
-
     else{
-      if(ingredients !== ""){
-        user.pantry = user.pantry.filter(function(e){
-          return e.name != ingredients;
-          });
-      }
-    }
-    user.save((err, user) => {
-        if(err){
-            console.log(err);
+      if(ingredients.constructor.name === 'Array'){
+        for(let i = 0; i < ingredients.length; i++){
+          user.pantry = user.pantry.filter(function(e){
+            return e.name != ingredients[i];
+            });
         }
-        //console.log("saved!!!");
+      }
+      else{
+        if(ingredients !== ""){
+          user.pantry = user.pantry.filter(function(e){
+            return e.name != ingredients;
+            });
+        }
+      }
+      user.save((err, user) => {
+          if(err){
+              console.log(err);
+          }
+          //console.log("saved!!!");
+      });
+    //  ingredients = [];
+    res.redirect("/recipe/inventory");
+  }
     });
-  //  ingredients = [];
-  });
-  res.redirect("/recipe/inventory");
 });
 
 router.get('/inventory', function(req, res, next) {
