@@ -136,7 +136,6 @@ router.post('/pantry', function(req, res) {
 router.post('/pantry/update', function (req, res) {
     console.log(req.body.ingredient); //should have the name of the ingredient we're changing
     User.findOne({username: req.user.username}, function (err, user){
-
         MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
     if (err) return res.send(500, { error: err });
     return res.send("succesfully saved");
@@ -144,8 +143,35 @@ router.post('/pantry/update', function (req, res) {
     })
 });
 
-router.get('/delete/:pantry', function(req, res, next){
+router.post('/pantry/delete', function(req, res){
+  User.findOne({username: req.user.username}, function(err, user){
+    //console.log("inside delete: \n", user.pantry);
+    const ingredients = req.body.ingredient;
+    console.log("ingredients inside delete", ingredients + "  ");
+    if(ingredients.constructor.name === 'Array'){
+      for(let i = 0; i < ingredients.length; i++){
+        user.pantry = user.pantry.filter(function(e){
+          return e.name != ingredients[i];
+          });
+      }
+    }
 
+    else{
+      if(ingredients !== ""){
+        user.pantry = user.pantry.filter(function(e){
+          return e.name != ingredients;
+          });
+      }
+    }
+    user.save((err, user) => {
+        if(err){
+            console.log(err);
+        }
+        //console.log("saved!!!");
+    });
+  //  ingredients = [];
+  });
+  res.redirect("/recipe/pantry");
 });
 
 router.get('/inventory', function(req, res, next) {
