@@ -183,7 +183,7 @@ router.get('/inventory', function(req, res, next) {
             //for ingredients with quantity over 0
             let ingredients = [];
             ingredients = user.pantry.filter((ele)=>{
-                if(ele.quantity > 0){
+                if(ele.measure > 0){
                     return ele;
                 }
             });
