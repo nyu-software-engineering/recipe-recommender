@@ -55,7 +55,13 @@ router.post('/register', function(req, res) {
 
 //get base pantry page on register button click
 router.get('/setup', function(req, res, next){
-    res.render('basePantry');
+    console.log('inside GET /setup');
+        if(req.user) {
+            console.log(req.user);
+            res.render('index', {user: req.user});
+        } else {
+            res.render('basePantry');
+        }
 });
 
 //if a user registers (post), create new user object in database 
