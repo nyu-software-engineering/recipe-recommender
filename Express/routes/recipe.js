@@ -132,8 +132,59 @@ router.post('/pantry', function(req, res) {
         });
         res.redirect("/recipe/pantry");
     });
+    //if a user creates their pantry (post), create ingredient objects in the database
+    router.post('/inventory', function(req, res) {
+        User.findOne({username: req.user.username}, function (err, user) {
+
+            let ingredients = req.body.ingredient; //array of ingredient names
+            console.log(req.body.ingredient);
+            let toInsert = [];
+            if(ingredients instanceof Array){
+                ingredients.forEach((ele) => {
+                let ing = {
+                    name: ele,
+                    measure: 3,
+                    }
+
+                if (!ingredientInPantry(user.pantry, ing)){
+                    user.pantry.push(ing);
+                }
+
+            });
+            } else {
+                let ing = {
+                    name: ingredients,
+                    measure: 3,
+                    }
+                if (!ingredientInPantry(user.pantry, ing)){
+                    user.pantry.push(ing);
+                }
+            }
+
+            //console.log("outside of for loop");
+            user.save((err, user) => {
+                if(err){
+                    console.log(err);
+                }
+                //console.log("just saved");
+                //console.log(user);
+                    });
+
+            });
+            res.redirect("/recipe/inventory");
+        });
 
 router.post('/pantry/update', function (req, res) {
+    console.log(req.body.ingredient); //should have the name of the ingredient we're changing
+    User.findOne({username: req.user.username}, function (err, user){
+        MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
+    if (err) return res.send(500, { error: err });
+    return res.send("succesfully saved");
+});
+    })
+});
+
+router.post('/inventory/update', function (req, res) {
     console.log(req.body.ingredient); //should have the name of the ingredient we're changing
     User.findOne({username: req.user.username}, function (err, user){
         MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){

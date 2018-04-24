@@ -18,15 +18,283 @@
       </nav>
     </div>
   </header>
-
-  <h1> My Pantry</h1>
+<body>
+  <h2> My Pantry</h2>
   {{#if pantry}}
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add Ingredients</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form method="POST" action="/recipe/inventory">
+      <div>
+          <h5> Fridge: </h5>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
+            <span>Milk</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Cream" checked/>
+            <span>Cream</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Eggs" checked/>
+            <span>Eggs</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Almond Milk" checked/>
+            <span>Almond Milk</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Butter" checked/>
+            <span>Butter</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Yogurt" checked/>
+            <span>Yogurt</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Juice" checked/>
+            <span>Juice</span>
+          </label><br>
+
+         <!--  <h5> Spices / Condiments: </h5>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Salt" checked/>
+            <span>Salt</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Pepper" checked/>
+            <span>Pepper</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Garlic Powder" checked red/>
+            <span>Garlic powder</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Chili Powder" checked red/>
+            <span>Chili powder</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Paprika" checked/>
+            <span>Paprika</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Nutmeg" checked/>
+            <span>Nutmeg</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Ketchup" checked/>
+            <span>Ketchup</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Mustard" checked/>
+            <span>Mustard</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Mayo" checked/>
+            <span>Mayo</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Hot Sauce" checked/>
+            <span>Hot sauce</span>
+          </label><br>
+          <h5> Pantry: </h5>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Rice" checked/>
+            <span>Rice</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Pasta" checked/>
+            <span>Pasta</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Beans" checked/>
+            <span>Beans</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Lentils" checked/>
+            <span>Lentils</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Chicken Broth" checked/>
+            <span>Chicken broth</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Vegetable Broth" checked/>
+            <span>Vegetable broth</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Beef Broth" checked/>
+            <span>Beef broth</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Peanut Butter" checked/>
+            <span>Peanut butter</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Oats" checked/>
+            <span>Oats</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Cereal" checked/>
+            <span>Cereal</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Olive Oil" checked/>
+            <span>Olive oil</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Vinegar" checked/>
+            <span>Vinegar</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Soy Sauce" checked/>
+            <span>Soy sauce</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Honey" checked/>
+            <span>Honey</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Maple Syrup" checked/>
+            <span>Maple syrup</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Baking Powder" checked/>
+            <span>Baking powder</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Brown Sugar" checked/>
+            <span>Brown Sugar</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Granulated Sugar" checked/>
+            <span>Granulated Sugar</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Nuts" checked/>
+            <span>Nuts</span>
+          </label><br>
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Jam" checked/>
+            <span>Jam</span>
+          </label><br> -->
+        </div>
+        <div>
+          <button type="submit" class="btn modal-action modal-close waves-green">Save Pantry</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Update Quantities</a>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <form method="POST" action="/recipe/inventory/update">
+      <p>How much do you have?</p>
+      <div>
+          <div class="input-field col s12" name="ingredient" value="Milk">
+            <select>
+              <option value="1 gallon" selected>1 gallon</option>
+              <option value="1/2 gallon">1/2 gallon</option>
+              <option value="1 quart">1 quart</option>
+              <option value="1 pint">1 pint</option>
+            </select>
+            <label>Milk</label>
+          </div>
+
+          <div class="input-field col" name="ingredient" value="Cream">
+            <select>
+              <option value="1 pint" selected>1 pint</option>
+              <option value="1 quart">1 quart</option>
+              <option value="1 cups">1 cup</option>
+              <option value="2 cups">2 cups</option>
+              <option value="3 cups">3 cups</option>
+              <option value="4 cups">4 cups</option>
+            </select>
+            <label>Cream</label>
+          </div>
+
+          <div class="input-field col" name="ingredient" value="Eggs">
+            <select>
+              <option value="12 eggs" selected>12 eggs</option>
+              <option value="1 egg">1 egg</option>
+              <option value="2 eggs">2 eggs</option>
+              <option value="3 eggs">3 eggs</option>
+              <option value="4 eggs">4 eggs</option>
+              <option value="5 eggs">5 eggs</option>
+              <option value="6 eggs">6 eggs</option>
+              <option value="7 eggs">7 eggs</option>
+              <option value="8 eggs">8 eggs</option>
+              <option value="9 eggs">9 eggs</option>
+              <option value="10 eggs">10 eggs</option>
+              <option value="11 eggs">11 eggs</option>
+            </select>
+            <label>Eggs</label>
+          </div>
+
+          <div class="input-field col s12" name="ingredient" value="Almond Milk">
+            <select>
+              <option value="1 gallon" selected>1 gallon</option>
+              <option value="1/2 gallon">1/2 gallon</option>
+              <option value="1 quart">1 quart</option>
+              <option value="1 pint">1 pint</option>
+            </select>
+            <label>Almond Milk</label>
+          </div>
+
+           <div class="input-field col" name="ingredient" value="Butter">
+            <select>
+              <option value="1 pint" selected>1 cup</option>
+              <option value="1 quart">1/2 cup</option>
+              <option value="1 cups">1/4 cup</option>
+              <option value="2 cups">1/8 cup</option>
+              <option value="3 cups">2 cups</option>
+              <option value="4 cups">3 cups</option>
+            </select>
+            <label>Butter</label>
+          </div>
+
+           <div class="input-field col" name="ingredient" value="Yogurt">
+            <select>
+              <option value="1 pint" selected>1 pint</option>
+              <option value="1 quart">1 quart</option>
+              <option value="1 cups">1 cup</option>
+              <option value="2 cups">2 cups</option>
+              <option value="3 cups">3 cups</option>
+              <option value="4 cups">4 cups</option>
+            </select>
+            <label>Yogurt</label>
+          </div>
+
+          <div class="input-field col s12" name="ingredient" value="Juice">
+            <select>
+              <option value="1 gallon" selected>1 gallon</option>
+              <option value="1/2 gallon">1/2 gallon</option>
+              <option value="1 quart">1 quart</option>
+              <option value="1 pint">1 pint</option>
+            </select>
+            <label>Juice</label>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <div>
+        <button type="submit" class="btn modal-action modal-close waves-green">Save Pantry</button>
+      </div>
+      <!--<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>-->
+    </div>
+  </div>
+
   <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Throw out Ingredients</a>
 
   <!-- Modal Structure -->
   <div id="modal3" class="modal">
     <div class="modal-content">
-      {{#if pantry}}
       <form method="POST" action="/recipe/inventory/delete">
         <div>
             <h5> Fridge: </h5>
@@ -41,57 +309,39 @@
               <button type="submit" class="btn modal-action modal-close waves-green remove">Remove</button>
             </div>
       </form>
-      {{else}}
-        <form method ="GET" action="/recipe/pantry">
-          <div>
-            <h5> You do not have anything to remove </h5>
-          </div>
-          <div>
-            <button type="submit" class="btn modal-action modal-close waves-green">Pantry</button>
-          </div>
-      {{/if}}
     </div>
   </div>
 
-    <div class="container-fluid">
-          <div class="row">
-          {{#each pantry as |ingredient|}}
-            <div class="col-md-8 col-sm-12 col-xs-20 box">
-                <h1 class = "pantry-ingredient">{{ingredient.name}}</h1>
-                <h3 class = "pantry-quantity">{{ingredient.quantity}}</h3>
-                <button id="trash" type="image" class="remove-button">
-                  <img src="../img/remove.jpg" class="img-thumbnail" onclick="" />
-                </button>
-            </div>
-            {{/each}}
-          </div>
-        </div>
 
-    {{else}}
+      <h5>Your Current Pantry:</h5>
+
+      {{#each pantry as |ingredient|}}
+
+          <li class = "each"> name: <strong>{{ingredient.name}}</strong>
+              quantity: <strong>{{ingredient.measure}}</strong>
+              <br>
+          </li>
+      {{/each}}
+
+     {{else}}
       <h2> Your Pantry is Empty</h2>
       <a href="/recipe/pantry">
             SET UP YOUR PANTRY HERE!
       </a>
-      {{/if}}
-
-
+    {{/if}}
+</body>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
       <script>
           $(document).ready(function(){
-            //location.reload();
               $(".modal").modal();
               $('select:not([multiple])').material_select();
           });
-
-          // $(doc).click(function() {
-          //   location.reload();
-          // });
 
           const removeButton = document.querySelector('remove');
           removeButton.addEventListener('click', function(evt){
             evt.preventDefault();
             location.reload();
-          });
+          },false);
       </script>
