@@ -23,7 +23,7 @@ router.get('/home', function(req, res){
 
         } else {
             console.log('error');
-            res.render('index', {message:'To see this page, you must have an account. Login or register below'});
+            res.render('login', {message:'to see this page, you must have an account. Login or register below'});
         }
 
 });
@@ -49,8 +49,8 @@ router.post('/home', function(req, res){
 
         });
     }else {
-        console.log('error');
-        res.render('index', {message:'To see this page, you must have an account. Login or register below'});
+            console.log('error');
+            res.render('login', {message:'to see this page, you must have an account. Login or register below'});
     }
 });
 
@@ -75,7 +75,7 @@ router.get('/pantry', function(req, res, next) {
             res.render('pantry', {pantry: ingredients});
         });
     }else{
-        res.render('index', {message: 'To see your pantry you must have an account. Login or register below.'});
+        res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
     }
 });
 
@@ -94,54 +94,43 @@ function ingredientInPantry(pantry, ingObj){
 //if a user creates their pantry (post), create ingredient objects in the database
 router.post('/pantry', function(req, res) {
     User.findOne({username: req.user.username}, function (err, user) {
-        console.log("inside post /pantry")
+
         let ingredients = req.body.ingredient; //array of ingredient names
-        let measures = req.body.measure;
-        let units = req.body.unit;
         console.log(req.body.ingredient);
-        console.log(req.body.measure);
-        console.log(req.body.units);
         let toInsert = [];
         if(ingredients instanceof Array){
-            // for(let i=0; i < ingredients.length; i++){
-            //     console.log("index: " + i);
-            //     console.log("ingredient: " + ingredients[i]);
-            //     console.log("measure: " + measures[i]);
-            //     console.log("units: " + units[i]);
-            // }
+            ingredients.forEach((ele) => {
+            let ing = {
+                name: ele,
+                measure: 3,
+                }
 
-        //     ingredients.forEach((ele) => {
-        //     let ing = {
-        //         name: ele,
-        //         measure: 3,
-        //         }
+            if (!ingredientInPantry(user.pantry, ing)){
+                user.pantry.push(ing);
+            }
 
-        //     if (!ingredientInPantry(user.pantry, ing)){
-        //         user.pantry.push(ing);
-        //     }
-            
-        // });
+        });
         } else {
-            // let ing = {
-            //     name: ingredients,
-            //     measure: 3,
-            //     }
-            // if (!ingredientInPantry(user.pantry, ing)){
-            //     user.pantry.push(ing);
-            // }
+            let ing = {
+                name: ingredients,
+                measure: 3,
+                }
+            if (!ingredientInPantry(user.pantry, ing)){
+                user.pantry.push(ing);
+            }
         }
 
         //console.log("outside of for loop");
-        // user.save((err, user) => {
-        //     if(err){
-        //         console.log(err);
-        //     }
-        //     //console.log("just saved");
-        //     //console.log(user);
-        //         });
+        user.save((err, user) => {
+            if(err){
+                console.log(err);
+            }
+            //console.log("just saved");
+            //console.log(user);
+                });
 
         });
-        // res.redirect("/recipe/pantry");
+        res.redirect("/recipe/pantry");
     });
 
 router.post('/pantry/update', function (req, res) {
@@ -202,7 +191,7 @@ router.get('/inventory', function(req, res, next) {
         });
 
     }else{
-        res.render('index', {message: 'To see your pantry you must have an account. Login or register below'});
+        res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
     }
 
 });

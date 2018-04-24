@@ -53,6 +53,37 @@ router.post('/register', function(req, res) {
         });
 });
 
+//get base pantry page on register button click
+router.get('/setup', function(req, res, next){
+    console.log('inside GET /setup');
+        if(req.user) {
+            console.log(req.user);
+            res.render('index', {user: req.user});
+        } else {
+            res.render('basePantry');
+        }
+});
+
+//if a user registers (post), create new user object in database 
+router.post('/setup', function(req, res) {
+    User.register(new User({username:req.body.username, name: req.body.name, email: req.body.email}),
+        req.body.password, function(err, user){
+            if (err) {
+                // NOTE: error? send message back to registration...
+                //TODO: expand this
+                console.log(err);
+                res.render('index',{message:'Your registration information is not valid'});
+            } else {
+                // NOTE: once you've registered, you should be logged in automatically
+                // ...so call authenticate if there's no error
+                passport.authenticate('local')(req, res, function() {
+                    res.render('basePantry', {user: user});
+                });
+                res.render('basePantry', {user: user});
+            }
+        });
+});
+
 
 //login to account
 router.get('/login', function(req, res, next) {

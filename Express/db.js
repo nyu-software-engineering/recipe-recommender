@@ -5,6 +5,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const Ingredient = new Schema ({
   name: String,
   measure: Number, //will probably have to change/add this to be a measurement object
+  unit: String, //e.g. gallons, cups, oz
 });
 
 

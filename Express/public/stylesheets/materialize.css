@@ -5757,6 +5757,12 @@ button.btn-floating {
   will-change: top, opacity;
 }
 
+/* Kitchuation addition */
+#basepantry {
+  width: 90%;
+  height: 90%;
+}
+
 @media only screen and (max-width: 992px) {
   .modal {
     width: 80%;
@@ -9036,4 +9042,9 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
     text-align: center;
     margin-top: 1.2rem;
   }
+}
+
+/* Kitchuation addition */
+#slogan {
+  text-shadow: 1px 1px 1px #000;
 }
