@@ -1,14 +1,23 @@
 .pantry-background{
 	background-image:url(../img/mac&cheese.jpg);
 	background-position: center center;
-  padding-top: 10%;
+  /* padding-top: 8%;
+  margin-top: 8%; */
+  z-index: 1;
+  padding: 2px;
+  top: 0;
 }
 
-.side-nav{
+.sidenav-fixed{
   width: 200px;
+  padding-top: 0;
 }
 
 .nav-wrapper{
   z-index: 232323;
   margin-left: 0;
+  position: absolute;
+}
+body{
+  left: 200px;
 }
