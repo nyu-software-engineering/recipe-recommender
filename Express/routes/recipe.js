@@ -143,7 +143,7 @@ router.post('/pantry/update', function (req, res) {
     })
 });
 
-router.post('/pantry/delete', function(req, res){
+router.post('/inventory/delete', function(req, res){
   User.findOne({username: req.user.username}, function(err, user){
     //console.log("inside delete: \n", user.pantry);
     const ingredients = req.body.ingredient;
@@ -171,7 +171,7 @@ router.post('/pantry/delete', function(req, res){
     });
   //  ingredients = [];
   });
-  res.redirect("/recipe/pantry");
+  res.redirect("/recipe/inventory");
 });
 
 router.get('/inventory', function(req, res, next) {

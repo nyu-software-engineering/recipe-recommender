@@ -3,8 +3,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="/stylesheets/bootstrap.min.css" rel="stylesheet"> -->
   <link href="../stylesheets/style.css" rel="stylesheet">
+  <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="../javascripts/bootstrap.min.js"></script>
@@ -20,6 +21,38 @@
 
   <h1> My Pantry</h1>
   {{#if pantry}}
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Throw out Ingredients</a>
+
+  <!-- Modal Structure -->
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      {{#if pantry}}
+      <form method="POST" action="/recipe/inventory/delete">
+        <div>
+            <h5> Fridge: </h5>
+              {{#each  pantry}}
+                <label>
+                  <input type="checkbox" class="filled-in" name="ingredient" value="{{name}}"/>
+                  <span>{{name}}</span>
+                </label><br>
+              {{/each}}
+            </div>
+            <div>
+              <button type="submit" class="btn modal-action modal-close waves-green remove">Remove</button>
+            </div>
+      </form>
+      {{else}}
+        <form method ="GET" action="/recipe/pantry">
+          <div>
+            <h5> You do not have anything to remove </h5>
+          </div>
+          <div>
+            <button type="submit" class="btn modal-action modal-close waves-green">Pantry</button>
+          </div>
+      {{/if}}
+    </div>
+  </div>
+
     <div class="container-fluid">
           <div class="row">
           {{#each pantry as |ingredient|}}
@@ -27,12 +60,13 @@
                 <h1 class = "pantry-ingredient">{{ingredient.name}}</h1>
                 <h3 class = "pantry-quantity">{{ingredient.quantity}}</h3>
                 <button id="trash" type="image" class="remove-button">
-                  <img src="../img/remove.jpg" class="img-thumbnail" onclick="" /> 
+                  <img src="../img/remove.jpg" class="img-thumbnail" onclick="" />
                 </button>
             </div>
             {{/each}}
           </div>
         </div>
+
     {{else}}
       <h2> Your Pantry is Empty</h2>
       <a href="/recipe/pantry">
@@ -40,3 +74,24 @@
       </a>
       {{/if}}
 
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+      <script>
+          $(document).ready(function(){
+            //location.reload();
+              $(".modal").modal();
+              $('select:not([multiple])').material_select();
+          });
+
+          // $(doc).click(function() {
+          //   location.reload();
+          // });
+
+          const removeButton = document.querySelector('remove');
+          removeButton.addEventListener('click', function(evt){
+            evt.preventDefault();
+            location.reload();
+          });
+      </script>
