@@ -47,7 +47,7 @@ router.post('/register', function(req, res) {
                 // NOTE: once you've registered, you should be logged in automatically
                 // ...so call authenticate if there's no error
                 passport.authenticate('local')(req, res, function() {
-                    res.render('index', {user: user});
+                    res.render('basePantry', {user: user});
                 });
             }
         });
@@ -57,6 +57,7 @@ router.post('/register', function(req, res) {
 router.get('/setup', function(req, res, next){
     console.log('inside GET /setup');
         if(req.user) {
+            console.log("**user found");
             console.log(req.user);
             res.render('index', {user: req.user});
         } else {
@@ -66,20 +67,21 @@ router.get('/setup', function(req, res, next){
 
 //if a user registers (post), create new user object in database 
 router.post('/setup', function(req, res) {
+    console.log("inside post setup, request body: ", req.body);
     User.register(new User({username:req.body.username, name: req.body.name, email: req.body.email}),
         req.body.password, function(err, user){
             if (err) {
-                // NOTE: error? send message back to registration...
-                //TODO: expand this
                 console.log(err);
                 res.render('index',{message:'Your registration information is not valid'});
+
             } else {
+                console.log("no error");
                 // NOTE: once you've registered, you should be logged in automatically
                 // ...so call authenticate if there's no error
                 passport.authenticate('local')(req, res, function() {
                     res.render('basePantry', {user: user});
                 });
-                res.render('basePantry', {user: user});
+                console.log(user);
             }
         });
 });
