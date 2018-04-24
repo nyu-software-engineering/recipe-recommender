@@ -24,7 +24,7 @@
     </nav>
 
     <!-- Sidebar -->
-    <div class="sidenav-fixed">
+    <div class="sidenav-fixed grey lighten-2 height100">
       <dl>
           <div class = "pantry-background">
               <br>
@@ -92,14 +92,16 @@
     </div>
 
     <body>
-    <h2>Welcome back, {{user.username}}!</h2>
-    <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
-     <a href="/recipe/pantry">
-            SET UP YOUR PANTRY HERE!
-        </a>
-        <form action = "/recipe/home" method = "post">
-        <input class="button" type="submit" name="Find a Recipe!" value="Find a Recipe!" />
-         </form>
+      <div class = "hellomessage">
+        <h2>Welcome back, {{user.username}}!</h2>
+        <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
+         <a href="/recipe/pantry">
+                SET UP YOUR PANTRY HERE!
+            </a>
+            <form action = "/recipe/home" method = "post">
+            <input class="button" type="submit" name="Find a Recipe!" value="Find a Recipe!" />
+             </form>
+           </div>
     </body>
 {{else}}
     <html lang="en">
