@@ -21,7 +21,7 @@ router.get('/home', function(req, res){
             console.log(req.user);
             Recipe.find({}, function(err, recipe){
             console.log("inside find recipe ", recipe.length);
-            res.render('index', {recipe: recipe.splice(0,21), user: req.user});
+            res.render('index', {recipe: recipe.splice(0,99), user: req.user});
           });
         } else {
             console.log('error');
