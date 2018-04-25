@@ -9,6 +9,13 @@
   img{
     height: 400px;
   }
+  input[type=image] {
+    height: 25px;
+    width: 25px;
+  }
+  input[type=image].click{
+    -webkit-filter: brightness(50%) saturate(200%) hue-rotate(90deg);
+  }
 </style>
 <nav class="red lighten-2" role="navigation">
   <div class="nav-wrapper container">
@@ -22,6 +29,13 @@
 <div class = "content">
 <h1 class = "teal-text"> {{recipe.name}} </h1>
 <img src = {{recipe.imgURL}}> </img>
+<br>
+<br>
+<!-- favorite icon  -->
+<form method="POST" action="/recipe/details/{{recipe._id}}">
+  <input type = "image" src = "/img/fav.png" name = "fav">
+</form>
+
 <h3 class = "teal-text">Ingredients </h3>
   {{#each recipe.ingredients}}
     <li class = "grey lighten-2"> {{measure}} {{name}} </li>
