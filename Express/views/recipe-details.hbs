@@ -1,4 +1,6 @@
 <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet">
+<script src="/js/favorite.js"></script>
+
 
 <style>
 .content{
@@ -10,11 +12,11 @@
     height: 400px;
   }
   input[type=image] {
-    height: 25px;
-    width: 25px;
+    height: 50px;
+    width: 50px;
   }
-  input[type=image].click{
-    -webkit-filter: brightness(50%) saturate(200%) hue-rotate(90deg);
+  .clicked{
+    filter: hue-rotate(100deg);
   }
 </style>
 <nav class="red lighten-2" role="navigation">
@@ -32,9 +34,11 @@
 <br>
 <br>
 <!-- favorite icon  -->
-<form method="POST" action="/recipe/details/{{recipe._id}}">
-  <input type = "image" src = "/img/fav.png" name = "fav">
-</form>
+<div class = "fav-form">
+  <form method="POST" action="/recipe/details/{{recipe._id}}">
+    <input type = "image" src = "/img/fav.png" name = "fav">
+  </form>
+</div>
 
 <h3 class = "teal-text">Ingredients </h3>
   {{#each recipe.ingredients}}
