@@ -17,8 +17,9 @@
 .nav-wrapper{
   z-index: 232323;
   margin-left: 0;
-  position: absolute;
+  position: fixed;
 }
+
 .hellomessage{
   left: 225px;
   position: absolute;
@@ -27,7 +28,7 @@
 }
 .height100{
   height: 100%;
-  position:absolute;
+  position:fixed;
   top: 65px;
 }
 .recipe-list{
