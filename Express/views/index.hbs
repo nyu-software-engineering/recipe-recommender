@@ -1,3 +1,9 @@
+<style>
+body{
+  background-attachment: fixed;
+}
+</style>
+
 {{#if user}}
     <head>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -7,6 +13,11 @@
         <link href="http://materializecss.com/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
         <link href="http://materializecss.com/css/prism.css" rel="stylesheet">
         <link href="/stylesheets/style3.css" type = "text/css" rel = "stylesheet"/>
+
+        <link type="text/css" rel="stylesheet" href="../stylesheets/hover-box.css">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="../javascripts/recipeLogic.js" type="text/javascript"></script>
     </head>
     <nav class="red lighten-2" role="navigation">
@@ -98,11 +109,29 @@
          <a href="/recipe/pantry">
                 SET UP YOUR PANTRY HERE!
             </a>
-            <form action = "/recipe/home" method = "post">
+            <!-- <form action = "/recipe/home" method = "post">
             <input class="button" type="submit" name="Find a Recipe!" value="Find a Recipe!" />
-             </form>
+             </form> -->
            </div>
+           <div class = "row s5 recipe-list">
+             {{#each recipe}}
+               <div class = "col s4 hvrbox recipe">
+                 <a href = "/recipe/details/{{_id}}">
+                     <img src={{imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" />
+                       <div class="hvrbox-layer_top hvrbox-layer_slideleft">
+                         <div class="hvrbox-text">
+                           <h4>{{name}}!</h4>
+                           <h6> Ingredients: </h6>
+                           {{ingredients}}
+                           <h6> Steps: </h6>
+                           {{directions}}
+                         </div>
+                       </div>
+                 </a>
+               </div>
+             {{/each}}
     </body>
+
 {{else}}
     <html lang="en">
     <head>

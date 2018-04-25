@@ -19,8 +19,10 @@ router.get('/home', function(req, res){
     console.log('inside GET /recipe/home');
         if(req.user) {
             console.log(req.user);
-            res.render('index', {user: req.user});
-
+            Recipe.find({}, function(err, recipe){
+            console.log("inside find recipe ", recipe.length);
+            res.render('index', {recipe: recipe.splice(0,21), user: req.user});
+          });
         } else {
             console.log('error');
             res.render('login', {message:'to see this page, you must have an account. Login or register below'});
@@ -38,21 +40,21 @@ router.get('/details/:id', function(req, res, next){
     });
 });
 
-router.post('/home', function(req, res){
-    if(req.user) {
-        console.log(req.user);
-        console.log('posting for /recipe/home');
-
-        Recipe.find({}, function(err, recipe){
-        console.log("inside find recipe ", recipe.length);
-        res.render('recipe', {recipe: recipe.splice(0,21), user: req.user});
-
-        });
-    }else {
-            console.log('error');
-            res.render('login', {message:'to see this page, you must have an account. Login or register below'});
-    }
-});
+// router.post('/home', function(req, res){
+//     if(req.user) {
+//         console.log(req.user);
+//         console.log('posting for /recipe/home');
+//
+//         Recipe.find({}, function(err, recipe){
+//         console.log("inside find recipe ", recipe.length);
+//         res.render('recipe', {recipe: recipe.splice(0,21), user: req.user});
+//
+//         });
+//     }else {
+//             console.log('error');
+//             res.render('login', {message:'to see this page, you must have an account. Login or register below'});
+//     }
+// });
 
 
 //get page which allows a user to set up their pantry
