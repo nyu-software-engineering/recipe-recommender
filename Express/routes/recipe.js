@@ -5,6 +5,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const random = require('mongoose-simple-random');
 
 const Recipe = mongoose.model('Recipe');
 const Ingredient = mongoose.model('Ingredient');
@@ -43,10 +44,17 @@ router.post('/home', function(req, res){
         console.log(req.user);
         console.log('posting for /recipe/home');
 
-        Recipe.find({}, function(err, recipe){
+        let recipes = Recipe.find({}, function(err, recipe){
         console.log("inside find recipe ", recipe.length);
-        res.render('recipe', {recipe: recipe.splice(0,21), user: req.user});
-
+        if (err){
+            console.log(err);
+        } else{
+            recipe.forEach( (ele) => {
+                console.log(ele);
+               });
+        }
+     
+        //res.render('recipe', {recipe: recipe.splice(0,21), user: req.user});
         });
     }else {
         console.log('error');
