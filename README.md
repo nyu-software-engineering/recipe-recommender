@@ -1,4 +1,4 @@
-# Kitchuation
+# Recipe Recommender
 
 ### Team
 1. Denisa Vataksi

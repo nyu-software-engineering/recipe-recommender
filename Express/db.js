@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
-const random = require('mongoose-simple-random');
 
 const Ingredient = new Schema ({
   name: String,
   measure: Number, //will probably have to change/add this to be a measurement object
-  unit: String, //e.g. gallons, cups, oz
 });
 
 
@@ -26,7 +24,6 @@ const Recipe = new Schema ({
   //nutrition: [String],
   //servings: Number
 });
-Recipe.plugin(random);
 
 const User = new Schema ({
   id: Number,
