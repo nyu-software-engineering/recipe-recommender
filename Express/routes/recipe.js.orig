@@ -5,7 +5,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-const random = require('mongoose-simple-random');
 
 const Recipe = mongoose.model('Recipe');
 const Ingredient = mongoose.model('Ingredient');
@@ -20,12 +19,8 @@ router.get('/home', function(req, res){
     console.log('inside GET /recipe/home');
         if(req.user) {
             console.log(req.user);
-            Recipe.findRandom({}, {}, {limit: 50}, function(err, results) {
-              if (!err) {
-                console.log(results); // 5 elements 
-                 res.render('recipe', {recipe: results, user: req.user});
-              }
-        });
+            res.render('index', {user: req.user});
+
         } else {
             console.log('error');
             res.render('index', {message:'To see this page, you must have an account. Login or register below'});
@@ -41,6 +36,22 @@ router.get('/details/:id', function(req, res, next){
         }
         res.render('recipe-details',{recipe:recipe});
     });
+});
+
+router.post('/home', function(req, res){
+    if(req.user) {
+        console.log(req.user);
+        console.log('posting for /recipe/home');
+
+        Recipe.find({}, function(err, recipe){
+        console.log("inside find recipe ", recipe.length);
+        res.render('recipe', {recipe: recipe.splice(0,21), user: req.user});
+
+        });
+    }else {
+        console.log('error');
+        res.render('index', {message:'To see this page, you must have an account. Login or register below'});
+    }
 });
 
 
@@ -132,47 +143,6 @@ router.post('/pantry', function(req, res) {
         });
         // res.redirect("/recipe/pantry");
     });
-    //if a user creates their pantry (post), create ingredient objects in the database
-    router.post('/inventory', function(req, res) {
-        User.findOne({username: req.user.username}, function (err, user) {
-
-            let ingredients = req.body.ingredient; //array of ingredient names
-            console.log(req.body.ingredient);
-            let toInsert = [];
-            if(ingredients instanceof Array){
-                ingredients.forEach((ele) => {
-                let ing = {
-                    name: ele,
-                    measure: 3,
-                    }
-
-                if (!ingredientInPantry(user.pantry, ing)){
-                    user.pantry.push(ing);
-                }
-
-            });
-            } else {
-                let ing = {
-                    name: ingredients,
-                    measure: 3,
-                    }
-                if (!ingredientInPantry(user.pantry, ing)){
-                    user.pantry.push(ing);
-                }
-            }
-
-            //console.log("outside of for loop");
-            user.save((err, user) => {
-                if(err){
-                    console.log(err);
-                }
-                //console.log("just saved");
-                //console.log(user);
-                    });
-
-            });
-            res.redirect("/recipe/inventory");
-        });
 
 router.post('/pantry/update', function (req, res) {
     console.log(req.body.ingredient); //should have the name of the ingredient we're changing
@@ -184,49 +154,35 @@ router.post('/pantry/update', function (req, res) {
     })
 });
 
-router.post('/inventory/update', function (req, res) {
-    console.log(req.body.ingredient); //should have the name of the ingredient we're changing
-    User.findOne({username: req.user.username}, function (err, user){
-        MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
-    if (err) return res.send(500, { error: err });
-    return res.send("succesfully saved");
-});
-    })
-});
-
-router.post('/inventory/delete', function(req, res){
+router.post('/pantry/delete', function(req, res){
   User.findOne({username: req.user.username}, function(err, user){
     //console.log("inside delete: \n", user.pantry);
     const ingredients = req.body.ingredient;
     console.log("ingredients inside delete", ingredients + "  ");
-    if(ingredients === undefined){
-      res.redirect('/recipe/inventory');
+    if(ingredients.constructor.name === 'Array'){
+      for(let i = 0; i < ingredients.length; i++){
+        user.pantry = user.pantry.filter(function(e){
+          return e.name != ingredients[i];
+          });
+      }
     }
+
     else{
-      if(ingredients.constructor.name === 'Array'){
-        for(let i = 0; i < ingredients.length; i++){
-          user.pantry = user.pantry.filter(function(e){
-            return e.name != ingredients[i];
-            });
-        }
+      if(ingredients !== ""){
+        user.pantry = user.pantry.filter(function(e){
+          return e.name != ingredients;
+          });
       }
-      else{
-        if(ingredients !== ""){
-          user.pantry = user.pantry.filter(function(e){
-            return e.name != ingredients;
-            });
+    }
+    user.save((err, user) => {
+        if(err){
+            console.log(err);
         }
-      }
-      user.save((err, user) => {
-          if(err){
-              console.log(err);
-          }
-          //console.log("saved!!!");
-      });
-    //  ingredients = [];
-    res.redirect("/recipe/inventory");
-  }
+        //console.log("saved!!!");
     });
+  //  ingredients = [];
+  });
+  res.redirect("/recipe/pantry");
 });
 
 router.get('/inventory', function(req, res, next) {

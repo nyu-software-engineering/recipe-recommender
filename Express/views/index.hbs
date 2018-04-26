@@ -149,6 +149,7 @@ body{
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
       <link href="/sytlesheets/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     </head>
@@ -161,22 +162,46 @@ body{
           </ul>
 
           <ul id="nav-mobile" class="sidenav">
-            <li><a href="/recipe/logout">Logout</a></li>
+            <li><a href="#login">Login</a></li>
           </ul>
           <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
       </nav>
 
+      <!-- doesn't do anything -->
+      <script type="text/javascript">M.toast({html: "I am a toast!"})</script>
+      {{#if message}}
+        <div class="alert alert-error">
+          <!--<script type="text/javascript">M.toast({html: "I am a toast!"})</script>-->
+          <script src="/js/materialize.js"></script>
+          <script>
+            console.log("TOAST!");
+            $(document).ready(function(){
+               Materialize.toast('I am a toast!', 4000);
+               console.log("TOAST!");
+            });
+        </script>
+      {{/if}}
+
       <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
           <div class="container">
-            <br><br><br>
+            <br><br><br><br><br>
 
             <div class="row center">
                 <div class="col s12">
-                    <span class="light white-text"><h4>Whatever your kitchuation, we've got your back.</h4></span>
+                    {{#if message}}
+                      <div class="row center">
+                        <div class="col s12">
+                          <div class="card yellow">
+                            <span class="light"><h5>{{message}}</h5></span>
+                          </div>
+                        </div>
+                      </div>
+                    {{/if}}
+
+                    <span class="light white-text z-depth-3"><h4 id="slogan">Whatever your kitchuation, we've got your back.</h4></span>
                     <br><br>
-                    <!--<a href="register" class="btn-large waves-effect waves-light red lighten-2 z-depth-3">Register</a>-->
                     <a class="btn-large waves-effect waves-light red lighten-2 z-depth-3 modal-trigger" href="#register">Register</a>
                     <a class="btn-large waves-effect waves-light red lighten-2 z-depth-3 modal-trigger" href="#login">Login</a>
                 </div>
@@ -190,11 +215,7 @@ body{
 
       <div id="login" class="modal">
         <div class="modal-content">
-          {{#if message}}
-            <div class="alert alert-error">
-                {{message}}
-            </div>
-          {{/if}}
+          <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;"><i class="material-icons">clear</i></button>
           <form method="POST" action="/login">
           <div>
               <h3>Login Here:</h3>
@@ -221,45 +242,17 @@ body{
     <div id="register" class="modal">
       <div class="modal-content">
         <h3>Register for an account</h3>
-        <h2>{{message}}</h2>
-
+        <button class="modal-close btn-flat" style="position:absolute;top:0;right:0;"><i class="material-icons">clear</i></button>
         <div>
             <p>Create a new login here: </p>
-            <form method="POST" action="/register">
+            <form method="POST" action="/setup">
                 Username: <input type="text" name="username">
                 Password: <input type = "password" name = "password">
                 Name: <input type = "text" name = "name"><br>
                 Email: <input type = "email" name = "email">
                 <br>
-                <input class="btn waves-light red lighten-2 z-depth-1" type="submit">
+                <a href="/register"><button type="submit" class="btn waves-light red lighten-2 z-depth-1">Register</button></a>
             </form>
-
-            <!-- not working
-            <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field"> col s6
-                      <input id="username" type="text" name="username" class="validate">
-                      <label for="username">Username</label>
-                    </div>
-                    <p></p>
-                    <div class="input-field">
-                      <input id="password" type="password" name="password" class="validate">
-                      <label for="password">Password</label>
-                    </div>
-                    <div class="input-field">
-                      <input id="name" type="name" name="name" class="validate">
-                      <label for="name">Name</label>
-                    </div>
-                    <div class="input-field">
-                      <input id="email" type="email" name="email" class="validate">
-                      <label for="email">Email</label>
-                    </div>
-                  </div>
-                  <input class="btn waves-light red lighten-2 z-depth-1" type="submit">
-                </form>
-              </div>
-            -->
         </div>
       </div>
     </div>
@@ -327,6 +320,7 @@ body{
 
       <!--  Scripts-->
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
       <script src="js/materialize.js"></script>
       <script src="js/init.js"></script>
       <script id="_bsa_srv-CKYD55QM_0" type="text/javascript" src="http://srv.buysellads.com/ads/CKYD55QM.json?callback=_bsa_go&amp;segment=placement:materializecsscom"></script>
