@@ -44,18 +44,25 @@ router.post('/home', function(req, res){
         console.log(req.user);
         console.log('posting for /recipe/home');
 
-        let recipes = Recipe.find({}, function(err, recipe){
-        console.log("inside find recipe ", recipe.length);
-        if (err){
-            console.log(err);
-        } else{
-            recipe.forEach( (ele) => {
-                console.log(ele);
-               });
-        }
-     
-        //res.render('recipe', {recipe: recipe.splice(0,21), user: req.user});
+        // let recipes = Recipe.find({}, function(err, recipe){
+        // console.log("inside find recipe ", recipe.length);
+        // if (err){
+        //     console.log(err);
+        // } else{
+        //     recipe.forEach( (ele) => {
+        //         console.log(ele);
+        //        });
+        // }
+
+        Recipe.findRandom({}, {}, {limit: 5}, function(err, results) {
+              if (!err) {
+                console.log(results); // 5 elements 
+                 res.render('recipe', {recipe: results, user: req.user});
+              }
         });
+     
+       
+        
     }else {
         console.log('error');
         res.render('index', {message:'To see this page, you must have an account. Login or register below'});

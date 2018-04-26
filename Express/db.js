@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
+const random = require('mongoose-simple-random');
 
 const Ingredient = new Schema ({
   name: String,
@@ -25,6 +26,7 @@ const Recipe = new Schema ({
   //nutrition: [String],
   //servings: Number
 });
+Recipe.plugin(random);
 
 const User = new Schema ({
   id: Number,
