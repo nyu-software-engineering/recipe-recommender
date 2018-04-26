@@ -524,43 +524,6 @@
 </div> -->
 
 
-<a class="waves-effect waves-light btn modal-trigger" href="#modal3">Throw out Ingredients</a>
-
-<!-- Modal Structure -->
-<div id="modal3" class="modal">
-  <div class="modal-content">
-    {{#if pantry}}
-    <form method="POST" action="/recipe/pantry/delete">
-      <div>
-          <h5> Fridge: </h5>
-            {{#each  pantry}}
-              <label>
-                <input type="checkbox" class="filled-in" name="ingredient" value="{{name}}"/>
-                <span>{{name}}</span>
-              </label><br>
-            {{/each}}
-          </div>
-          <div>
-            <button type="submit" class="btn modal-action modal-close waves-green">Remove</button>
-          </div>
-    </form>
-    {{else}}
-      <form method ="GET" action="/recipe/pantry">
-        <div>
-          <h5> You do not have anything to remove </h5>
-        </div>
-        <div>
-          <button type="submit" class="btn modal-action modal-close waves-green">Pantry</button>
-        </div>
-    {{/if}}
-  </div>
-</div>
-
-
-
-
-
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
@@ -584,6 +547,10 @@
     {{/each}}
 
 {{/if}}
+
+<script>
+
+</script>
 
 <!--<script>
 let ingr = document.getElementById('ingredient');

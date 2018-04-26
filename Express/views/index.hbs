@@ -1,94 +1,143 @@
+<style>
+body{
+  background-attachment: fixed;
+}
+</style>
+
 {{#if user}}
     <head>
-        <link href="/stylesheets/style.css" type="text/css" rel="stylesheet">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="http://materializecss.com/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+        <link href="http://materializecss.com/css/prism.css" rel="stylesheet">
+        <link href="/stylesheets/style3.css" type = "text/css" rel = "stylesheet"/>
+
+        <link type="text/css" rel="stylesheet" href="../stylesheets/hover-box.css">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="../javascripts/recipeLogic.js" type="text/javascript"></script>
     </head>
+
+    <div class="navbar-fixed">
+      <nav class="red lighten-2 navbar" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="#" class="brand-logo white-text">Kitchuation</a>
+          <ul class="right hide-on-med-and-down yellow-text lighten-2">
+            <li><a class="modal-trigger" href="/recipe/logout">Logout</a></li>
+          </ul>
+
+          <ul id="nav-mobile" class="sidenav">
+            <li><a href="/recipe/logout">Logout</a></li>
+          </ul>
+
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+    <div>
+
+    <!-- Sidebar -->
+    <div class="sidenav-fixed grey lighten-2 height100">
+      <dl>
+          <div class = "pantry-background">
+              <br>
+              <h5><strong><a href="/recipe/inventory" class = "black-text"> MY PANTRY </a></strong></h5>
+          </div>
+      </dl>
+
+      <dt class="Category">Dietary Preferences</dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="vegetarian" name="dietaryFilter" value="vegetarian">
+          <label for="vegetarian">vegetarian</label>
+      </dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="vegan" name="dietaryFilter" value="vegan">
+          <label for="vegan">vegan</label>
+      </dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="gluten" name="dietaryFilter" value="gluten">
+          <label for="gluten">gluten free</label>
+      </dt>
+
+      <dt class="Category">Cuisine</dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="Mediterranean" name="cusineFilter" value="Mediterranean">
+          <label for="Mediterranean">Mediterranean</label>
+      </dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="Asian" name="cuisineFilter" value="Asian">
+          <label for="Asian">Asian</label>
+      </dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="Italian" name="cuisineFilter" value="Italian">
+          <label for="Italian">Italian</label>
+      </dt>
+
+      <dt class="Category">Cook Time</dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="0-30" name="timeFilter" value="0-30">
+          <label for="0-30">0 to 30 minutes</label>
+      </dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="30-60" name="timeFilter" value="30-60">
+          <label for="30-60">30 to 60 minutes</label>
+      </dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="60-90" name="timeFilter" value="60-90">
+          <label for="60-90">60 to 90 minutes</label>
+      </dt>
+
+      <dt class="Filters">
+          <input type="checkbox" id="90+" name="timeFilter" value="90+">
+          <label for="90+">90+ minutes</label>
+      </dt>
+
+    </dl>
+    </div>
+
     <body>
-
-      <header id="header">
-        <div class="inner">
-          <div class="logo"> <a href="/recipe">Recipe Finder</a></div>
-          <nav id="nav">
-              <a href="/recipe/logout">Logout</a>
-          </nav>
-        </div>
-      </header>
-
-
-    <h2>Welcome back, {{user.username}}!</h2>
-    <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
-     <a href="/recipe/pantry">
+      <div class = "hellomessage">
+        <h4>Welcome back, {{user.username}}!</h4>
+        <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
+         <a href="/recipe/pantry">
             SET UP YOUR PANTRY HERE!
-        </a>
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <dl class="nav">
-                <a href="/recipe/inventory" id="myPantry">My Pantry</a>
-                <dt class="Category">Dietary Preferences</dt>
-                
-                <dt class="Filters">
-                    <input type="checkbox" id="vegetarian" name="dietaryFilter" value="vegetarian">
-                    <label for="vegetarian">vegetarian</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="vegan" name="dietaryFilter" value="vegan">
-                    <label for="vegan">vegan</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="gluten" name="dietaryFilter" value="gluten">
-                    <label for="gluten">gluten free</label>
-                </dt>
-
-                <dt class="Category">Cuisine</dt>
-                
-                <dt class="Filters">
-                    <input type="checkbox" id="Mediterranean" name="cusineFilter" value="Mediterranean">
-                    <label for="Mediterranean">Mediterranean</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="Asian" name="cuisineFilter" value="Asian">
-                    <label for="Asian">Asian</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="Italian" name="cuisineFilter" value="Italian">
-                    <label for="Italian">Italian</label>
-                </dt>
-
-                <dt class="Category">Cook Time</dt>
-                
-                <dt class="Filters">
-                    <input type="checkbox" id="0-30" name="timeFilter" value="0-30">
-                    <label for="0-30">0 to 30 minutes</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="30-60" name="timeFilter" value="30-60">
-                    <label for="30-60">30 to 60 minutes</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="60-90" name="timeFilter" value="60-90">
-                    <label for="60-90">60 to 90 minutes</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="90+" name="timeFilter" value="90+">
-                    <label for="90+">90+ minutes</label>
-                </dt>
-                 
-            </dl>
-        </div>
-
-        <form action = "/recipe/home" method = "post">
-        <input class="button" type="submit" name="Find a Recipe!" value="Find a Recipe!" />
-         </form>
+          </a>
+      </div>
+           <div class = "row s5 recipe-list">
+             {{#each recipe}}
+               <div class = "col s4 hvrbox recipe">
+                 <a href = "/recipe/details/{{_id}}">
+                     <img src={{imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" />
+                       <div class="hvrbox-layer_top hvrbox-layer_slideleft">
+                         <div class="hvrbox-text">
+                           <h6 align="left">{{name}}</h6>
+                           <!-- <h6> Ingredients: </h6>
+                           {{ingredients}}
+                           <h6> Steps: </h6>
+                           {{directions}} -->
+                         </div>
+                       </div>
+                 </a>
+               </div>
+             {{/each}}
     </body>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.pushpin').pushpin();
+      });
+    </script>
 
 {{else}}
     <html lang="en">
@@ -100,8 +149,9 @@
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      
-      
+
+      <link href="/sytlesheets/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
     </head>
     <body>
       <nav class="red lighten-2" role="navigation">
@@ -185,8 +235,8 @@
                 <button type="submit" class="btn waves-light red lighten-2 z-depth-1">Sign in</button>
             </div>
           </div>
-          </form>        
-        </div>  
+          </form>
+        </div>
       </div>
 
     <div id="register" class="modal">
@@ -270,24 +320,19 @@
 
       <!--  Scripts-->
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="/js/materialize.js"></script>
-      
+
+      <script src="js/materialize.js"></script>
+      <script src="js/init.js"></script>
+      <script id="_bsa_srv-CKYD55QM_0" type="text/javascript" src="http://srv.buysellads.com/ads/CKYD55QM.json?callback=_bsa_go&amp;segment=placement:materializecsscom"></script>
+      <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.4_TD-8aeBvk.O/m=follow/rt=j/sv=1/d=1/ed=1/am=AQE/rs=AGLTcCPjFidkElJEviQa89NBp7tM3j2s-A/cb=gapi.loaded_0" async=""></script>
       <script>
           $(document).ready(function(){
               $(".modal").modal();
-              $('.sidenav').sidenav();
+              $('.side-nav').sidenav();
+              const overlay = $('.sidebar-overlay');
           });
 
-          (function($){
-            $(function(){
-
-              $('.sidenav').sidenav();
-              $('.parallax').parallax();
-
-            }); // end of document ready
-          })(jQuery); // end of jQuery name space
-
       </script>
-      
+
     </body>
 {{/if}}
