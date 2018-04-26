@@ -5,7 +5,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
-const random = require('mongoose-simple-random');
 
 const Recipe = mongoose.model('Recipe');
 const Ingredient = mongoose.model('Ingredient');
@@ -20,15 +19,13 @@ router.get('/home', function(req, res){
     console.log('inside GET /recipe/home');
         if(req.user) {
             console.log(req.user);
-            Recipe.findRandom({}, {}, {limit: 50}, function(err, results) {
-              if (!err) {
-                console.log(results); // 5 elements 
-                 res.render('recipe', {recipe: results, user: req.user});
-              }
-        });
+            Recipe.find({}, function(err, recipe){
+            console.log("inside find recipe ", recipe.length);
+            res.render('index', {recipe: recipe.splice(0,99), user: req.user});
+          });
         } else {
             console.log('error');
-            res.render('index', {message:'To see this page, you must have an account. Login or register below'});
+            res.render('login', {message:'to see this page, you must have an account. Login or register below'});
         }
 
 });
@@ -42,6 +39,22 @@ router.get('/details/:id', function(req, res, next){
         res.render('recipe-details',{recipe:recipe});
     });
 });
+
+// router.post('/home', function(req, res){
+//     if(req.user) {
+//         console.log(req.user);
+//         console.log('posting for /recipe/home');
+//
+//         Recipe.find({}, function(err, recipe){
+//         console.log("inside find recipe ", recipe.length);
+//         res.render('recipe', {recipe: recipe.splice(0,21), user: req.user});
+//
+//         });
+//     }else {
+//             console.log('error');
+//             res.render('login', {message:'to see this page, you must have an account. Login or register below'});
+//     }
+// });
 
 
 //get page which allows a user to set up their pantry
@@ -64,7 +77,7 @@ router.get('/pantry', function(req, res, next) {
             res.render('pantry', {pantry: ingredients});
         });
     }else{
-        res.render('index', {message: 'To see your pantry you must have an account. Login or register below.'});
+        res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
     }
 });
 
@@ -83,54 +96,43 @@ function ingredientInPantry(pantry, ingObj){
 //if a user creates their pantry (post), create ingredient objects in the database
 router.post('/pantry', function(req, res) {
     User.findOne({username: req.user.username}, function (err, user) {
-        console.log("inside post /pantry")
+
         let ingredients = req.body.ingredient; //array of ingredient names
-        let measures = req.body.measure;
-        let units = req.body.unit;
         console.log(req.body.ingredient);
-        console.log(req.body.measure);
-        console.log(req.body.units);
         let toInsert = [];
         if(ingredients instanceof Array){
-            // for(let i=0; i < ingredients.length; i++){
-            //     console.log("index: " + i);
-            //     console.log("ingredient: " + ingredients[i]);
-            //     console.log("measure: " + measures[i]);
-            //     console.log("units: " + units[i]);
-            // }
+            ingredients.forEach((ele) => {
+            let ing = {
+                name: ele,
+                measure: 3,
+                }
 
-        //     ingredients.forEach((ele) => {
-        //     let ing = {
-        //         name: ele,
-        //         measure: 3,
-        //         }
+            if (!ingredientInPantry(user.pantry, ing)){
+                user.pantry.push(ing);
+            }
 
-        //     if (!ingredientInPantry(user.pantry, ing)){
-        //         user.pantry.push(ing);
-        //     }
-            
-        // });
+        });
         } else {
-            // let ing = {
-            //     name: ingredients,
-            //     measure: 3,
-            //     }
-            // if (!ingredientInPantry(user.pantry, ing)){
-            //     user.pantry.push(ing);
-            // }
+            let ing = {
+                name: ingredients,
+                measure: 3,
+                }
+            if (!ingredientInPantry(user.pantry, ing)){
+                user.pantry.push(ing);
+            }
         }
 
         //console.log("outside of for loop");
-        // user.save((err, user) => {
-        //     if(err){
-        //         console.log(err);
-        //     }
-        //     //console.log("just saved");
-        //     //console.log(user);
-        //         });
+        user.save((err, user) => {
+            if(err){
+                console.log(err);
+            }
+            //console.log("just saved");
+            //console.log(user);
+                });
 
         });
-        // res.redirect("/recipe/pantry");
+        res.redirect("/recipe/pantry");
     });
     //if a user creates their pantry (post), create ingredient objects in the database
     router.post('/inventory', function(req, res) {
@@ -246,7 +248,7 @@ router.get('/inventory', function(req, res, next) {
         });
 
     }else{
-        res.render('index', {message: 'To see your pantry you must have an account. Login or register below'});
+        res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
     }
 
 });
