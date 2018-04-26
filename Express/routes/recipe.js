@@ -19,13 +19,15 @@ router.get('/home', function(req, res){
     console.log('inside GET /recipe/home');
         if(req.user) {
             console.log(req.user);
-            Recipe.find({}, function(err, recipe){
-            console.log("inside find recipe ", recipe.length);
-            res.render('index', {recipe: recipe.splice(0,99), user: req.user});
-          });
+            Recipe.findRandom({}, {}, {limit: 50}, function(err, results) {
+              if (!err) {
+                console.log(results); // 5 elements 
+                 res.render('recipe', {recipe: results, user: req.user});
+              }
+        });
         } else {
             console.log('error');
-            res.render('login', {message:'to see this page, you must have an account. Login or register below'});
+            res.render('index', {message:'To see this page, you must have an account. Login or register below'});
         }
 
 });
