@@ -1,7 +1,31 @@
-<h1> {{recipe.name}} </h1>
+<link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet">
 
-<h2>Ingredients </h2>
+<style>
+.content{
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+}
+  img{
+    height: 400px;
+  }
+</style>
+<nav class="red lighten-2" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="/recipe" class="brand-logo white-text">Kitchuation</a>
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="/recipe/logout">Logout</a></li>
+    </ul>
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+<div class = "content">
+<h1 class = "teal-text"> {{recipe.name}} </h1>
+<img src = {{recipe.imgURL}}> </img>
+<h3 class = "teal-text">Ingredients </h3>
   {{#each recipe.ingredients}}
-    <li> {{measure}} {{name}} </li>
+    <li class = "grey lighten-2"> {{measure}} {{name}} </li>
   {{/each}}
-<p> {{recipe.directions}} </p>
+  <h3 class = "teal-text">Directions </h3>
+<p class = "grey lighten-2"> {{recipe.directions}} </p>
+</div>

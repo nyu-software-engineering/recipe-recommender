@@ -5906,7 +5906,7 @@ button.btn-floating {
 
 .sidenav .collapsible-body li a,
 .sidenav.fixed .collapsible-body li a {
-  padding: 0 23.5px 0 31px;
+    padding: 0 23.5px 0 31px;
 }
 
 .collapsible.popout {
@@ -7509,7 +7509,7 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
 
 .sidenav {
   position: fixed;
-  width: 300px;
+  width: 100px;
   left: 0;
   top: 0;
   margin: 0;
