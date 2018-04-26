@@ -40,6 +40,26 @@ router.get('/details/:id', function(req, res, next){
     });
 });
 
+router.post('/details/:id',function(req,res,next) {
+  console.log('inside post details', req.params.id);
+  Recipe.findOne({_id:req.params.id}, function(err, recipe){
+    if(recipe.favorited){
+      const isFav = recipe.favorited;
+      //toggle between fav and not fav
+      recipe.favorited = !isFav;
+    }
+    else{
+      recipe.favorited = true;
+    }
+    recipe.save((err, user) => {
+        if(err){
+            console.log(err);
+        }
+      });
+
+    });
+});
+
 // router.post('/home', function(req, res){
 //     if(req.user) {
 //         console.log(req.user);

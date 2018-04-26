@@ -4,14 +4,13 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 const Ingredient = new Schema ({
   name: String,
-  measure: Number, //will probably have to change/add this to be a measurement object
+  measure: String, //will probably have to change/add this to be a measurement object
 });
 
 
 const Recipe = new Schema ({
-  id: Number,
   name: String,
-  prepTime: Number,
+  prepTime: String,
   //totalTime: Number,
   ingredients: [Ingredient],
   made: Boolean,
@@ -62,7 +61,7 @@ if (process.env.NODE_ENV == 'PRODUCTION') {
 */
 
 db = mongoose.connection;
- 
+
 db.on("error", console.error.bind(console, "THIS ERROR WON'T SHOW"));
 
 db.once("open", function() {
@@ -78,4 +77,3 @@ try {
 } catch (err) {
   console.error(err);
 }
-
