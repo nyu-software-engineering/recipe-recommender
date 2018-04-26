@@ -54,7 +54,7 @@ router.post('/home', function(req, res){
         //        });
         // }
 
-        Recipe.findRandom({}, {}, {limit: 5}, function(err, results) {
+        Recipe.findRandom({}, {}, {limit: 50}, function(err, results) {
               if (!err) {
                 console.log(results); // 5 elements 
                  res.render('recipe', {recipe: results, user: req.user});
