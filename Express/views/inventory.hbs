@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <script src="/js/search.js"></script>
+<script src ="/js/searchToAdd.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../javascripts/bootstrap.min.js"></script>
 
@@ -59,7 +60,7 @@
           <ul>
           <form method="POST" action="/recipe/inventory">
           <div>
-              <input type = "search" placeholder="Search for ingredients.." title = "Type an ingredient">
+              <input type = "search" id="ingredient-add" placeholder="Search for ingredients.." title = "Type an ingredient">
               <h6> Fridge: </h6>
               <label class = "ingredients-to-pick">
                 <input type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
@@ -230,7 +231,7 @@
   {{#if pantry}}
   <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add Ingredients</a> -->
 
-  
+
   <!--
     <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Update Quantities</a> -->
 

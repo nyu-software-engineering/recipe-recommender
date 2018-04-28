@@ -13,6 +13,7 @@
     "fuzzy-search": "^2.0.1",
     "hbs": "~4.0.1",
     "mongoose": "^4.9.2",
+    "mongoose-simple-random": "^0.4.1",
     "mongoose-url-slugs": "^0.2.1",
     "morgan": "~1.7.0",
     "passport": "^0.3.0",
