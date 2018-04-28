@@ -109,16 +109,13 @@ router.get('/details/:id', function(req, res, next){
 //get page which allows a user to set up their pantry
 router.get('/pantry', function(req, res, next) {
     if(req.user) {
-        console.log(req.user);
+        //console.log(req.user);
         User.findOne({username: req.user.username}, function (err, user) {
-            console.log("inside user trying to find ingredients");
+            //console.log("inside user trying to find ingredients");
             //create an array for ingredients with quantity over 0
             let ingredients = [];
             ingredients = user.pantry.filter((ele)=>{
-                console.log(ele.measure);
-                console.log(ele.quantity);
                 let quantity = ele.quantity == undefined ?  ele.measure : ele.quantity;
-                console.log(quantity);
                 if(quantity > 0){
                     return ele;
                 }
@@ -130,58 +127,116 @@ router.get('/pantry', function(req, res, next) {
     }
 });
 
-function ingredientInPantry(pantry, ingObj){
+function ingredientInPantry(pantry, ingObj){ //if duplicate is found, quantity and unit are updated
     let size = pantry.length;
     for(let i=0; i < size; i++){
-        console.log("**pantry item: " + pantry[i]);
         if (pantry[i].name === ingObj.name){
-            console.log("same name found - returning true");
             return true;
         }
     }
-    console.log("no duplicate found - returning false");
     return false;
 }
-//if a user creates their pantry (post), create ingredient objects in the database
-router.post('/pantry', function(req, res) {
-    User.findOne({username: req.user.username}, function (err, user) {
 
-        let ingredients = req.body.ingredient; //array of ingredient names
-        console.log(req.body.ingredient);
-        let toInsert = [];
-        if(ingredients instanceof Array){
-            ingredients.forEach((ele) => {
-            let ing = {
-                name: ele,
-                measure: 3,
-                }
-
-            if (!ingredientInPantry(user.pantry, ing)){
-                user.pantry.push(ing);
-            }
-
-        });
-        } else {
-            let ing = {
-                name: ingredients,
-                measure: 3,
-                }
-            if (!ingredientInPantry(user.pantry, ing)){
-                user.pantry.push(ing);
+function changeQuantityAndUnit(user, pantry, ingObj, newQuantity, newUnit){
+    //console.log("trying to change, new quantity is " + newQuantity);
+    let size = pantry.length;
+    for(let i=0; i < size; i++){
+        if (pantry[i].name == ingObj.name){
+            console.log("**********found a duplicate ingredient " + ingObj.name);
+            if (pantry[i].measure !== newQuantity || pantry[i].unit !== newUnit){
+                console.log("passed in quantity = " + newQuantity);
+                pantry[i].quantity = newQuantity;
+                console.log("____ NEW QUANTITY " + pantry[i].quantity);
+                console.log("passed in unit = " + newUnit);
+                pantry[i].unit = newUnit;
+                console.log("____ NEW UNIT " + pantry[i].unit);
+                //user.markModified('pantry');
             }
         }
+    }
+    user.markModified('pantry');
+}
 
-        //console.log("outside of for loop");
-        user.save((err, user) => {
-            if(err){
-                console.log(err);
+//if a user creates their pantry (post), create ingredient objects in the database
+router.post('/pantry', function(req, res) {
+
+    if (req.user) {
+        User.findOne({username: req.user.username}, function (err, user) {
+            //console.log("inside post /pantry")
+            let ingredients = req.body.ingredient; //array of ingredient names
+            let measures = req.body.measure;
+            let units = req.body.unit;
+            let toInsert = [];
+            console.log(ingredients);
+            console.log(measures);
+            console.log(units);
+            if(ingredients instanceof Array){
+                for(let i=0; i < ingredients.length; i++){
+                    console.log("       entering for loop of new ingredients passed in");
+                    console.log(ingredients[i]);
+                    console.log(measures[i]);
+                    console.log(units[i]);
+
+                    let ing = {
+                        name: ingredients[i],
+                        measure: measures[i],
+                        unit: units[i]
+                    }
+                    if (!ingredientInPantry(user.pantry, ing)){
+                        console.log("NOT A DUPLICATE, ADDING NEW ING");
+                       user.pantry.push(ing); 
+                    } else{
+                        console.log("DUPLICATE BASED ON NAME: current measure is " + measures[i]);
+                        changeQuantityAndUnit(user, user.pantry, ing, measures[i], units[i]);
+                        console.log("did change persist? " + ing.name, ing.measure, ing.unit);
+                        user.save(function(err){
+                            if (err){
+                                console.log(err);
+                            }else{
+                                //console.log("user is saved");
+                            }
+                        })
+                    }
+                }
+
+            //     ingredients.forEach((ele) => {
+            //     let ing = {
+            //         name: ele,
+            //         measure: 3,
+            //         }
+
+            //     if (!ingredientInPantry(user.pantry, ing)){
+            //         user.pantry.push(ing);
+            //     }
+                
+            //      });
+            } else {
+                let ing = {
+                    name: ingredients,
+                    measure: measures,
+                    unit: units
+                    }
+                if (!ingredientInPantry(user.pantry, ing, measures[i], units[i])){
+                    user.pantry.push(ing);
+                }
             }
-            //console.log("just saved");
-            //console.log(user);
-                });
 
-        });
-        res.redirect("/recipe/pantry");
+            //console.log("outside of for loop");
+            user.save((err, user) => {
+                if(err){
+                    console.log(err);
+                }
+               // console.log("just saved");
+                //console.log(user);
+                    });
+
+            });
+            res.redirect("/recipe/pantry");
+    } else{
+        console.log("couldn't find a user");
+        res.render('index', {message: 'To see your pantry you must have an account. Login or register below.'});
+    }
+
     });
     //if a user creates their pantry (post), create ingredient objects in the database
     router.post('/inventory', function(req, res) {
@@ -226,7 +281,7 @@ router.post('/pantry', function(req, res) {
         });
 
 router.post('/pantry/update', function (req, res) {
-    console.log(req.body.ingredient); //should have the name of the ingredient we're changing
+    //console.log(req.body.ingredient); //should have the name of the ingredient we're changing
     User.findOne({username: req.user.username}, function (err, user){
         MyModel.findOneAndUpdate(query, req.newData, {upsert:true}, function(err, doc){
     if (err) return res.send(500, { error: err });
