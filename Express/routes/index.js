@@ -59,7 +59,7 @@ router.get('/setup', function(req, res, next){
         if(req.user) {
             console.log("**user found");
             console.log(req.user);
-            res.render('index', {user: req.user});
+            res.redirect('/recipe/home');
         } else {
             res.render('basePantry');
         }
@@ -68,6 +68,8 @@ router.get('/setup', function(req, res, next){
 //if a user registers (post), create new user object in database 
 router.post('/setup', function(req, res) {
     if(req.user) {
+        res.redirect('/recipe/home');
+    } else {
         console.log("inside post setup, request body: ", req.body);
         User.register(new User({username:req.body.username, name: req.body.name, email: req.body.email}),
             req.body.password, function(err, user){
@@ -85,8 +87,6 @@ router.post('/setup', function(req, res) {
                     console.log(user);
                 }
             });
-    } else {
-        res.render('index',{message:'You must register to view this page'});
     }
 });
 
