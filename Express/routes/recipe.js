@@ -231,7 +231,7 @@ router.post('/pantry', function(req, res) {
                     });
 
             });
-            res.redirect("/recipe/pantry");
+            res.redirect("/recipe/home");
     } else{
         console.log("couldn't find a user");
         res.render('index', {message: 'To see your pantry you must have an account. Login or register below.'});
