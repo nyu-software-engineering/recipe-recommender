@@ -1,26 +1,59 @@
 <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- <link href="/stylesheets/bootstrap.min.css" rel="stylesheet"> -->
-  <link href="../stylesheets/style.css" rel="stylesheet">
-  <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet">
+<!-- <link href="/stylesheets/bootstrap.min.css" rel="stylesheet"> -->
+<link href="../stylesheets/style.css" rel="stylesheet">
+<link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <script src="/js/search.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="../javascripts/bootstrap.min.js"></script>
+<script src="/js/search.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../javascripts/bootstrap.min.js"></script>
 
-  <nav class="red lighten-2" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="/recipe" class="brand-logo white-text">Kitchuation</a>
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="/recipe/logout">Logout</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+<nav class="red lighten-2" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="/recipe" class="brand-logo white-text">Kitchuation</a>
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="/recipe/logout">Logout</a></li>
+    </ul>
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
 <body>
-  <h2> My Pantry</h2>
+  {{#if pantry}}
+    <div class="row">
+      <ul class="collection with-header col s6">
+        <li class="collection-header center"><h4>My Pantry</h4></li>
+        <table class="highlight">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each pantry as |ingredient|}}
+            <tr class="collection-item">
+                <td>{{ingredient.name}}</td>
+                <td>{{ingredient.measure}} {{ingredient.unit}}</td>
+                <td><a href="#!" class="secondary-content"><i class="material-icons">clear</i></a></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </ul>
+    </div>
+  {{else}}
+    <h2> Your Pantry is Empty</h2>
+    <a href="/recipe/pantry">
+          SET UP YOUR PANTRY HERE!
+    </a>
+  {{/if}}
+
   {{#if pantry}}
   <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add Ingredients</a>
 
@@ -316,23 +349,13 @@
     </div>
   </div>
 
+ {{else}}
+  <h2> Your Pantry is Empty</h2>
+  <a href="/recipe/pantry">
+        SET UP YOUR PANTRY HERE!
+  </a>
+{{/if}}
 
-      <h5>Your Current Pantry:</h5>
-
-      {{#each pantry as |ingredient|}}
-
-          <li class = "each">
-               <strong>{{ingredient.measure}}</strong>  <strong>{{ingredient.name}}</strong>
-              <br>
-          </li>
-      {{/each}}
-
-     {{else}}
-      <h2> Your Pantry is Empty</h2>
-      <a href="/recipe/pantry">
-            SET UP YOUR PANTRY HERE!
-      </a>
-    {{/if}}
 </body>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
