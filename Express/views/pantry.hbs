@@ -86,6 +86,18 @@
 
 <a class="waves-effect waves-light btn modal-trigger" href="#basepantry">Set up your pantry here!</a>
 
+<script type=text/javascript>
+  function toggle_quantity(ingredient_id, measure_id, unit_id){
+    if (ingredient_id.checked){
+      measure_id.style = "";
+      unit_id.style = "";
+    } else {
+      measure_id.style = "diplay:none";
+      unit_id.style = "display:none";
+    }
+  }
+</script>
+
 <!-- Modal Structure -->
 <div id="basepantry" class="modal">
   <div class="modal-content">
@@ -98,44 +110,43 @@
         <!--Checkbox and ingredient name-->
         <div class="col s2">
           <label>
-            <input type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
-            <span>Milk</span>
+            <input id="milk" onclick="toggle_quantity(milk, milk_quantity, milk_u)" type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
+          <span>Milk</span>
           </label>
         </div>
-        
-        <!--Form to input measure (quantity)-->
-        <div class="input-field col s1">
-          <input value="1" defaut="1" id="milk_q" type="text" name="measure" class="validate">
-          <label class="active" for="milk_q">Quantity</label>
-        </div>
+          
+          <!--Form to input measure (quantity)-->
+          <div class="input-field col s1" id="milk_quantity">
+            <input value="1" defaut="1" id="milk_q" type="text" name="measure" class="validate">
+            <label class="active" for="milk_q">Quantity</label>
+          </div>
 
-        <!--Dropdown for selecting units-->
-        <div class="input-field col s3" >
-          <select name="unit">
-            <option value="gallon" selected>gallon</option>
-            <option value="cup" >cup</option>
-            <option value="quart" >quart</option>
-            <option value="pint" >pint</option>
-          </select>
-          <label>Units</label>
-        </div>
-        
+          <!--Dropdown for selecting units-->
+          <div class="input-field col s3" id="milk_u">
+            <select name="unit">
+              <option value="gallon" selected>gallon</option>
+              <option value="cup" >cup</option>
+              <option value="quart" >quart</option>
+              <option value="pint" >pint</option>
+            </select>
+            <label>Units</label>
+          </div>
       </div>
 
       <div class="row">
         <div class="col s2">
           <label>
-            <input type="checkbox" class="filled-in" name="ingredient" value="Cream" checked/>
+            <input type="checkbox" id="cream" onclick="toggle_quantity(cream, cream_quantity, cream_u" class="filled-in" name="ingredient" value="Cream" checked/>
             <span>Cream</span>
           </label>
         </div>
         
-        <div class="input-field col s1">
+        <div class="input-field col s1" id="cream_quantity">
           <input value="1" defaut="1" id="cream_q" type="text" name="measure" class="validate">
           <label class="active" for="cream_q">Quantity</label>
         </div>
 
-        <div class="input-field col s3">
+        <div class="input-field col s3" id="cream_u">
           <select name="unit">
             <option value="gallon">gallon</option>
             <option value="cup">cup</option>
@@ -149,17 +160,17 @@
       <div class="row">
         <div class="col s2">
           <label>
-            <input type="checkbox" class="filled-in" name="ingredient" value="Butter" checked/>
+            <input type="checkbox" id="butter" onclick="toggle_quantity(butter, butter_quantity, butter_u)" class="filled-in" name="ingredient" value="Butter" checked/>
             <span>Butter</span>
           </label>
         </div>
         
-        <div class="input-field col s1">
-          <input value=".5" defaut=".5" id="cream_q" type="text" name="measure" class="validate">
-          <label class="active" for="cream_q">Quantity</label>
+        <div class="input-field col s1" id="butter_quantity">
+          <input value=".5" defaut=".5" id="butter_q" type="text" name="measure" class="validate">
+          <label class="active" for="butter_q">Quantity</label>
         </div>
         
-        <div class="input-field col s3">
+        <div class="input-field col s3" id="butter_u">
           <select name="unit">
             <option value="cup" selected>cup</option>
             <option value="tablespoon"">tablespoon</option>
@@ -169,7 +180,6 @@
       </div>
 
       <div class="row">
-        <!--Checkbox and ingredient name-->
         <div class="col s2">
           <label>
             <input type="checkbox" class="filled-in" name="ingredient" value="Eggs" checked/>
@@ -177,20 +187,20 @@
           </label>
         </div>
         
-        <!--Form to input measure (quantity)-->
         <div class="input-field col s1">
           <input value="12" defaut="12" id="egg_q" type="text" name="measure" class="validate">
           <label class="active" for="egg_q">Quantity</label>
         </div>
 
         <div class="input-field col s3">
-          <input disabled value="units" id="disabled" type="text" class="validate">
-          <label for="disabled">Units</label>
+          <select name="unit">
+            <option value="units" name="unit" selected>units</option>
+          </select>
+          <label>Units</label>
         </div>
       </div>
 
       <div class="row">
-        <!--Checkbox and ingredient name-->
         <div class="col s2">
           <label>
             <input type="checkbox" class="filled-in" name="ingredient" value="Almond Milk" checked/>
@@ -198,13 +208,11 @@
           </label>
         </div>
         
-        <!--Form to input measure (quantity)-->
         <div class="input-field col s1">
           <input value=".5" defaut=".5" id="almond_milk_q" type="text" name="measure" class="validate">
           <label class="active" for="almond_milk_q">Quantity</label>
         </div>
 
-        <!--Dropdown for selecting units-->
         <div class="input-field col s3">
           <select name="unit">
             <option value="gallon" name="unit" selected>gallon</option>
@@ -216,8 +224,9 @@
         </div>
       </div>
 
+      <!--
+
       <div class="row">
-        <!--Checkbox and ingredient name-->
         <div class="col s2">
           <label>
             <input type="checkbox" class="filled-in" name="ingredient" value="Yogurt" checked/>
@@ -225,13 +234,11 @@
           </label>
         </div>
         
-        <!--Form to input measure (quantity)-->
         <div class="input-field col s1">
           <input value="4" defaut="4" id="yogurt_q" type="text" name="measure" class="validate">
           <label class="active" for="yogurt_q">Quantity</label>
         </div>
 
-        <!--Dropdown for selecting units-->
         <div class="input-field col s3">
           <select name="unit">
             <option value="cup" name="unit" selected>cup</option>
@@ -240,9 +247,7 @@
         </div>
       </div>
 
-      <!--row contains one ingredient to add to pantry-->
       <div class="row">
-        <!--Checkbox and ingredient name-->
         <div class="col s2">
           <label>
             <input type="checkbox" class="filled-in" name="ingredient" value="Juice" checked/>
@@ -250,13 +255,11 @@
           </label>
         </div>
         
-        <!--Form to input measure (quantity)-->
         <div class="input-field col s1">
           <input value=".5" defaut=".5" id="juice_q" type="text" name="measure" class="validate">
           <label class="active" for="juice_q">Quantity</label>
         </div>
 
-        <!--Dropdown for selecting units-->
         <div class="input-field col s3">
           <select name="unit">
             <option value="gallon" name="unit" selected>gallon</option>
@@ -267,7 +270,7 @@
           <label>Units</label>
         </div>
       </div>
-
+-->
 
         <!--<label>
           <input type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
