@@ -5,6 +5,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+//const FuzzySearch = require('fuzzy-search'); //remove comments if trying to do fuzzy search
 
 const Recipe = mongoose.model('Recipe');
 const Ingredient = mongoose.model('Ingredient');
@@ -15,13 +16,47 @@ router.get('/', function(req, res, next) {
 });
 
 //this will be /recipe/home --> right after login
+
 router.get('/home', function(req, res){
     console.log('inside GET /recipe/home');
         if(req.user) {
             console.log(req.user);
             Recipe.findRandom({}, {}, {limit: 50}, function(err, results) {
               if (!err) {
-                console.log(results); // 5 elements 
+                //fuzzy seach each result... 
+                //if it uses pantry objects, then push that value on to the recipe result recipe.pantryMatch = true
+                //else, do nothing
+
+                results.forEach((recipe) => {
+                    console.log("current recipe's ingredients: ", recipe.ingredients);
+                    //FUZZY SEARCH -- DON'T THINK LIBRARY IS WORKING
+                    // const searcher = new FuzzySearch(ele, ['ingredients.name'], { //this is the "HAYSTACK"
+                    //       caseSensitive: false,
+                    //     });
+                    //    req.user.pantry.some(function(ing){
+                    //         console.log("using '.some' to look through pantry for " + ing.name);
+                    //         const result = searcher.search(ing.name);
+                    //         console.log("result is " + result);
+                    //         if(result){
+                    //             console.log("**** ingredient contains " + ing.name);
+                    //             ele.pantryMath = true;
+                    //             return;
+                    //         }
+                    //     });
+                
+
+                    recipe.ingredients.forEach((ele) => { //brute force... yikers
+                        let pantry = req.user.pantry; 
+                        let eleNameLower = ele.name.toLowerCase();
+
+                        console.log("recipe " + recipe.name + " being sent into some");
+                        pantry.some(ingredientInRecipe.bind(this, recipe, eleNameLower));
+                       
+                    });
+                        
+
+                });
+                //console.log(results);
                  res.render('index', {recipe: results, user: req.user});
               }
         });
@@ -31,6 +66,18 @@ router.get('/home', function(req, res){
         }
 
 });
+
+function ingredientInRecipe(recipe, recipeIng, pantryIng){
+    let pantryName = pantryIng.name.toLowerCase();
+    // console.log("current pantry ing ", pantryName);
+    // console.log("current recipe ing ", recipeIng);
+    if(recipeIng.includes(pantryName)){
+        console.log("**** recipe's ing contains " + pantryName);
+        recipe.pantryMatch = true;
+        return true;
+    } 
+}
+
 router.get('/details/:id', function(req, res, next){
     console.log(req.params.id);
     Recipe.findOne({_id: req.params.id}, function(err, recipe){

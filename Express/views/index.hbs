@@ -121,7 +121,12 @@ body{
                      <img src={{imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" />
                        <div class="hvrbox-layer_top hvrbox-layer_slideleft">
                          <div class="hvrbox-text">
+                         {{#if pantryMatch}}
+                         <h6 align="left">**Uses Pantry Ingredients ** - {{name}}</h6>
+            
+                         {{else}}
                            <h6 align="left">{{name}}</h6>
+                          {{/if}}
                            <!-- <h6> Ingredients: </h6>
                            {{ingredients}}
                            <h6> Steps: </h6>
