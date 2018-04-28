@@ -1,12 +1,7 @@
 function search(){
   // const ingsInput = document.querySelector("#ingredient-input");
   const ings = document.querySelectorAll("input.filled-in");
-    document.addEventListener('click', function(el){
-      if(el.target.tagName === "SPAN"){
-         el.target.classList.toggle("checkedOff");
-      }
-    });
-
+  
   document.querySelector("#ingredient-add").addEventListener("keyup", function() {
     const input = document.getElementById("ingredient-add");
     const filter = input.value.toLowerCase();
