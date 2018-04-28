@@ -1,14 +1,12 @@
-<link href="/stylesheets/style.css" type="text/css" rel="stylesheet">
 <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet">
 
-<header id="header">
-    <div class="inner">
-        <div class="logo"> <a href="/recipe">Recipe Finder</a></div>
-        <nav id="nav">
-            <a href="/recipe/logout">Logout</a>
-        </nav>
-    </div>
-</header>
+<nav class="red lighten-2" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="/" class="brand-logo white-text">Kitchuation</a>
+    
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
 
 
 {{#if message}}
@@ -16,75 +14,7 @@
     {{message}}
 </div>
 {{/if}}
-<!-- Sidebar -->
-        <!--
-        <div class="sidebar">
-            <dl class="nav">
-                <a href="inventory" id="myPantry">My Pantry</a>
-                <dt class="Category">Dietary Preferences</dt>
-                
-                <dt class="Filters">
-                    <input type="checkbox" id="vegetarian" name="dietaryFilter" value="vegetarian">
-                    <label for="vegetarian">vegetarian</label>
-                </dt>
 
-                <dt class="Filters">
-                    <input type="checkbox" id="vegan" name="dietaryFilter" value="vegan">
-                    <label for="vegan">vegan</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="gluten" name="dietaryFilter" value="gluten">
-                    <label for="gluten">gluten free</label>
-                </dt>
-
-                <dt class="Category">Cuisine</dt>
-                
-                <dt class="Filters">
-                    <input type="checkbox" id="Mediterranean" name="cusineFilter" value="Mediterranean">
-                    <label for="Mediterranean">Mediterranean</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="Asian" name="cuisineFilter" value="Asian">
-                    <label for="Asian">Asian</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="Italian" name="cuisineFilter" value="Italian">
-                    <label for="Italian">Italian</label>
-                </dt>
-
-                <dt class="Category">Cook Time</dt>
-                
-                <dt class="Filters">
-                    <input type="checkbox" id="0-30" name="timeFilter" value="0-30">
-                    <label for="0-30">0 to 30 minutes</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="30-60" name="timeFilter" value="30-60">
-                    <label for="30-60">30 to 60 minutes</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="60-90" name="timeFilter" value="60-90">
-                    <label for="60-90">60 to 90 minutes</label>
-                </dt>
-
-                <dt class="Filters">
-                    <input type="checkbox" id="90+" name="timeFilter" value="90+">
-                    <label for="90+">90+ minutes</label>
-                </dt>
-                 
-            </dl>
-        </div> -->
-<p>Select ingredients to add to your pantry: </p>
-  
-<!-- Modal Trigger -->
-<!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick="$('#modal1').modal('open');">Set up your base pantry</a> -->
-
-<a class="waves-effect waves-light btn modal-trigger" href="#basepantry">Set up your pantry here!</a>
 
 <script type=text/javascript>
   function toggle_quantity(ingredient_id, measure_id, unit_id){
@@ -98,19 +28,20 @@
   }
 </script>
 
-<!-- Modal Structure -->
-<div id="basepantry" class="modal">
-  <div class="modal-content">
-    <form method="POST" action="/recipe/pantry">
+<div class="container">
+<form method="POST" action="/recipe/pantry">
+  <div class="row center">
     <h5>What's in your pantry?</h5>
-    <h6> Fridge: </h6>
-    <div>
+  </div>
+<h6> Fridge: </h6>
+<br>
+<div>
       <!--row contains one ingredient to add to pantry-->
       <div class="row">
         <!--Checkbox and ingredient name-->
         <div class="col s2">
           <label>
-            <input id="milk" onclick="toggle_quantity(milk, milk_quantity, milk_u)" type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
+            <input id="milk" type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
           <span>Milk</span>
           </label>
         </div>
@@ -125,9 +56,9 @@
           <div class="input-field col s3" id="milk_u">
             <select name="unit">
               <option value="gallon" selected>gallon</option>
-              <option value="cup" >cup</option>
-              <option value="quart" >quart</option>
-              <option value="pint" >pint</option>
+              <option value="cup">cup</option>
+              <option value="quart">quart</option>
+              <option value="pint">pint</option>
             </select>
             <label>Units</label>
           </div>
@@ -136,7 +67,7 @@
       <div class="row">
         <div class="col s2">
           <label>
-            <input type="checkbox" id="cream" onclick="toggle_quantity(cream, cream_quantity, cream_u" class="filled-in" name="ingredient" value="Cream" checked/>
+            <input type="checkbox" id="cream" class="filled-in" name="ingredient" value="Cream" checked/>
             <span>Cream</span>
           </label>
         </div>
@@ -160,7 +91,7 @@
       <div class="row">
         <div class="col s2">
           <label>
-            <input type="checkbox" id="butter" onclick="toggle_quantity(butter, butter_quantity, butter_u)" class="filled-in" name="ingredient" value="Butter" checked/>
+            <input type="checkbox" id="butter" class="filled-in" name="ingredient" value="Butter" checked/>
             <span>Butter</span>
           </label>
         </div>
@@ -194,7 +125,7 @@
 
         <div class="input-field col s3">
           <select name="unit">
-            <option value="units" name="unit" selected>units</option>
+            <option value="units" selected>units</option>
           </select>
           <label>Units</label>
         </div>
@@ -215,16 +146,14 @@
 
         <div class="input-field col s3">
           <select name="unit">
-            <option value="gallon" name="unit" selected>gallon</option>
-            <option value="cup" name="unit">cup</option>
-            <option value="quart" name="unit">quart</option>
-            <option value="pint" name="unit">pint</option>
+            <option value="gallon" selected>gallon</option>
+            <option value="cup">cup</option>
+            <option value="quart">quart</option>
+            <option value="pint">pint</option>
           </select>
           <label>Units</label>
         </div>
       </div>
-
-      <!--
 
       <div class="row">
         <div class="col s2">
@@ -241,7 +170,7 @@
 
         <div class="input-field col s3">
           <select name="unit">
-            <option value="cup" name="unit" selected>cup</option>
+            <option value="cup" selected>cup</option>
           </select>
           <label>Units</label>
         </div>
@@ -262,88 +191,285 @@
 
         <div class="input-field col s3">
           <select name="unit">
-            <option value="gallon" name="unit" selected>gallon</option>
-            <option value="cup" name="unit">cup</option>
-            <option value="quart" name="unit">quart</option>
-            <option value="pint" name="unit">pint</option>
+            <option value="gallon"selected>gallon</option>
+            <option value="cup">cup</option>
+            <option value="quart">quart</option>
+            <option value="pint">pint</option>
           </select>
           <label>Units</label>
         </div>
       </div>
--->
 
-        <!--<label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
-          <span>Milk</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Cream" checked/>
-          <span>Cream</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Eggs" checked/>
-          <span>Eggs</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Almond Milk" checked/>
-          <span>Almond Milk</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Butter" checked/>
-          <span>Butter</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Yogurt" checked/>
-          <span>Yogurt</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Juice" checked/>
-          <span>Juice</span>
-        </label><br>
+      <h6> Spices and Condiments: </h6>
+      <br>
 
-       <h5> Spices / Condiments: </h5>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Salt" checked/>
-          <span>Salt</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Pepper" checked/>
-          <span>Pepper</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Garlic Powder" checked red/>
-          <span>Garlic powder</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Chili Powder" checked red/>
-          <span>Chili powder</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Paprika" checked/>
-          <span>Paprika</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Nutmeg" checked/>
-          <span>Nutmeg</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Ketchup" checked/>
-          <span>Ketchup</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Mustard" checked/>
-          <span>Mustard</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Mayo" checked/>
-          <span>Mayo</span>
-        </label><br>
-        <label>
-          <input type="checkbox" class="filled-in" name="ingredient" value="Hot Sauce" checked/>
-          <span>Hot sauce</span>
-        </label><br>
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Salt" checked/>
+            <span>Salt</span>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="1" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
 
-        <h5> Pantry: </h5>
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="lbs" selected>lbs</option>
+            <option value="oz">oz</option>
+            <option value="kilograms">kilos</option>
+            <option value="cups">cups</option>
+            <option value="tablespoons">tablespoons</option>
+            <option value="teaspoons">teaspoons</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Pepper" checked/>
+            <span>Pepper</span>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="16" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="lbs">lbs</option>
+            <option value="oz" selected>oz</option>
+            <option value="kilograms">kilos</option>
+            <option value="cups">cups</option>
+            <option value="tablespoons">tablespoons</option>
+            <option value="teaspoons">teaspoons</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Garlic Powder" checked red/>
+            <span>Garlic powder</span>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="3" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="oz" selected>oz</option>
+            <option value="cups">cups</option>
+            <option value="tablespoons">tablespoons</option>
+            <option value="teaspoons">teaspoons</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Chili Powder" checked red/>
+            <span>Chili powder</span>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="3" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="oz" selected>oz</option>
+            <option value="cups">cups</option>
+            <option value="tablespoons">tablespoons</option>
+            <option value="teaspoons">teaspoons</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Paprika" checked/>
+            <span>Paprika</span>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="3" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="oz" selected>oz</option>
+            <option value="cups">cups</option>
+            <option value="tablespoons">tablespoons</option>
+            <option value="teaspoons">teaspoons</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Nutmeg" checked/>
+            <span>Nutmeg</span>
+          </label>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="3" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="oz" selected>oz</option>
+            <option value="cups">cups</option>
+            <option value="tablespoons">tablespoons</option>
+            <option value="teaspoons">teaspoons</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Ketchup" checked/>
+            <span>Ketchup</span>
+          </label>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="32" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="oz" selected>oz</option>
+            <option value="lbs">lbs</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Mustard" checked/>
+            <span>Mustard</span>
+          </label>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="32" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="oz" selected>oz</option>
+            <option value="lbs">lbs</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Mayo" checked/>
+            <span>Mayo</span>
+          </label>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="32" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="oz" selected>oz</option>
+            <option value="lbs">lbs</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Hot Sauce" checked/>
+            <span>Hot Sauce</span>
+          </label>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="12" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="oz" selected>oz</option>
+            <option value="lbs">lbs</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+      <h6> Pantry: </h6>
+      <br>
+      <div class="row">
+        <div class="col s2">
+          <label>
+            <input type="checkbox" class="filled-in" name="ingredient" value="Hot Sauce" checked/>
+            <span>Hot Sauce</span>
+          </label>
+          </label>
+        </div>
+        
+        <div class="input-field col s1">
+          <input value="12" id="juice_q" type="text" name="measure" class="validate">
+          <label class="active" for="juice_q">Quantity</label>
+        </div>
+
+        <div class="input-field col s3">
+          <select name="unit">
+            <option value="oz" selected>oz</option>
+            <option value="lbs">lbs</option>
+          </select>
+          <label>Units</label>
+        </div>
+      </div>
+
+        <!--<
         <label>
           <input type="checkbox" class="filled-in" name="ingredient" value="Rice" checked/>
           <span>Rice</span>
@@ -424,14 +550,15 @@
           <input type="checkbox" class="filled-in" name="ingredient" value="Jam" checked/>
           <span>Jam</span>
         </label><br> -->
-      </div>
-      <br>
-      <div>
-        <button type="submit" class="btn modal-action modal-close waves-green">Save Pantry</button>
-      </div>
-    </form>
   </div>
+  <br>
+  <div>
+    <button type="submit" class="btn waves-green">Save Pantry</button>
+  </div>
+  <br>
+</form>
 </div>
+
 
 
 <!--
