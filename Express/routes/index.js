@@ -42,7 +42,7 @@ router.post('/register', function(req, res) {
                 // NOTE: error? send message back to registration...
                 //TODO: expand this
                 console.log(err);
-                res.render('register',{message:'Your registration information is not valid'});
+                res.render('index',{message:'Your registration information is not valid'});
             } else {
                 // NOTE: once you've registered, you should be logged in automatically
                 // ...so call authenticate if there's no error
@@ -59,7 +59,7 @@ router.get('/setup', function(req, res, next){
         if(req.user) {
             console.log("**user found");
             console.log(req.user);
-            res.render('index', {user: req.user});
+            res.redirect('/recipe/home');
         } else {
             res.render('basePantry');
         }
@@ -67,23 +67,27 @@ router.get('/setup', function(req, res, next){
 
 //if a user registers (post), create new user object in database 
 router.post('/setup', function(req, res) {
-    console.log("inside post setup, request body: ", req.body);
-    User.register(new User({username:req.body.username, name: req.body.name, email: req.body.email}),
-        req.body.password, function(err, user){
-            if (err) {
-                console.log(err);
-                res.render('index',{message:'Your registration information is not valid'});
+    if(req.user) {
+        res.redirect('/recipe/home');
+    } else {
+        console.log("inside post setup, request body: ", req.body);
+        User.register(new User({username:req.body.username, name: req.body.name, email: req.body.email}),
+            req.body.password, function(err, user){
+                if (err) {
+                    console.log(err);
+                    res.render('index',{message:'Your registration information is not valid'});
 
-            } else {
-                console.log("no error");
-                // NOTE: once you've registered, you should be logged in automatically
-                // ...so call authenticate if there's no error
-                passport.authenticate('local')(req, res, function() {
-                    res.render('basePantry', {user: user});
-                });
-                console.log(user);
-            }
-        });
+                } else {
+                    console.log("no error");
+                    // NOTE: once you've registered, you should be logged in automatically
+                    // ...so call authenticate if there's no error
+                    passport.authenticate('local')(req, res, function() {
+                        res.render('basePantry', {user: user});
+                    });
+                    console.log(user);
+                }
+            });
+    }
 });
 
 
@@ -102,7 +106,7 @@ router.post('/login', function(req, res, next) {
                 res.redirect('/recipe/home');
             });
         } else {
-            res.render('login', {message:'Your login or password is incorrect.'});
+            res.render('index', {message:'Your login or password is incorrect.'});
         }
     })(req, res, next);
 
