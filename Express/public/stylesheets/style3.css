@@ -1,0 +1,38 @@
+.pantry-background{
+	background-image:url(../img/mac&cheese.jpg);
+	background-position: center center;
+  /* padding-top: 8%;
+  margin-top: 8%; */
+  z-index: 1;
+  padding: 5px;
+  position: relative;
+}
+
+.sidenav-fixed{
+  width: 200px;
+  padding-top: 0;
+  height: 100%;
+}
+
+.nav-wrapper{
+  z-index: 232323;
+  margin-left: 0;
+  position: fixed;
+}
+
+.hellomessage{
+  left: 225px;
+  position: absolute;
+  top: 0;
+  padding-top: 50px;
+}
+.height100{
+  height: 100%;
+  position:fixed;
+  top: 65px;
+}
+.recipe-list{
+  left:225px;
+  position: absolute;
+  top: 300px;
+}

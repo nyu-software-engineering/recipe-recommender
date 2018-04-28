@@ -6,9 +6,11 @@
 .hvrbox {
 	position: relative;
 	display: inline-block;
-	overflow: scroll;
+	/* overflow: scroll; */
 	max-width: 100%;
-	height: auto;
+	height: 250px;
+	vertical-align: center;
+	margin-bottom: 8px;
 }
 .hvrbox img {
 	max-width: 100%;
@@ -89,4 +91,3 @@
 	-ms-transform: translateX(0);
 	transform: translateX(0);
 }
-
