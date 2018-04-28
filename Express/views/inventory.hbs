@@ -24,7 +24,7 @@
 <body>
   {{#if pantry}}
     <div class="row">
-      <ul class="collection with-header col s6">
+      <ul class="collection with-header col s6 section scrollspy>
         <li class="collection-header center"><h4>My Pantry</h4></li>
         <table class="highlight">
           <thead>
@@ -54,6 +54,9 @@
       <!--add ingredients-->
       <div id="add" class="col s6 m6">
         <div class="modal-content">
+          <ul class="collection with-header">
+            <li class="collection-header center"><h4>Search to add more ingredients</h4></li>
+          <ul>
           <form method="POST" action="/recipe/inventory">
           <div>
               <input type = "search" placeholder="Search for ingredients.." title = "Type an ingredient">
@@ -87,7 +90,7 @@
                 <span class = "checkedOff">Juice</span>
               </label><br>
 
-             <!--  <h5> Spices / Condiments: </h5>
+             <h5> Spices / Condiments: </h5>
               <label class = "ingredients-to-pick">
                 <input type="checkbox" class="filled-in" name="ingredient" value="Salt" checked/>
                 <span class = "checkedOff">Salt</span>
@@ -208,7 +211,7 @@
               <label class = "ingredients-to-pick">
                 <input type="checkbox" class="filled-in" name="ingredient" value="Jam" checked/>
                 <span class = "checkedOff">Jam</span>
-              </label><br> -->
+              </label><br>
             </div>
             <div>
               <button type="submit" class="btn modal-action modal-close waves-green">Save Pantry</button>
@@ -370,5 +373,6 @@
           $(document).ready(function(){
               $(".modal").modal();
               $('select:not([multiple])').material_select();
+              $('.scrollspy').scrollSpy();
           });
-          </script>
+      </script>
