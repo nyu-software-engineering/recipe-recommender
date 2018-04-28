@@ -154,7 +154,7 @@ body{
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="/sytlesheets/style2.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      
 
     </head>
     <body>
@@ -333,16 +333,24 @@ body{
 
       <!--  Scripts-->
       <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="js/materialize.js"></script>
-      <script src="js/init.js"></script>
+      <script src="/js/materialize.js"></script>
+      <script src="/js/init.js"></script>
       <script id="_bsa_srv-CKYD55QM_0" type="text/javascript" src="http://srv.buysellads.com/ads/CKYD55QM.json?callback=_bsa_go&amp;segment=placement:materializecsscom"></script>
       <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.4_TD-8aeBvk.O/m=follow/rt=j/sv=1/d=1/ed=1/am=AQE/rs=AGLTcCPjFidkElJEviQa89NBp7tM3j2s-A/cb=gapi.loaded_0" async=""></script>
       <script>
           $(document).ready(function(){
               $(".modal").modal();
-              $('.side-nav').sidenav();
-              const overlay = $('.sidebar-overlay');
+              $('.sidenav').sidenav();
           });
+
+          (function($){
+            $(function(){
+
+              $('.sidenav').sidenav();
+              $('.parallax').parallax();
+
+            }); // end of document ready
+          })(jQuery); // end of jQuery name space
 
       </script>
 
