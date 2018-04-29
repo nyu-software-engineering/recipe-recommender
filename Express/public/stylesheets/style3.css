@@ -36,3 +36,10 @@
   position: absolute;
   top: 300px;
 }
+
+.banner{
+  position: absolute;
+  top: 10px;
+  left: 20px; 
+  padding: 5px;
+}

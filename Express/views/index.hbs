@@ -118,21 +118,20 @@ body{
              {{#each recipe}}
                <div class = "col s4 hvrbox recipe">
                  <a href = "/recipe/details/{{_id}}">
-                     <img src={{imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" />
-                       <div class="hvrbox-layer_top hvrbox-layer_slideleft">
-                         <div class="hvrbox-text">
-                         {{#if pantryMatch}}
-                         <h6 align="left">**Uses Pantry Ingredients ** - {{name}}</h6>
-            
-                         {{else}}
-                           <h6 align="left">{{name}}</h6>
+                    {{#if pantryMatch}}
+                    <div class="banner btn-floating btn yellow"><i class="material-icons black-text">done_all</i></div>
+                    {{/if}}
+                    <img src={{imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" />
+                      <div class="hvrbox-layer_top hvrbox-layer_slideleft">
+                        <div class="hvrbox-text">
+                        {{#if pantryMatch}}
+                          <h6 align="left">**Uses Pantry Ingredients**</h6>
+                          <h6 align="left">{{name}}</h6>
+                          {{else}}
+                            <h6 align="left">{{name}}</h6>
                           {{/if}}
-                           <!-- <h6> Ingredients: </h6>
-                           {{ingredients}}
-                           <h6> Steps: </h6>
-                           {{directions}} -->
-                         </div>
-                       </div>
+                        </div>
+                      </div>
                  </a>
                </div>
              {{/each}}
@@ -149,7 +148,7 @@ body{
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <title>Kichuation - Welcome</title>
+      <title>Kitchuation - Welcome</title>
 
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -165,9 +164,6 @@ body{
             <li><a class="modal-trigger" href="#login">Login</a></li>
           </ul>
 
-          <ul id="nav-mobile" class="sidenav">
-            <li><a href="/recipe/logout">Logout</a></li>
-          </ul>
           <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
       </nav>
