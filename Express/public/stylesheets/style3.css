@@ -29,7 +29,7 @@
 .height100{
   height: 100%;
   position:fixed;
-  top: 65px;
+  top: 0px;
 }
 .recipe-list{
   left:225px;
@@ -42,4 +42,10 @@
   top: 10px;
   left: 20px; 
   padding: 5px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
 }
