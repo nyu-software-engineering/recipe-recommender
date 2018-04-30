@@ -62,7 +62,7 @@ router.get('/home', function(req, res){
         });
         } else {
             console.log('error');
-            res.render('login', {message:'to see this page, you must have an account. Login or register below'});
+            res.render('index', {message:'To see this page, you must have an account. Login or register below'});
         }
 
 });
@@ -123,7 +123,7 @@ router.get('/pantry', function(req, res, next) {
             res.render('pantry', {pantry: ingredients});
         });
     }else{
-        res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
+        res.render('index', {message: 'To see your pantry you must have an account. Login or register below'});
     }
 });
 
@@ -356,7 +356,7 @@ router.get('/inventory', function(req, res, next) {
         });
 
     }else{
-        res.render('login', {message: 'to see your pantry you must have an account. Login or register below'});
+        res.render('index', {message: 'To see your pantry you must have an account. Login or register below'});
     }
 
 });
