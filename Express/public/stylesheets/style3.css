@@ -25,6 +25,7 @@
   position: absolute;
   top: 0;
   padding-top: 50px;
+  padding-bottom: 0px;
 }
 .height100{
   height: 100%;
