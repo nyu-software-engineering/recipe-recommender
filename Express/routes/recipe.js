@@ -239,17 +239,19 @@ router.post('/pantry', function(req, res) {
 
     });
     //if a user creates their pantry (post), create ingredient objects in the database
-    router.post('/inventory', function(req, res) {
+ router.post('/inventory', function(req, res) {
         User.findOne({username: req.user.username}, function (err, user) {
 
             let ingredients = req.body.ingredient; //array of ingredient names
             console.log(req.body.ingredient);
+            let units = ["cups","oz","lbs"];
             let toInsert = [];
             if(ingredients instanceof Array){
                 ingredients.forEach((ele) => {
                 let ing = {
                     name: ele,
-                    measure: 3,
+                    measure: Math.floor(Math.random() * 16),
+                    unit: units[Math.floor(Math.random() * 3)]
                     }
 
                 if (!ingredientInPantry(user.pantry, ing)){
@@ -260,8 +262,10 @@ router.post('/pantry', function(req, res) {
             } else {
                 let ing = {
                     name: ingredients,
-                    measure: 3,
+                    measure: Math.floor(Math.random() * 16),
+                    unit: units[Math.floor(Math.random() * 4)]
                     }
+
                 if (!ingredientInPantry(user.pantry, ing)){
                     user.pantry.push(ing);
                 }

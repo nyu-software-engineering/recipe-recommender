@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <script src="/js/search.js"></script>
+<script src ="/js/searchToAdd.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../javascripts/bootstrap.min.js"></script>
 
@@ -59,158 +60,158 @@
           <ul>
           <form method="POST" action="/recipe/inventory">
           <div>
-              <input type = "search" placeholder="Search for ingredients.." title = "Type an ingredient">
+              <input type = "search" id="ingredient-add" placeholder="Search for ingredients.." title = "Type an ingredient">
               <h6> Fridge: </h6>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Milk" checked/>
-                <span class = "checkedOff">Milk</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Milk" />
+                <span  >Milk</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Cream" checked/>
-                <span class = "checkedOff">Cream</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Cream" />
+                <span  >Cream</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Eggs" checked/>
-                <span class = "checkedOff">Eggs</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Eggs" />
+                <span>Eggs</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Almond Milk" checked/>
-                <span class = "checkedOff">Almond Milk</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Almond Milk" />
+                <span  >Almond Milk</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Butter" checked/>
-                <span class = "checkedOff">Butter</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Butter" />
+                <span  >Butter</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Yogurt" checked/>
-                <span class = "checkedOff">Yogurt</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Yogurt" />
+                <span  >Yogurt</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Juice" checked/>
-                <span class = "checkedOff">Juice</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Juice" />
+                <span  >Juice</span>
               </label><br>
 
              <h5> Spices / Condiments: </h5>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Salt" checked/>
-                <span class = "checkedOff">Salt</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Salt" />
+                <span  >Salt</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Pepper" checked/>
-                <span class = "checkedOff">Pepper</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Pepper" />
+                <span  >Pepper</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Garlic Powder" checked red/>
-                <span class = "checkedOff">Garlic powder</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Garlic Powder" />
+                <span  >Garlic powder</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Chili Powder" checked red/>
-                <span class = "checkedOff">Chili powder</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Chili Powder" />
+                <span  >Chili powder</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Paprika" checked/>
-                <span class = "checkedOff">Paprika</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Paprika" />
+                <span  >Paprika</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Nutmeg" checked/>
-                <span class = "checkedOff">Nutmeg</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Nutmeg" />
+                <span  >Nutmeg</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Ketchup" checked/>
-                <span class = "checkedOff">Ketchup</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Ketchup" />
+                <span  >Ketchup</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Mustard" checked/>
-                <span class = "checkedOff">Mustard</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Mustard" />
+                <span  >Mustard</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Mayo" checked/>
-                <span class = "checkedOff">Mayo</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Mayo" />
+                <span  >Mayo</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Hot Sauce" checked/>
-                <span class = "checkedOff">Hot sauce</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Hot Sauce" />
+                <span  >Hot sauce</span>
               </label><br>
               <h5> Pantry: </h5>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Rice" checked/>
-                <span class = "checkedOff">Rice</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Rice" />
+                <span  >Rice</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Pasta" checked/>
-                <span class = "checkedOff">Pasta</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Pasta" />
+                <span  >Pasta</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Beans" checked/>
-                <span class = "checkedOff">Beans</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Beans" />
+                <span  >Beans</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Lentils" checked/>
-                <span class = "checkedOff">Lentils</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Lentils" />
+                <span  >Lentils</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Chicken Broth" checked/>
-                <span class = "checkedOff">Chicken broth</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Chicken Broth" />
+                <span  >Chicken broth</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Vegetable Broth" checked/>
-                <span class = "checkedOff">Vegetable broth</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Vegetable Broth" />
+                <span  >Vegetable broth</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Beef Broth" checked/>
-                <span class = "checkedOff">Beef broth</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Beef Broth" />
+                <span  >Beef broth</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Peanut Butter" checked/>
-                <span class = "checkedOff">Peanut butter</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Peanut Butter" />
+                <span  >Peanut butter</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Oats" checked/>
-                <span class = "checkedOff">Oats</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Oats" />
+                <span  >Oats</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Cereal" checked/>
-                <span class = "checkedOff">Cereal</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Cereal" />
+                <span  >Cereal</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Olive Oil" checked/>
-                <span class = "checkedOff">Olive oil</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Olive Oil" />
+                <span  >Olive oil</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Vinegar" checked/>
-                <span class = "checkedOff">Vinegar</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Vinegar" />
+                <span  >Vinegar</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Soy Sauce" checked/>
-                <span class = "checkedOff">Soy sauce</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Soy Sauce" />
+                <span  >Soy sauce</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Honey" checked/>
-                <span class = "checkedOff">Honey</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Honey" />
+                <span  >Honey</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Maple Syrup" checked/>
-                <span class = "checkedOff">Maple syrup</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Maple Syrup" />
+                <span  >Maple syrup</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Baking Powder" checked/>
-                <span class = "checkedOff">Baking powder</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Baking Powder" />
+                <span  >Baking powder</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Brown Sugar" checked/>
-                <span class = "checkedOff">Brown Sugar</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Brown Sugar" />
+                <span  >Brown Sugar</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Granulated Sugar" checked/>
-                <span class = "checkedOff">Granulated Sugar</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Granulated Sugar" />
+                <span  >Granulated Sugar</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Nuts" checked/>
-                <span class = "checkedOff">Nuts</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Nuts" />
+                <span  >Nuts</span>
               </label><br>
               <label class = "ingredients-to-pick">
-                <input type="checkbox" class="filled-in" name="ingredient" value="Jam" checked/>
-                <span class = "checkedOff">Jam</span>
+                <input type="checkbox" class="filled-in" name="ingredient" value="Jam" />
+                <span  >Jam</span>
               </label><br>
             </div>
             <div>
@@ -230,7 +231,7 @@
   {{#if pantry}}
   <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add Ingredients</a> -->
 
-  
+
   <!--
     <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Update Quantities</a> -->
 
