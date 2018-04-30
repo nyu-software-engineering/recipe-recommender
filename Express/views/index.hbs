@@ -19,10 +19,9 @@ body{
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="../javascripts/recipeLogic.js" type="text/javascript"></script>
-        <script src ="/js/searchRecipe.js" type ="text/javascript"></script>
     </head>
 
-
+    
       <nav class="red lighten-2 navbar" role="navigation">
         <div class="nav-wrapper container">
           <a id="logo-container" href="#" class="brand-logo white-text">Kitchuation</a>
@@ -37,7 +36,7 @@ body{
           <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
       </nav>
-
+    
 
     <!-- Sidebar -->
     <div class="sidenav-fixed grey lighten-2 height100">
@@ -114,8 +113,6 @@ body{
          <a href="/recipe/pantry">
             SET UP YOUR PANTRY HERE!
           </a>
-          <input type = "search" id="recipe-show" placeholder="Search for recipe.." title = "Recipe">
-
       </div>
            <div class = "row s5 recipe-list">
              {{#each recipe}}
@@ -125,9 +122,8 @@ body{
                        <div class="hvrbox-layer_top hvrbox-layer_slideleft">
                          <div class="hvrbox-text">
                          {{#if pantryMatch}}
-                         <h6 align="left">**Uses Pantry Ingredients ** - </h6>
-                         <h5 class = "recipe-name">{{name}}</h5>
-
+                         <h6 align="left">**Uses Pantry Ingredients ** - {{name}}</h6>
+            
                          {{else}}
                            <h6 align="left">{{name}}</h6>
                           {{/if}}
