@@ -43,6 +43,7 @@ body{
 
 
     <!-- Sidebar -->
+  <form method="POST" action="/recipe/home">
     <div class="sidenav-fixed grey lighten-2 height100" style="z-index: 1;">
       <dl>
           <div class = "pantry-background">
@@ -54,69 +55,56 @@ body{
       <dt class="Category">Dietary Preferences</dt>
 
       <dt class="Filters">
-          <input type="checkbox" id="vegetarian" name="dietaryFilter" value="vegetarian">
-          <label for="vegetarian">vegetarian</label>
+          <input type="checkbox" id="Vegetarian" name="cusineFilter" value="Vegetarian" onChange= "this.form.submit()">
+          <label for="Vegetarian">Vegetarian</label>
       </dt>
 
       <dt class="Filters">
-          <input type="checkbox" id="vegan" name="dietaryFilter" value="vegan">
-          <label for="vegan">vegan</label>
+          <input type="checkbox" id="Vegan" name="cusineFilter" value="Vegan" onChange= "this.form.submit()">
+          <label for="Vegan">Vegan</label>
       </dt>
 
       <dt class="Filters">
-          <input type="checkbox" id="gluten" name="dietaryFilter" value="gluten">
-          <label for="gluten">gluten free</label>
+          <input type="checkbox" id="Gluten-Free" name="cusineFilter" value="Gluten-Free" onChange= "this.form.submit()">
+          <label for="Gluten-Free">Gluten-Free</label>
       </dt>
 
       <dt class="Category">Cuisine</dt>
 
       <dt class="Filters">
-          <input type="checkbox" id="Mediterranean" name="cusineFilter" value="Mediterranean">
-          <label for="Mediterranean">Mediterranean</label>
+          <input type="checkbox" id="Lunch" name="cusineFilter" value="Lunch" onChange= "this.form.submit()">
+          <label for="Lunch">Lunch</label>
       </dt>
 
       <dt class="Filters">
-          <input type="checkbox" id="Asian" name="cuisineFilter" value="Asian">
-          <label for="Asian">Asian</label>
+          <input type="checkbox" id="Appetizer" name="cuisineFilter" value="Appetizer" onChange= "this.form.submit()">
+          <label for="Appetizer">Appetizer</label>
       </dt>
 
       <dt class="Filters">
-          <input type="checkbox" id="Italian" name="cuisineFilter" value="Italian">
-          <label for="Italian">Italian</label>
-      </dt>
-
-      <dt class="Category">Cook Time</dt>
-
-      <dt class="Filters">
-          <input type="checkbox" id="0-30" name="timeFilter" value="0-30">
-          <label for="0-30">0 to 30 minutes</label>
+          <input type="checkbox" id="Dinner" name="cuisineFilter" value="Dinner" onChange= "this.form.submit()">
+          <label for="Dinner">Dinner</label>
       </dt>
 
       <dt class="Filters">
-          <input type="checkbox" id="30-60" name="timeFilter" value="30-60">
-          <label for="30-60">30 to 60 minutes</label>
+          <input type="checkbox" id="Dessert" name="cuisineFilter" value="Dessert" onChange= "this.form.submit()">
+          <label for="Dessert">Dessert</label>
       </dt>
 
       <dt class="Filters">
-          <input type="checkbox" id="60-90" name="timeFilter" value="60-90">
-          <label for="60-90">60 to 90 minutes</label>
-      </dt>
-
-      <dt class="Filters">
-          <input type="checkbox" id="90+" name="timeFilter" value="90+">
-          <label for="90+">90+ minutes</label>
+          <input type="checkbox" id="Soup" name="cuisineFilter" value="Soup" onChange= "this.form.submit()">
+          <label for="Soup">Soup</label>
       </dt>
 
     </dl>
     </div>
+    </form>
 
     <body>
       <div class = "hellomessage">
         <h4>Welcome back, {{user.username}}!</h4>
-        <p> Make sure your pantry is up to date, and click on the button below to generate a personalized list of recipes. </p>
-        <a href="/recipe/pantry">
-          SET UP YOUR PANTRY HERE!
-        </a>
+        <p> Make sure your pantry is up to date to generate a personalized list of recipes. </p>
+        
         <input type = "search" id="recipe-show" placeholder="Search for recipe.." title = "Recipe">
       </div>
            <div class = "row s5 recipe-list">
