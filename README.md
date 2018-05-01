@@ -1,10 +1,16 @@
 # Kithchuation
 
 ### What are we?
-"Have you ever wanted to know what you can cook based on what’s on your kitchen?"
+> "Have you ever wanted to know what you can cook based on what’s on your kitchen?"
 
 We are your cooking hack! We are a webapp that allows you to keep and update a virutal representation of your pantry and in return provide you with your recipe matches. We also allow you to filter for foods based on meal preferences and dietary restrictions. We recommend ingredient substitutions. Additionally, you can share your found recipes and cooked meals with friends and family! Enjoy!
 
+### Who is this for? What are their tendancies? How did we factor this into design?
+We made this app for college students who want to cook but have limited ingredients, for people who enjoy cooking who want to be trying new recipes, and for people who want to start cooking and struggle to know how to use what they’ve bought. 
+
+We know that users want a low barrier of entry and don't want to input each item they have in their pantry. For this reason, we made a robust pantry with default quantities and units. 
+
+We also give users more recipes than just those with matched pantry ingredients so they can gain ideas for recipes they could cook or see recipes with ingredients that they may have forgoten to put into their pantry. 
 
 ### Team
 1. **Denisa Vataksi** - NYU '18, headed to Schoology (Mobile Engineer, NYC)
