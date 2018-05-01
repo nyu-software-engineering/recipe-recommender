@@ -12,7 +12,21 @@ We know that users want a low barrier of entry and don't want to input each item
 
 We also give users more recipes than just those with matched pantry ingredients so they can gain ideas for recipes they could cook or see recipes with ingredients that they may have forgoten to put into their pantry. 
 
-### Team
+### The System
+* Framework - Express 4.15.5
+* Language - JavaScript
+* Runtime Enviroment - node.js
+* node.js libraries and middleware:
+.. *     body-parser 1.18.2
+.. *     cookie-parser 1.4.3
+.. *     hbs 4.0.1
+.. *     mongoose 4.9.2
+.. *     mongoose-simple-random 0.4.1
+.. *     mongoose-url-slugs 0.2.1
+.. *     passport 0.3.0
+.. *     passport-local-mongoose 3.1.0
+
+### The Team
 1. **Denisa Vataksi** - NYU '18, headed to Schoology (Mobile Engineer, NYC)
 Denisa worked as a full stack engineer on our project and also scraped all our recipes
 2. **Leila Mardoum** - NYU '19, headed to Tableau (Software Engineering Intern, Seattle)
