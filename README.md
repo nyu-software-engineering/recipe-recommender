@@ -1,4 +1,4 @@
-# Kithchuation
+# Kitchuation
 
 ### What are we?
 > "Have you ever wanted to know what you can cook based on what’s on your kitchen?"
