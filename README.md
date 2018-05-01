@@ -29,6 +29,41 @@ We also give users more recipes than just those with matched pantry ingredients 
 * Machine Learning - Sci-Kit Learn (Python)
 * Scraping Recipes - Scrapy, recipe-parser
 
+### Challenges and Lessons Learned
+##### What difficulties did you expect to have when you first started, and did they occur?
+We knew that parsing ingredients and units would be a challenge, we also knew that machine learning would take a lot of research.
+##### Are there particular use cases in your product backlog that were not completed?
+“As a system, I would like to recommend recipes based on a user's previous history, so that the user can see more recipes they might like”
+---
+working on machine learning wasn’t relevant to work on it when we needed to get the entire back and front end somewhat working, then we ran out of time
+
+“As a user I want to indicate that a recipe is done”
+---
+We ran out of time, issues with units, also realization that most people won’t have all ingredients, matching ingredients one to one is difficult
+
+##### What did you struggle the most in this project?
+* Matching ingredients one to one
+* Units… What quantities do we expect users to input? But we want to make sure it’s valid. No central unit for comparison, how could we compare “pinch” to “tablespoon”? 
+##### How did you overcome these problems?
+* Less efficient algorithm for matching pantry to recipes, so we have a limited amount of recipes that are returned. 
+* Made sure we had an extensive base pantry and Leila did brute force comparison to make sure that there was an accurate unit for each
+* Updating pantry units still doesn’t work 
+
+##### Lessons learned
+**What do you know now that you didn't know before?**
+Hannah - Connecting to a central database that we could all refer to. This took way longer than I thought to figure out but it was very satisfying. Also, integrating libraries and simple things like connecting frontend to backend through buttons instead of forms.
+Leila - I had never done any front end development, so I learned how to do all of that. I learned to always use a framework for frontend, it looks much better and is more accessible. I learned how to do redirects from page to page, posting vs. getting. Learned some database stuff. Learned javascript, html, and css.
+
+**Was this project more or less work than you imagined at the beginning?**
+Definitely more work, when we first met with Bloomberg, he acted like it would be a weekend project but THEN IT WASN’T!
+
+**Did you learn anything interesting from working on this project?**
+* Learned a lot about github, especially in terms of the project boards and issues. 
+* Overall learned about working with a team, learning realistic understanding about how long things were actually going to take. 
+* Working with others was something we hadn’t had to do before, had to communicate well about who was working on what
+
+
+
 ### The Team
 1. **Denisa Vataksi** - NYU '18, headed to Schoology (Mobile Engineer, NYC)
 Denisa worked as a full stack engineer on our project and also scraped all our recipes
