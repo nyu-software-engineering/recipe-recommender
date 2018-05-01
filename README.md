@@ -7,13 +7,13 @@ We are your cooking hack! We are a webapp that allows you to keep and update a v
 
 
 ### Team
-**Denisa Vataksi** - NYU '18, headed to Schoology (Mobile Engineer, NYC)
+1. **Denisa Vataksi** - NYU '18, headed to Schoology (Mobile Engineer, NYC)
 Denisa worked as a full stack engineer on our project and also scraped all our recipes
-**Leila Mardoum** - NYU '19, headed to Tableau (Software Engineering Intern, Seattle)
+2. **Leila Mardoum** - NYU '19, headed to Tableau (Software Engineering Intern, Seattle)
 Leila worked on the front end using Materialize to make Kitchuation beautiful!
-**Hannah Pedersen** - NYU '18, headed to BuildZoom (Software Engineer, San Francisco)
+3. **Hannah Pedersen** - NYU '18, headed to BuildZoom (Software Engineer, San Francisco)
 Hannah worked on the backend, algorithms for matching the pantry, and on the database
-**Melissa Schiff** - NYU '18, headed to Levvel (Software Engineer / Consultant, NYC)
+4. **Melissa Schiff** - NYU '18, headed to Levvel (Software Engineer / Consultant, NYC)
 Melissa worked on the backend and worked to develop our machine learning
 
 ### Short History on How We Came to Be
