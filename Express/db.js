@@ -75,7 +75,7 @@ db.once("open", function() {
 try {
   console.log("About to connect to MongoDB");
   //dbconf = 'mongodb://denisa:denisa@cluster0-6zr15.mongodb.net/test'; //driver 3.6 or later
-  dbconf = 'mongodb://denisa:denisa@cluster0-shard-00-00-6zr15.mongodb.net:27017,cluster0-shard-00-01-6zr15.mongodb.net:27017,cluster0-shard-00-02-6zr15.mongodb.net:27017/Kitchuation_Data?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'; //driver 3.4 or later
+  dbconf = 'mongodb://denisa:denisa@cluster0-shard-00-00-6zr15.mongodb.net:27017,cluster0-shard-00-01-6zr15.mongodb.net:27017,cluster0-shard-00-02-6zr15.mongodb.net:27017/Kitchuation?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'; //driver 3.4 or later
   mongoose.connect(dbconf);
   console.log(mongoose.connection.readyState);
 } catch (err) {
