@@ -23,7 +23,7 @@ router.get('/home', function(req, res){
             //console.log(req.user);
             Recipe.findRandom({}, {}, {limit: 50}, function(err, results) {
               if (!err) {
-                //fuzzy seach each result... 
+                //fuzzy seach each result...
                 //if it uses pantry objects, then push that value on to the recipe result recipe.pantryMatch = true
                 //else, do nothing
 
@@ -43,17 +43,17 @@ router.get('/home', function(req, res){
                     //             return;
                     //         }
                     //     });
-        
+
 
                     recipe.ingredients.forEach((ele) => { //brute force... yikers
-                        let pantry = req.user.pantry; 
+                        let pantry = req.user.pantry;
                         let eleNameLower = ele.name.toLowerCase();
 
                         //console.log("recipe " + recipe.name + " being sent into some");
                         pantry.some(ingredientInRecipe.bind(this, recipe, eleNameLower));
-                       
+
                     });
-                        
+
 
                 });
                 ////console.log(results);
@@ -75,7 +75,7 @@ function ingredientInRecipe(recipe, recipeIng, pantryIng){
         //console.log("**** recipe's ing contains " + pantryName);
         recipe.pantryMatch = true;
         return true;
-    } 
+    }
 }
 
 router.get('/details/:id', function(req, res, next){
@@ -101,23 +101,19 @@ router.post('/home', function(req, res){
                     console.log("found one that contains dinner");
                     showRecipes.push(recipes[i]);
                     console.log(showRecipes);
-                
+
                 }
             }
+            showRecipes.forEach((recipe) => {
+                recipe.ingredients.forEach((ele) => { //brute force... yikers
+                    let pantry = req.user.pantry;
+                    let eleNameLower = ele.name.toLowerCase();
+                    pantry.some(ingredientInRecipe.bind(this, recipe, eleNameLower));
+
+                });
+            });
             res.render('index',{recipe: showRecipes, user: req.user});
-
     });
-        //      showRecipes.forEach((recipe) => {
-        //         recipe.ingredients.forEach((ele) => { //brute force... yikers
-        //                 let pantry = req.user.pantry; 
-        //                 let eleNameLower = ele.name.toLowerCase();
-
-        //                 //console.log("recipe " + recipe.name + " being sent into some");
-        //                 pantry.some(ingredientInRecipe.bind(this, recipe, eleNameLower));
-                       
-        //             });
-        //     res.render('index',{recipe: showRecipes, user: req.user});
-        // });
     }else {
             //console.log('error');
             res.render('login', {message:'to see this page, you must have an account. Login or register below'});
@@ -203,7 +199,7 @@ router.post('/pantry', function(req, res) {
                     }
                     if (!ingredientInPantry(user.pantry, ing)){
                         //console.log("NOT A DUPLICATE, ADDING NEW ING");
-                       user.pantry.push(ing); 
+                       user.pantry.push(ing);
                     } else{
                         //console.log("DUPLICATE BASED ON NAME: current measure is " + measures[i]);
                         changeQuantityAndUnit(user, user.pantry, ing, measures[i], units[i]);
@@ -227,7 +223,7 @@ router.post('/pantry', function(req, res) {
             //     if (!ingredientInPantry(user.pantry, ing)){
             //         user.pantry.push(ing);
             //     }
-                
+
             //      });
             } else {
                 let ing = {
