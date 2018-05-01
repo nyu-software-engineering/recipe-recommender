@@ -16,6 +16,7 @@ const Recipe = new Schema ({
   prepTime: Number,
   //totalTime: Number,
   ingredients: [Ingredient],
+  ingredientsRawString: [String],
   made: Boolean,
   favorited: Boolean,
   directions: [String],
@@ -65,7 +66,7 @@ if (process.env.NODE_ENV == 'PRODUCTION') {
 */
 
 db = mongoose.connection;
- 
+
 db.on("error", console.error.bind(console, "THIS ERROR WON'T SHOW"));
 
 db.once("open", function() {
@@ -81,4 +82,3 @@ try {
 } catch (err) {
   console.error(err);
 }
-

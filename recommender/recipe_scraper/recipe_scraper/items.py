@@ -14,6 +14,7 @@ class Ingredient(scrapy.Item):
 class RecipeItem(scrapy.Item):
     name = scrapy.Field()
     ingredients = scrapy.Field()
+    ingredientsRawString = scrapy.Field()
     directions = scrapy.Field()
     urlName = scrapy.Field()
     imgURL = scrapy.Field()
