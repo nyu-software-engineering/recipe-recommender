@@ -29,6 +29,7 @@ body{
         <div class="nav-wrapper container">
           <a id="logo-container" href="#" class="brand-logo white-text">Kitchuation</a>
           <ul class="right hide-on-med-and-down lighten-2" style="padding-left: 200px">
+            <li><a class="modal-trigger" href="/recipe/recommended">Recommended Recipes</a></li>
             <li><a class="modal-trigger" href="/recipe/inventory">My Pantry</a></li>
             <li><a class="modal-trigger" href="/recipe/logout">Logout</a></li>
           </ul>
@@ -104,7 +105,6 @@ body{
       <div class = "hellomessage">
         <h4>Welcome back, {{user.username}}!</h4>
         <p> Make sure your pantry is up to date to generate a personalized list of recipes. </p>
-
         <input type = "search" id="recipe-show" placeholder="Search for recipe.." title = "Recipe">
       </div>
            <div class = "row s5 recipe-list">

@@ -1,0 +1,64 @@
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="http://materializecss.com/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="http://materializecss.com/css/prism.css" rel="stylesheet">
+    <link href="/stylesheets/style3.css" type="text/css" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="../stylesheets/hover-box.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../javascripts/recipeLogic.js" type="text/javascript"></script>
+    <script src ="/js/searchRecipe.js" type ="text/javascript"></script>
+</head>
+<nav class="red lighten-2 navbar" style="padding-left: 210px; position:fixed; top:0px; margin:auto; z-index:100000; width:100%;" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo white-text">Kitchuation</a>
+    <ul class="right hide-on-med-and-down lighten-2" style="padding-left: 200px">
+      <li><a class="modal-trigger" href="/recipe/recommended">Recommended Recipes</a></li>
+      <li><a class="modal-trigger" href="/recipe/inventory">My Pantry</a></li>
+      <li><a class="modal-trigger" href="/recipe/logout">Logout</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="/recipe/logout">Logout</a></li>
+    </ul>
+
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+
+<!-- Sidebar -->
+<div class="sidenav-fixed grey lighten-2 height100" style="z-index: 1;">
+<dl>
+    <div class = "pantry-background">
+        <br>
+        <h5><strong><a href="/recipe/inventory" class = "black-text"> MY PANTRY </a></strong></h5>
+    </div>
+</dl>
+
+</div>
+
+<body>
+  <div class = "hellomessage">
+    <h4>Recommended Recipes</h4>
+    <input type = "search" id="recipe-show" placeholder="Search for recipe.." title = "Recipe">
+  </div>
+       <div class = "row s5 recipe-list">
+         {{#each recipe}}
+           <div class = "col s4 hvrbox recipe">
+             <a href = "/recipe/details/{{_id}}">
+                <img src={{imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" />
+                  <div class="hvrbox-layer_top hvrbox-layer_slideleft">
+                    <div class="hvrbox-text">
+                      <h6 class="recipe-name" align="left">{{name}}</h6>
+                    </div>
+                  </div>
+             </a>
+           </div>
+         {{/each}}
+
+</body>
