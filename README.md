@@ -33,12 +33,11 @@ We also give users more recipes than just those with matched pantry ingredients 
 ##### What difficulties did you expect to have when you first started, and did they occur?
 We knew that parsing ingredients and units would be a challenge, we also knew that machine learning would take a lot of research.
 ##### Are there particular use cases in your product backlog that were not completed?
-“As a system, I would like to recommend recipes based on a user's previous history, so that the user can see more recipes they might like”
----
+>“As a system, I would like to recommend recipes based on a user's previous history, so that the user can see more recipes they might like”
+
 working on machine learning wasn’t relevant to work on it when we needed to get the entire back and front end somewhat working, then we ran out of time
 
-“As a user I want to indicate that a recipe is done”
----
+>“As a user I want to indicate that a recipe is done”
 We ran out of time, issues with units, also realization that most people won’t have all ingredients, matching ingredients one to one is difficult
 
 ##### What did you struggle the most in this project?
