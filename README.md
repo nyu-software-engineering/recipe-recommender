@@ -25,6 +25,9 @@ We also give users more recipes than just those with matched pantry ingredients 
   * mongoose-url-slugs 0.2.1
   * passport 0.3.0
   * passport-local-mongoose 3.1.0
+* Front end framework - Materaizlize
+* Machine Learning - Sci-Kit Learn (Python)
+* Scraping Recipes - Scrapy, recipe-parser
 
 ### The Team
 1. **Denisa Vataksi** - NYU '18, headed to Schoology (Mobile Engineer, NYC)
