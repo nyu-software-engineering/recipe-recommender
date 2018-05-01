@@ -94,9 +94,10 @@ router.post('/home', function(req, res){
 
         const showRecipes = [];
         let count = 0;
+        console.log(req.body.cuisineFilter);
         Recipe.findRandom({}, {}, {limit: 200}, function(err, recipes){
             for(let i = 0; i < 200; i ++){
-                console.log(recipes[i].cuisine);
+                //console.log(recipes[i].cuisine);
                 if(recipes[i].cuisine.includes(req.body.cuisineFilter)){
                     console.log("found one that contains dinner");
                     showRecipes.push(recipes[i]);
