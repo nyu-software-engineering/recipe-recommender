@@ -104,15 +104,19 @@ body{
       <div class = "hellomessage">
         <h4>Welcome back, {{user.username}}!</h4>
         <p> Make sure your pantry is up to date to generate a personalized list of recipes. </p>
-        
+
         <input type = "search" id="recipe-show" placeholder="Search for recipe.." title = "Recipe">
       </div>
            <div class = "row s5 recipe-list">
              {{#each recipe}}
                <div class = "col s4 hvrbox recipe">
                  <a href = "/recipe/details/{{_id}}">
-                    {{#if pantryMatch}}
-                    <div class="banner btn-floating btn yellow tooltipped" data-position="right" data-tooltip="Pantry match"><i class="material-icons black-text">done_all</i></div>
+                   {{#if allPantryMatch}}
+                   <div class="banner btn-floating btn red tooltipped" data-position="right" data-tooltip="All pantry match"><i class="material-icons black-text">done_all</i></div>
+                    {{else}}
+                      {{#if pantryMatch}}
+                        <div class="banner btn-floating btn yellow tooltipped" data-position="right" data-tooltip="Pantry match"><i class="material-icons black-text">done_all</i></div>
+                      {{/if}}
                     {{/if}}
                     <img src={{imgURL}} class="fullimage img-thumbnail hvrbox-layer_bottom" />
                       <div class="hvrbox-layer_top hvrbox-layer_slideleft">
@@ -141,7 +145,7 @@ body{
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      
+
 
     </head>
     <body>

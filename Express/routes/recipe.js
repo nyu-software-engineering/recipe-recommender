@@ -50,6 +50,7 @@ router.get('/home', function(req, res){
                         let eleNameLower = ele.name.toLowerCase();
 
                         //console.log("recipe " + recipe.name + " being sent into some");
+                        allIngredients(this,recipe.ingredients, req.user.pantry);
                         pantry.some(ingredientInRecipe.bind(this, recipe, eleNameLower));
 
                     });
@@ -77,6 +78,20 @@ function ingredientInRecipe(recipe, recipeIng, pantryIng){
         return true;
     }
 }
+function allIngredients(recipe, recipeIng, pantryIng){
+  let count = 0;
+  for (let i = 0; i < recipeIng; i++){
+      if(pantryIng.includes(recipeIng[i])){
+        count++;
+      }
+  }
+  if(count >= 2 || recipeIng.length < 3){
+    recipe.allPantryMatch = true;
+  }
+  else{
+    recipe.allPantryMatch = false;
+  }
+}
 
 router.get('/details/:id', function(req, res, next){
     //console.log(req.params.id);
@@ -98,10 +113,7 @@ router.post('/home', function(req, res){
             for(let i = 0; i < 200; i ++){
                 console.log(recipes[i].cuisine);
                 if(recipes[i].cuisine.includes(req.body.cuisineFilter)){
-                    console.log("found one that contains dinner");
                     showRecipes.push(recipes[i]);
-                    console.log(showRecipes);
-
                 }
             }
             showRecipes.forEach((recipe) => {
