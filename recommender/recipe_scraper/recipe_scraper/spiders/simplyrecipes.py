@@ -42,6 +42,7 @@ class Simplyrecipesspider(scrapy.Spider):
             urlName = response.url,
             imgURL = response.css("div.entry-content").css("div.featured-image").css("img.photo").xpath("@src").extract_first(),
             ingredients = ingredientObjects,
+            ingredientsRawString = ingredientList,
             directions = response.css('div[itemprop="recipeInstructions"]').css('p::text').extract(),
             description = response.css("article.recipe").css('meta[itemprop="description"]').xpath("@content").extract_first(),
 

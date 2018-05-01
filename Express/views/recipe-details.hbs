@@ -23,8 +23,8 @@
 <h1 class = "teal-text"> {{recipe.name}} </h1>
 <img src = {{recipe.imgURL}}> </img>
 <h3 class = "teal-text">Ingredients </h3>
-  {{#each recipe.ingredients}}
-    <li class = "grey lighten-2"> {{measure}} {{name}} </li>
+  {{#each recipe.ingredientsRawString as |i|}}
+    <li class = "grey lighten-2"> {{i}} </li>
   {{/each}}
   <h3 class = "teal-text">Directions </h3>
 <p class = "grey lighten-2"> {{recipe.directions}} </p>
